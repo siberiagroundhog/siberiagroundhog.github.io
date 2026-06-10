@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="logo">MySite</div>
+            <ul class="nav-links">
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#notes">笔记</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <h1>你好，我是厉飞雨</h1>
+            <p>这里是我的个人主页，用来展示学习记录、项目和笔记。</p>
+            <a href="#projects" class="btn">查看项目</a>
+        </section>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <h2>关于我</h2>
+            <p>
+                我目前正在学习 Python、数据分析、机器学习和网站搭建。
+                这个网站会作为我的长期展示空间。
+            </p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>项目</h2>
+
+            <div class="card-container">
+                <div class="card">
+                    <h3>Python 数据分析</h3>
+                    <p>记录我学习 pandas、numpy、matplotlib 的过程。</p>
+                </div>
+
+                <div class="card">
+                    <h3>机器学习实验</h3>
+                    <p>记录 SVM、SVR、神经网络等模型复现过程。</p>
+                </div>
+
+                <div class="card">
+                    <h3>个人网站</h3>
+                    <p>当前这个网站本身也是一个持续完善的项目。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="notes" class="section">
+            <h2>学习笔记</h2>
+            <ul class="note-list">
+                <li>Python 基础</li>
+                <li>数据分析入门</li>
+                <li>Git 和 GitHub 使用</li>
+                <li>静态网站搭建</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>联系我</h2>
+            <p>GitHub：<a href="https://github.com/lify19491001" target="_blank">@lify19491001</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 厉飞雨. Built with GitHub Pages.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
