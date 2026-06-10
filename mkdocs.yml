@@ -1,0 +1,48 @@
+site_name: 飞雨的个人主页
+site_description: 个人学习记录、项目展示与技术笔记
+site_author: 厉飞雨
+site_url: https://siberiagroundhog.github.io/
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+
+nav:
+  - 首页: index.md
+  - 关于我: about.md
+  - 项目:
+      - 项目总览: projects/index.md
+      - GitHub Pages 建站: projects/github-pages.md
+  - 学习笔记:
+      - 笔记总览: notes/index.md
+      - Python: notes/python.md
+      - Git: notes/git.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - attr_list
