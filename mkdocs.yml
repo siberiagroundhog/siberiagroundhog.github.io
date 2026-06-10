@@ -38,6 +38,7 @@ nav:
       - 笔记总览: notes/index.md
       - Python: notes/python.md
       - Git: notes/git.md
+      - MkDocs 维护与发布流程: notes/mkdocs_publish_workflow.md
 
 markdown_extensions:
   - admonition
