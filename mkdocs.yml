@@ -40,6 +40,12 @@ nav:
       - Mkdocs自定义说明: notes/mkdocs_custom.md
       - Python: notes/python.md
       - Git: notes/git.md
+  - 小游戏:
+      - 游戏总览: games/index.md
+      - 贪吃蛇: games/snake/index.md
+      - 2048: games/2048/index.md
+      - 扫雷: games/minesweeper/index.md
+      - 小恐龙跑酷: games/dino-runner/index.md
 
 markdown_extensions:
   - admonition
