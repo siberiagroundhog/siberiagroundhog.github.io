@@ -1,0 +1,3009 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人学习记录、项目展示与技术笔记">
+      
+      
+        <meta name="author" content="朱亚超">
+      
+      
+        <link rel="canonical" href="https://siberiagroundhog.github.io/notes/mkdocs_custom/">
+      
+      
+        <link rel="prev" href="../mkdocs_publish_workflow/">
+      
+      
+        <link rel="next" href="../python/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Mkdocs自定义说明 - 飞雨的个人主页</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mkdocs" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="飞雨的个人主页" class="md-header__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞雨的个人主页
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mkdocs自定义说明
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+  项目
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  学习笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="飞雨的个人主页" class="md-nav__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    飞雨的个人主页
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于我
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/github-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Pages建站
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_publish_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网站维护流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mkdocs自定义说明
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mkdocs自定义说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 先理解 MkDocs 网站的核心结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 当前推荐项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. mkdocs.yml 的整体作用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 网站名称如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 网站描述如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 作者信息如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 网站地址如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 主题名称如何设置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 网站语言如何设置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 顶部导航栏如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 修改导航显示名称
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 新增一级导航
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 新增页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 删除导航项
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 修改首页内容
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 修改“关于我”页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 修改项目总览页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. 修改学习笔记总览页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. 主题颜色如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. 主题功能 features 如何理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. 代码块复制按钮
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. 搜索功能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. 页面目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Markdown 扩展功能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. 提示框写法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. 表格写法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. 图片如何添加
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. 附件如何添加
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. 自定义 CSS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. 自定义 JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-favicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. 添加网站图标 favicon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-logo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. 添加网站 Logo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. 添加 GitHub 仓库链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. 添加社交链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. 页面内容和导航的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. 页面 URL 规则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. 文件命名建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. 一次自定义修改的标准流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. 常见问题：修改了内容但网站没变
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-mkdocs-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. 常见问题：mkdocs serve 报错
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        41. 常见问题：页面出现在本地，但线上没有
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        42. 常见问题：图片不显示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        43. 常见问题：导航新增页面后报错
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        44. 初期最推荐自定义的部分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        45. 暂时不建议大改的部分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46. 当前最重要的理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47. 一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 先理解 MkDocs 网站的核心结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 当前推荐项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. mkdocs.yml 的整体作用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 网站名称如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 网站描述如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 作者信息如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 网站地址如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 主题名称如何设置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 网站语言如何设置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 顶部导航栏如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 修改导航显示名称
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 新增一级导航
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 新增页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 删除导航项
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 修改首页内容
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 修改“关于我”页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 修改项目总览页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. 修改学习笔记总览页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. 主题颜色如何修改
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. 主题功能 features 如何理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. 代码块复制按钮
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. 搜索功能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. 页面目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Markdown 扩展功能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. 提示框写法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. 表格写法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. 图片如何添加
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. 附件如何添加
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. 自定义 CSS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. 自定义 JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-favicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. 添加网站图标 favicon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-logo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. 添加网站 Logo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. 添加 GitHub 仓库链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. 添加社交链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. 页面内容和导航的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. 页面 URL 规则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. 文件命名建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. 一次自定义修改的标准流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. 常见问题：修改了内容但网站没变
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-mkdocs-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. 常见问题：mkdocs serve 报错
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        41. 常见问题：页面出现在本地，但线上没有
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        42. 常见问题：图片不显示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        43. 常见问题：导航新增页面后报错
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        44. 初期最推荐自定义的部分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        45. 暂时不建议大改的部分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46. 当前最重要的理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47. 一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mkdocs">MkDocs 网站自定义说明<a class="headerlink" href="#mkdocs" title="Permanent link">&para;</a></h1>
+<p>本文用于记录当前 MkDocs + Material for MkDocs 网站中各个部分的对应关系，以及后续如何进行自定义修改。</p>
+<p>当前网站采用：</p>
+<ul>
+<li>GitHub Pages 托管</li>
+<li>MkDocs 生成静态网站</li>
+<li>Material for MkDocs 作为主题</li>
+<li><code>main</code> 分支保存源码</li>
+<li><code>gh-pages</code> 分支保存生成后的网站成品</li>
+</ul>
+<hr />
+<h2 id="1-mkdocs">1. 先理解 MkDocs 网站的核心结构<a class="headerlink" href="#1-mkdocs" title="Permanent link">&para;</a></h2>
+<p>一个 MkDocs 网站通常由两部分组成：</p>
+<pre><code class="language-text">my-homepage/
+├─ mkdocs.yml
+└─ docs/
+</code></pre>
+<p>其中：</p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mkdocs.yml</code></td>
+<td>网站总配置文件，控制网站名称、主题、导航、颜色、功能等</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>网站正文内容目录，里面的 Markdown 文件会被 MkDocs 生成网页</td>
+</tr>
+</tbody>
+</table>
+<p>可以这样理解：</p>
+<pre><code class="language-text">想改网站整体配置 → 改 mkdocs.yml
+想改页面正文内容 → 改 docs/ 里的 .md 文件
+</code></pre>
+<hr />
+<h2 id="2">2. 当前推荐项目结构<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>建议保持如下结构：</p>
+<pre><code class="language-text">my-homepage/
+├─ mkdocs.yml
+├─ docs/
+│  ├─ index.md
+│  ├─ about.md
+│  ├─ projects/
+│  │  ├─ index.md
+│  │  └─ github-pages.md
+│  ├─ notes/
+│  │  ├─ index.md
+│  │  ├─ python.md
+│  │  ├─ git.md
+│  │  └─ mkdocs_publish_workflow.md
+│  ├─ tools/
+│  │  └─ index.md
+│  └─ assets/
+│     └─ images/
+├─ README.md
+└─ old-site/
+</code></pre>
+<p>各部分含义：</p>
+<table>
+<thead>
+<tr>
+<th>文件或目录</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mkdocs.yml</code></td>
+<td>网站总配置</td>
+</tr>
+<tr>
+<td><code>docs/index.md</code></td>
+<td>首页内容</td>
+</tr>
+<tr>
+<td><code>docs/about.md</code></td>
+<td>关于我页面</td>
+</tr>
+<tr>
+<td><code>docs/projects/</code></td>
+<td>项目页面</td>
+</tr>
+<tr>
+<td><code>docs/notes/</code></td>
+<td>学习笔记页面</td>
+</tr>
+<tr>
+<td><code>docs/tools/</code></td>
+<td>工具页面</td>
+</tr>
+<tr>
+<td><code>docs/assets/images/</code></td>
+<td>图片资源</td>
+</tr>
+<tr>
+<td><code>README.md</code></td>
+<td>GitHub 仓库说明</td>
+</tr>
+<tr>
+<td><code>old-site/</code></td>
+<td>旧版手写 HTML 网站备份</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-mkdocsyml">3. <code>mkdocs.yml</code> 的整体作用<a class="headerlink" href="#3-mkdocsyml" title="Permanent link">&para;</a></h2>
+<p><code>mkdocs.yml</code> 是 MkDocs 网站最重要的配置文件。</p>
+<p>它通常控制：</p>
+<ul>
+<li>网站名称</li>
+<li>网站描述</li>
+<li>作者信息</li>
+<li>网站地址</li>
+<li>主题</li>
+<li>语言</li>
+<li>主题颜色</li>
+<li>深色/浅色模式</li>
+<li>顶部导航栏</li>
+<li>左侧目录</li>
+<li>搜索功能</li>
+<li>代码复制按钮</li>
+<li>Markdown 扩展功能</li>
+<li>自定义 CSS / JavaScript</li>
+</ul>
+<p>常见结构如下：</p>
+<pre><code class="language-yaml">site_name: 飞雨的个人主页
+site_description: 个人学习记录、项目展示与技术笔记
+site_author: 厉飞雨
+site_url: https://siberiagroundhog.github.io/
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+
+nav:
+  - 首页: index.md
+  - 关于我: about.md
+  - 项目:
+      - 项目总览: projects/index.md
+      - GitHub Pages 建站: projects/github-pages.md
+  - 学习笔记:
+      - 笔记总览: notes/index.md
+      - Python: notes/python.md
+      - Git: notes/git.md
+      - MkDocs 维护与发布流程: notes/mkdocs_publish_workflow.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - attr_list
+</code></pre>
+<hr />
+<h2 id="4">4. 网站名称如何修改<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>网站左上角显示的标题通常来自：</p>
+<pre><code class="language-yaml">site_name: 飞雨的个人主页
+</code></pre>
+<p>如果想改成：</p>
+<pre><code class="language-text">厉飞雨的学习与项目记录
+</code></pre>
+<p>则修改为：</p>
+<pre><code class="language-yaml">site_name: 厉飞雨的学习与项目记录
+</code></pre>
+<p>如果想使用 GitHub 用户名风格：</p>
+<pre><code class="language-yaml">site_name: siberiagroundhog 的个人网站
+</code></pre>
+<p>这一项会影响网站顶部标题，也可能影响浏览器标签页显示。</p>
+<hr />
+<h2 id="5">5. 网站描述如何修改<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>网站描述来自：</p>
+<pre><code class="language-yaml">site_description: 个人学习记录、项目展示与技术笔记
+</code></pre>
+<p>它一般不会作为大段正文直接显示，但会影响网页元信息，也可能影响搜索引擎摘要。</p>
+<p>可以改成：</p>
+<pre><code class="language-yaml">site_description: 记录 Python、数据分析、机器学习与个人网站搭建过程
+</code></pre>
+<p>或者：</p>
+<pre><code class="language-yaml">site_description: Python、公共卫生数据分析、机器学习与技术笔记整理
+</code></pre>
+<hr />
+<h2 id="6">6. 作者信息如何修改<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>作者信息来自：</p>
+<pre><code class="language-yaml">site_author: 厉飞雨
+</code></pre>
+<p>可以改成：</p>
+<pre><code class="language-yaml">site_author: siberiagroundhog
+</code></pre>
+<p>或者保留真实中文名：</p>
+<pre><code class="language-yaml">site_author: 厉飞雨
+</code></pre>
+<p>这部分主要是网站元信息，通常不会作为页面正文直接显示。</p>
+<hr />
+<h2 id="7">7. 网站地址如何修改<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>网站地址来自：</p>
+<pre><code class="language-yaml">site_url: https://siberiagroundhog.github.io/
+</code></pre>
+<p>如果当前网站地址就是：</p>
+<pre><code class="language-text">https://siberiagroundhog.github.io/
+</code></pre>
+<p>则不要修改。</p>
+<p>只有在以后绑定自定义域名时才需要修改，例如：</p>
+<pre><code class="language-yaml">site_url: https://example.com/
+</code></pre>
+<hr />
+<h2 id="8">8. 主题名称如何设置<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p>当前使用 Material for MkDocs 主题：</p>
+<pre><code class="language-yaml">theme:
+  name: material
+</code></pre>
+<p>这表示网站采用 Material 主题。</p>
+<p>如果改成：</p>
+<pre><code class="language-yaml">theme:
+  name: readthedocs
+</code></pre>
+<p>则会切换为 MkDocs 内置的 Read the Docs 风格。</p>
+<p>当前建议继续使用：</p>
+<pre><code class="language-yaml">theme:
+  name: material
+</code></pre>
+<p>因为它功能完整、界面美观、适合个人笔记和项目文档网站。</p>
+<hr />
+<h2 id="9">9. 网站语言如何设置<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>当前网站语言设置为中文：</p>
+<pre><code class="language-yaml">theme:
+  language: zh
+</code></pre>
+<p>这会影响搜索框、按钮、提示语等主题文本。</p>
+<p>如果使用中文网站，建议保持：</p>
+<pre><code class="language-yaml">language: zh
+</code></pre>
+<hr />
+<h2 id="10">10. 顶部导航栏如何修改<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<p>网站顶部或侧边栏中的导航来自 <code>mkdocs.yml</code> 的 <code>nav</code> 部分。</p>
+<p>例如：</p>
+<pre><code class="language-yaml">nav:
+  - 首页: index.md
+  - 关于我: about.md
+  - 项目:
+      - 项目总览: projects/index.md
+      - GitHub Pages 建站: projects/github-pages.md
+  - 学习笔记:
+      - 笔记总览: notes/index.md
+      - Python: notes/python.md
+      - Git: notes/git.md
+</code></pre>
+<p>规则是：</p>
+<pre><code class="language-text">左边：网站上显示的名字
+右边：对应的 Markdown 文件路径
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-yaml">- Python: notes/python.md
+</code></pre>
+<p>表示：</p>
+<pre><code class="language-text">网站上显示：Python
+实际文件：docs/notes/python.md
+</code></pre>
+<p>注意：<code>mkdocs.yml</code> 中的路径不需要写 <code>docs/</code>，因为 MkDocs 默认把 <code>docs/</code> 作为内容根目录。</p>
+<hr />
+<h2 id="11">11. 修改导航显示名称<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>如果当前导航中有：</p>
+<pre><code class="language-yaml">- MkDocs 维护与发布流程: notes/mkdocs_publish_workflow.md
+</code></pre>
+<p>想让它显示得更短，可以改成：</p>
+<pre><code class="language-yaml">- 网站维护流程: notes/mkdocs_publish_workflow.md
+</code></pre>
+<p>这里只修改左边的显示名称，右边文件路径不变。</p>
+<hr />
+<h2 id="12">12. 新增一级导航<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>如果想新增一个一级导航“工具”，可以在 <code>nav</code> 中添加：</p>
+<pre><code class="language-yaml">nav:
+  - 首页: index.md
+  - 关于我: about.md
+  - 项目:
+      - 项目总览: projects/index.md
+      - GitHub Pages 建站: projects/github-pages.md
+  - 学习笔记:
+      - 笔记总览: notes/index.md
+      - Python: notes/python.md
+      - Git: notes/git.md
+  - 工具:
+      - 工具总览: tools/index.md
+</code></pre>
+<p>同时需要创建文件：</p>
+<pre><code class="language-text">docs/tools/index.md
+</code></pre>
+<p>内容示例：</p>
+<pre><code class="language-markdown"># 工具
+
+这里整理后续可能开发的小工具。
+
+## 计划
+
+- BMI 计算器
+- OR / RR 简单计算器
+- 发病率与患病率计算器
+- Markdown 写作辅助工具
+</code></pre>
+<hr />
+<h2 id="13">13. 新增页面<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<p>假设要新增一个页面“我的学习路线”。</p>
+<p>第一步，创建文件：</p>
+<pre><code class="language-text">docs/notes/study-plan.md
+</code></pre>
+<p>第二步，写入内容：</p>
+<pre><code class="language-markdown"># 我的学习路线
+
+## 1. Python
+
+先学习 Python 基础语法、函数、类和文件操作。
+
+## 2. 数据分析
+
+继续学习 pandas、numpy、matplotlib。
+
+## 3. 机器学习
+
+学习 sklearn、SVM、SVR、神经网络等内容。
+</code></pre>
+<p>第三步，在 <code>mkdocs.yml</code> 中注册导航：</p>
+<pre><code class="language-yaml">  - 学习笔记:
+      - 笔记总览: notes/index.md
+      - Python: notes/python.md
+      - Git: notes/git.md
+      - 我的学习路线: notes/study-plan.md
+</code></pre>
+<p>只有创建了 Markdown 文件并在 <code>nav</code> 中添加，页面才会出现在导航中。</p>
+<hr />
+<h2 id="14">14. 删除导航项<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<p>如果不想显示某个页面，例如：</p>
+<pre><code class="language-yaml">- Git: notes/git.md
+</code></pre>
+<p>可以从 <code>mkdocs.yml</code> 的 <code>nav</code> 中删除这一行。</p>
+<p>注意：</p>
+<ul>
+<li>删除导航项不会删除文件。</li>
+<li><code>docs/notes/git.md</code> 仍然存在。</li>
+<li>页面只是不会显示在导航中。</li>
+</ul>
+<p>如果确认不需要这个文件，可以再手动删除对应 <code>.md</code> 文件。</p>
+<hr />
+<h2 id="15">15. 修改首页内容<a class="headerlink" href="#15" title="Permanent link">&para;</a></h2>
+<p>首页对应：</p>
+<pre><code class="language-yaml">- 首页: index.md
+</code></pre>
+<p>实际文件：</p>
+<pre><code class="language-text">docs/index.md
+</code></pre>
+<p>想修改首页正文，就编辑 <code>docs/index.md</code>。</p>
+<p>示例：</p>
+<pre><code class="language-markdown"># 厉飞雨的个人主页
+
+这里用于记录我的 Python 学习、数据分析实践、机器学习实验和个人网站搭建过程。
+
+## 当前关注方向
+
+- Python 编程
+- 公共卫生数据分析
+- 机器学习基础
+- GitHub Pages 与 MkDocs 网站维护
+
+## 网站内容
+
+- 项目记录
+- 学习笔记
+- 工具整理
+- 网站维护文档
+</code></pre>
+<hr />
+<h2 id="16">16. 修改“关于我”页面<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<p>“关于我”页面对应：</p>
+<pre><code class="language-yaml">- 关于我: about.md
+</code></pre>
+<p>实际文件：</p>
+<pre><code class="language-text">docs/about.md
+</code></pre>
+<p>示例内容：</p>
+<pre><code class="language-markdown"># 关于我
+
+我是厉飞雨，目前正在学习 Python、数据分析、机器学习和个人网站搭建。
+
+## 当前学习内容
+
+- Python 基础
+- pandas / numpy / matplotlib
+- scikit-learn
+- Git 与 GitHub
+- MkDocs 静态网站维护
+
+## 网站用途
+
+这个网站用于记录学习笔记、项目实践和长期积累。
+</code></pre>
+<hr />
+<h2 id="17">17. 修改项目总览页面<a class="headerlink" href="#17" title="Permanent link">&para;</a></h2>
+<p>项目总览对应：</p>
+<pre><code class="language-yaml">- 项目总览: projects/index.md
+</code></pre>
+<p>实际文件：</p>
+<pre><code class="language-text">docs/projects/index.md
+</code></pre>
+<p>示例内容：</p>
+<pre><code class="language-markdown"># 项目总览
+
+这里记录我的项目实践和阶段性成果。
+
+| 项目 | 类型 | 状态 |
+|---|---|---|
+| [GitHub Pages 建站](github-pages.md) | 网站搭建 | 进行中 |
+| Python 数据分析学习 | 数据分析 | 进行中 |
+| SVM 三分类实验 | 机器学习 | 计划整理 |
+</code></pre>
+<p>在 <code>docs/projects/index.md</code> 中：</p>
+<pre><code class="language-markdown">[GitHub Pages 建站](github-pages.md)
+</code></pre>
+<p>表示链接到同目录下的：</p>
+<pre><code class="language-text">docs/projects/github-pages.md
+</code></pre>
+<hr />
+<h2 id="18">18. 修改学习笔记总览页面<a class="headerlink" href="#18" title="Permanent link">&para;</a></h2>
+<p>学习笔记总览对应：</p>
+<pre><code class="language-yaml">- 笔记总览: notes/index.md
+</code></pre>
+<p>实际文件：</p>
+<pre><code class="language-text">docs/notes/index.md
+</code></pre>
+<p>示例内容：</p>
+<pre><code class="language-markdown"># 学习笔记
+
+这里整理我的学习记录。
+
+## 分类
+
+- Python
+- Git 与 GitHub
+- 数据分析
+- 机器学习
+- 公共卫生统计
+- 网站搭建
+
+## 最近整理
+
+- MkDocs 网站维护与发布流程
+- GitHub Pages 建站过程
+- Python 基础语法
+</code></pre>
+<hr />
+<h2 id="19">19. 主题颜色如何修改<a class="headerlink" href="#19" title="Permanent link">&para;</a></h2>
+<p>Material 主题颜色由 <code>palette</code> 控制。</p>
+<p>当前可能是：</p>
+<pre><code class="language-yaml">palette:
+  - scheme: default
+    primary: indigo
+    accent: blue
+    toggle:
+      icon: material/weather-night
+      name: 切换到深色模式
+  - scheme: slate
+    primary: indigo
+    accent: blue
+    toggle:
+      icon: material/weather-sunny
+      name: 切换到浅色模式
+</code></pre>
+<p>其中：</p>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheme: default</code></td>
+<td>浅色模式</td>
+</tr>
+<tr>
+<td><code>scheme: slate</code></td>
+<td>深色模式</td>
+</tr>
+<tr>
+<td><code>primary</code></td>
+<td>主色</td>
+</tr>
+<tr>
+<td><code>accent</code></td>
+<td>强调色</td>
+</tr>
+<tr>
+<td><code>toggle</code></td>
+<td>明暗模式切换按钮</td>
+</tr>
+</tbody>
+</table>
+<p>如果想改成蓝色系：</p>
+<pre><code class="language-yaml">palette:
+  - scheme: default
+    primary: blue
+    accent: cyan
+    toggle:
+      icon: material/weather-night
+      name: 切换到深色模式
+  - scheme: slate
+    primary: blue
+    accent: cyan
+    toggle:
+      icon: material/weather-sunny
+      name: 切换到浅色模式
+</code></pre>
+<p>如果想改成绿色系：</p>
+<pre><code class="language-yaml">palette:
+  - scheme: default
+    primary: teal
+    accent: green
+    toggle:
+      icon: material/weather-night
+      name: 切换到深色模式
+  - scheme: slate
+    primary: teal
+    accent: green
+    toggle:
+      icon: material/weather-sunny
+      name: 切换到浅色模式
+</code></pre>
+<p>初期建议只改 <code>primary</code> 和 <code>accent</code>，不要同时改太多主题项。</p>
+<hr />
+<h2 id="20-features">20. 主题功能 features 如何理解<a class="headerlink" href="#20-features" title="Permanent link">&para;</a></h2>
+<p>当前常用配置：</p>
+<pre><code class="language-yaml">features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.top
+  - search.highlight
+  - search.suggest
+  - content.code.copy
+</code></pre>
+<p>含义如下：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>navigation.tabs</code></td>
+<td>一级导航显示为顶部标签</td>
+</tr>
+<tr>
+<td><code>navigation.sections</code></td>
+<td>左侧导航按章节分组</td>
+</tr>
+<tr>
+<td><code>navigation.top</code></td>
+<td>提供回到顶部功能</td>
+</tr>
+<tr>
+<td><code>search.highlight</code></td>
+<td>搜索结果高亮</td>
+</tr>
+<tr>
+<td><code>search.suggest</code></td>
+<td>搜索建议</td>
+</tr>
+<tr>
+<td><code>content.code.copy</code></td>
+<td>代码块显示复制按钮</td>
+</tr>
+</tbody>
+</table>
+<p>建议保留这些配置。</p>
+<p>如果不想让一级导航显示在顶部，可以删除：</p>
+<pre><code class="language-yaml">- navigation.tabs
+</code></pre>
+<p>但对于个人网站来说，保留顶部标签更清晰。</p>
+<hr />
+<h2 id="21">21. 代码块复制按钮<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>代码块复制按钮由以下配置控制：</p>
+<pre><code class="language-yaml">features:
+  - content.code.copy
+</code></pre>
+<p>保留后，网页中的代码块右上角会出现复制按钮。</p>
+<p>Markdown 中代码块写法：</p>
+<pre><code class="language-markdown">```python
+print(&quot;hello&quot;)
+```
+</code></pre>
+<p>生成网页后会自动显示代码样式和复制按钮。</p>
+<hr />
+<h2 id="22">22. 搜索功能<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<p>Material 主题内置搜索功能。</p>
+<p>相关配置：</p>
+<pre><code class="language-yaml">features:
+  - search.highlight
+  - search.suggest
+</code></pre>
+<p>含义：</p>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>search.highlight</code></td>
+<td>搜索结果中高亮关键词</td>
+</tr>
+<tr>
+<td><code>search.suggest</code></td>
+<td>输入搜索词时显示建议</td>
+</tr>
+</tbody>
+</table>
+<p>通常不需要额外写代码。</p>
+<hr />
+<h2 id="23">23. 页面目录<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>页面右侧或正文中的目录主要受 Markdown 标题控制。</p>
+<p>例如：</p>
+<pre><code class="language-markdown"># 一级标题
+
+## 二级标题
+
+### 三级标题
+</code></pre>
+<p>MkDocs 会根据标题自动生成目录。</p>
+<p>如果在 <code>mkdocs.yml</code> 中配置：</p>
+<pre><code class="language-yaml">markdown_extensions:
+  - toc:
+      permalink: true
+</code></pre>
+<p>则标题旁可能会出现可复制链接的锚点。</p>
+<hr />
+<h2 id="24-markdown">24. Markdown 扩展功能<a class="headerlink" href="#24-markdown" title="Permanent link">&para;</a></h2>
+<p>常用扩展：</p>
+<pre><code class="language-yaml">markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - attr_list
+</code></pre>
+<p>含义：</p>
+<table>
+<thead>
+<tr>
+<th>扩展</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admonition</code></td>
+<td>支持提示框、警告框等</td>
+</tr>
+<tr>
+<td><code>toc</code></td>
+<td>支持目录</td>
+</tr>
+<tr>
+<td><code>tables</code></td>
+<td>支持 Markdown 表格</td>
+</tr>
+<tr>
+<td><code>fenced_code</code></td>
+<td>支持三反引号代码块</td>
+</tr>
+<tr>
+<td><code>attr_list</code></td>
+<td>支持给元素添加属性</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="25">25. 提示框写法<a class="headerlink" href="#25" title="Permanent link">&para;</a></h2>
+<p>如果启用了：</p>
+<pre><code class="language-yaml">markdown_extensions:
+  - admonition
+</code></pre>
+<p>可以在 Markdown 中写：</p>
+<pre><code class="language-markdown">!!! note &quot;提示&quot;
+    这里是一段提示内容。
+</code></pre>
+<p>或者：</p>
+<pre><code class="language-markdown">!!! warning &quot;注意&quot;
+    这里是一段警告内容。
+</code></pre>
+<p>常见类型：</p>
+<pre><code class="language-text">note
+tip
+warning
+danger
+info
+success
+</code></pre>
+<hr />
+<h2 id="26">26. 表格写法<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
+<p>如果启用了：</p>
+<pre><code class="language-yaml">markdown_extensions:
+  - tables
+</code></pre>
+<p>可以写：</p>
+<pre><code class="language-markdown">| 项目 | 类型 | 状态 |
+|---|---|---|
+| GitHub Pages 建站 | 网站搭建 | 进行中 |
+| Python 数据分析 | 数据分析 | 进行中 |
+</code></pre>
+<hr />
+<h2 id="27">27. 图片如何添加<a class="headerlink" href="#27" title="Permanent link">&para;</a></h2>
+<p>图片建议统一放在：</p>
+<pre><code class="language-text">docs/assets/images/
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-text">docs/assets/images/deploy-success.png
+</code></pre>
+<p>如果在首页 <code>docs/index.md</code> 引用：</p>
+<pre><code class="language-markdown">![部署成功截图](assets/images/deploy-success.png)
+</code></pre>
+<p>如果在 <code>docs/notes/git.md</code> 引用：</p>
+<pre><code class="language-markdown">![部署成功截图](../assets/images/deploy-success.png)
+</code></pre>
+<p>因为 <code>notes/git.md</code> 比 <code>index.md</code> 深一层，所以需要 <code>../</code> 返回上一层。</p>
+<hr />
+<h2 id="28">28. 附件如何添加<a class="headerlink" href="#28" title="Permanent link">&para;</a></h2>
+<p>如果想提供 PDF、Word、Excel 等附件下载，可以建立：</p>
+<pre><code class="language-text">docs/assets/files/
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-text">docs/assets/files/report.pdf
+</code></pre>
+<p>在 Markdown 中写：</p>
+<pre><code class="language-markdown">[下载报告](../assets/files/report.pdf)
+</code></pre>
+<p>路径规则和图片类似。</p>
+<hr />
+<h2 id="29-css">29. 自定义 CSS<a class="headerlink" href="#29-css" title="Permanent link">&para;</a></h2>
+<p>如果想进一步修改样式，可以创建：</p>
+<pre><code class="language-text">docs/stylesheets/extra.css
+</code></pre>
+<p>然后在 <code>mkdocs.yml</code> 中加入：</p>
+<pre><code class="language-yaml">extra_css:
+  - stylesheets/extra.css
+</code></pre>
+<p>示例 CSS：</p>
+<pre><code class="language-css">.md-typeset h1 {
+  font-weight: 700;
+}
+
+.md-typeset table {
+  font-size: 0.9rem;
+}
+</code></pre>
+<p>注意：初期不建议大量改 CSS。先熟悉 MkDocs 的默认样式。</p>
+<hr />
+<h2 id="30-javascript">30. 自定义 JavaScript<a class="headerlink" href="#30-javascript" title="Permanent link">&para;</a></h2>
+<p>如果确实需要自定义 JS，可以创建：</p>
+<pre><code class="language-text">docs/javascripts/extra.js
+</code></pre>
+<p>然后在 <code>mkdocs.yml</code> 中加入：</p>
+<pre><code class="language-yaml">extra_javascript:
+  - javascripts/extra.js
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-javascript">console.log(&quot;custom script loaded&quot;);
+</code></pre>
+<p>初期大部分个人网站不需要自定义 JavaScript。</p>
+<hr />
+<h2 id="31-favicon">31. 添加网站图标 favicon<a class="headerlink" href="#31-favicon" title="Permanent link">&para;</a></h2>
+<p>可以准备一个图标，例如：</p>
+<pre><code class="language-text">docs/assets/images/favicon.png
+</code></pre>
+<p>然后在 <code>mkdocs.yml</code> 中加入：</p>
+<pre><code class="language-yaml">theme:
+  name: material
+  favicon: assets/images/favicon.png
+</code></pre>
+<p>注意：这里路径同样不写 <code>docs/</code>。</p>
+<hr />
+<h2 id="32-logo">32. 添加网站 Logo<a class="headerlink" href="#32-logo" title="Permanent link">&para;</a></h2>
+<p>可以准备一个 logo：</p>
+<pre><code class="language-text">docs/assets/images/logo.png
+</code></pre>
+<p>然后配置：</p>
+<pre><code class="language-yaml">theme:
+  name: material
+  logo: assets/images/logo.png
+</code></pre>
+<p>如果使用 logo，建议图片简洁，最好是正方形或接近正方形。</p>
+<hr />
+<h2 id="33-github">33. 添加 GitHub 仓库链接<a class="headerlink" href="#33-github" title="Permanent link">&para;</a></h2>
+<p>可以在 <code>mkdocs.yml</code> 中添加：</p>
+<pre><code class="language-yaml">repo_name: siberiagroundhog/siberiagroundhog.github.io
+repo_url: https://github.com/siberiagroundhog/siberiagroundhog.github.io
+</code></pre>
+<p>这样主题可能会在页面右上角显示 GitHub 仓库入口。</p>
+<hr />
+<h2 id="34">34. 添加社交链接<a class="headerlink" href="#34" title="Permanent link">&para;</a></h2>
+<p>Material 支持在 <code>extra</code> 中添加社交链接，例如：</p>
+<pre><code class="language-yaml">extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/siberiagroundhog
+      name: GitHub
+</code></pre>
+<p>后续也可以添加邮箱、Bilibili、知乎等链接，但图标名称要符合 Material 支持的图标库。</p>
+<hr />
+<h2 id="35">35. 页面内容和导航的关系<a class="headerlink" href="#35" title="Permanent link">&para;</a></h2>
+<p>一个页面是否显示在导航中，取决于 <code>mkdocs.yml</code> 的 <code>nav</code>。</p>
+<p>例如存在文件：</p>
+<pre><code class="language-text">docs/notes/temp.md
+</code></pre>
+<p>但是 <code>mkdocs.yml</code> 没有写：</p>
+<pre><code class="language-yaml">- 临时笔记: notes/temp.md
+</code></pre>
+<p>那么这个页面不会显示在导航中。</p>
+<p>但页面本身可能仍然可以通过 URL 访问，具体取决于构建结果。</p>
+<p>推荐做法：</p>
+<pre><code class="language-text">正式页面：加入 nav
+草稿页面：暂时不加入 nav
+</code></pre>
+<hr />
+<h2 id="36-url">36. 页面 URL 规则<a class="headerlink" href="#36-url" title="Permanent link">&para;</a></h2>
+<p>MkDocs 通常会把：</p>
+<pre><code class="language-text">docs/notes/python.md
+</code></pre>
+<p>生成类似：</p>
+<pre><code class="language-text">https://siberiagroundhog.github.io/notes/python/
+</code></pre>
+<p>把：</p>
+<pre><code class="language-text">docs/projects/github-pages.md
+</code></pre>
+<p>生成类似：</p>
+<pre><code class="language-text">https://siberiagroundhog.github.io/projects/github-pages/
+</code></pre>
+<p>所以文件路径会影响最终网址。</p>
+<p>建议文件名使用英文、小写和短横线，例如：</p>
+<pre><code class="language-text">github-pages.md
+python-basic.md
+svm-experiment.md
+mkdocs-maintenance.md
+</code></pre>
+<p>不建议使用中文文件名、空格和特殊符号。</p>
+<hr />
+<h2 id="37">37. 文件命名建议<a class="headerlink" href="#37" title="Permanent link">&para;</a></h2>
+<p>推荐：</p>
+<pre><code class="language-text">python-basic.md
+github-pages.md
+svm-experiment.md
+logistic-regression.md
+mkdocs-maintenance.md
+</code></pre>
+<p>不推荐：</p>
+<pre><code class="language-text">Python 基础.md
+我的 笔记.md
+第1篇!!.md
+</code></pre>
+<p>原因：</p>
+<ul>
+<li>英文文件名更稳定</li>
+<li>URL 更简洁</li>
+<li>不容易出现编码问题</li>
+<li>Git 和命令行中更好处理</li>
+</ul>
+<hr />
+<h2 id="38">38. 一次自定义修改的标准流程<a class="headerlink" href="#38" title="Permanent link">&para;</a></h2>
+<p>无论修改什么内容，都建议按以下流程执行。</p>
+<p>第一步，进入项目目录：</p>
+<pre><code class="language-bash">cd C:\Users\zyc\Desktop\文件夹合集\my-homepage
+</code></pre>
+<p>第二步，激活环境：</p>
+<pre><code class="language-bash">conda activate site-docs
+</code></pre>
+<p>第三步，确认分支：</p>
+<pre><code class="language-bash">git branch
+</code></pre>
+<p>应显示：</p>
+<pre><code class="language-text">* main
+</code></pre>
+<p>第四步，修改文件：</p>
+<table>
+<thead>
+<tr>
+<th>修改目标</th>
+<th>修改位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>网站标题</td>
+<td><code>mkdocs.yml</code> 的 <code>site_name</code></td>
+</tr>
+<tr>
+<td>网站描述</td>
+<td><code>mkdocs.yml</code> 的 <code>site_description</code></td>
+</tr>
+<tr>
+<td>作者信息</td>
+<td><code>mkdocs.yml</code> 的 <code>site_author</code></td>
+</tr>
+<tr>
+<td>网站地址</td>
+<td><code>mkdocs.yml</code> 的 <code>site_url</code></td>
+</tr>
+<tr>
+<td>顶部导航</td>
+<td><code>mkdocs.yml</code> 的 <code>nav</code></td>
+</tr>
+<tr>
+<td>首页正文</td>
+<td><code>docs/index.md</code></td>
+</tr>
+<tr>
+<td>关于我正文</td>
+<td><code>docs/about.md</code></td>
+</tr>
+<tr>
+<td>项目总览</td>
+<td><code>docs/projects/index.md</code></td>
+</tr>
+<tr>
+<td>学习笔记</td>
+<td><code>docs/notes/*.md</code></td>
+</tr>
+<tr>
+<td>工具页面</td>
+<td><code>docs/tools/*.md</code></td>
+</tr>
+<tr>
+<td>图片</td>
+<td><code>docs/assets/images/</code></td>
+</tr>
+<tr>
+<td>主题颜色</td>
+<td><code>mkdocs.yml</code> 的 <code>theme.palette</code></td>
+</tr>
+<tr>
+<td>主题功能</td>
+<td><code>mkdocs.yml</code> 的 <code>theme.features</code></td>
+</tr>
+<tr>
+<td>自定义 CSS</td>
+<td><code>docs/stylesheets/extra.css</code> + <code>extra_css</code></td>
+</tr>
+<tr>
+<td>自定义 JS</td>
+<td><code>docs/javascripts/extra.js</code> + <code>extra_javascript</code></td>
+</tr>
+</tbody>
+</table>
+<p>第五步，本地预览：</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>浏览器访问：</p>
+<pre><code class="language-text">http://127.0.0.1:8000
+</code></pre>
+<p>第六步，确认无误后停止服务：</p>
+<pre><code class="language-text">Ctrl + C
+</code></pre>
+<p>第七步，提交源码：</p>
+<pre><code class="language-bash">git status
+git add .
+git commit -m &quot;customize mkdocs site&quot;
+git push
+</code></pre>
+<p>第八步，部署网站：</p>
+<pre><code class="language-bash">mkdocs gh-deploy
+</code></pre>
+<p>如果线上未更新，可以强制部署：</p>
+<pre><code class="language-bash">mkdocs gh-deploy --force
+</code></pre>
+<p>第九步，刷新线上网站：</p>
+<pre><code class="language-text">https://siberiagroundhog.github.io
+</code></pre>
+<p>如果浏览器显示旧内容，按：</p>
+<pre><code class="language-text">Ctrl + F5
+</code></pre>
+<hr />
+<h2 id="39">39. 常见问题：修改了内容但网站没变<a class="headerlink" href="#39" title="Permanent link">&para;</a></h2>
+<p>可能原因：</p>
+<ol>
+<li>只修改了本地文件，没有部署。</li>
+<li>只执行了 <code>git push</code>，没有执行 <code>mkdocs gh-deploy</code>。</li>
+<li>GitHub Pages 还没部署完成。</li>
+<li>浏览器缓存了旧页面。</li>
+</ol>
+<p>解决流程：</p>
+<pre><code class="language-bash">mkdocs gh-deploy --force
+</code></pre>
+<p>然后浏览器按：</p>
+<pre><code class="language-text">Ctrl + F5
+</code></pre>
+<hr />
+<h2 id="40-mkdocs-serve">40. 常见问题：<code>mkdocs serve</code> 报错<a class="headerlink" href="#40-mkdocs-serve" title="Permanent link">&para;</a></h2>
+<p>优先检查：</p>
+<ol>
+<li><code>mkdocs.yml</code> 是否缩进错误。</li>
+<li>是否用了 Tab 缩进。</li>
+<li><code>nav</code> 中的文件路径是否真实存在。</li>
+<li>Markdown 代码块是否缺少结束的三个反引号。</li>
+<li>当前是否激活了 <code>site-docs</code> 环境。</li>
+</ol>
+<hr />
+<h2 id="41">41. 常见问题：页面出现在本地，但线上没有<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<p>检查：</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<p>确认修改已经提交：</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;update site&quot;
+git push
+</code></pre>
+<p>然后部署：</p>
+<pre><code class="language-bash">mkdocs gh-deploy
+</code></pre>
+<hr />
+<h2 id="42">42. 常见问题：图片不显示<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p>检查：</p>
+<ol>
+<li>图片是否放在 <code>docs/assets/images/</code>。</li>
+<li>Markdown 中的路径是否正确。</li>
+<li>文件名大小写是否一致。</li>
+<li>扩展名是否正确，例如 <code>.png</code>、<code>.jpg</code>、<code>.jpeg</code>。</li>
+<li>文件名是否包含空格或特殊符号。</li>
+</ol>
+<hr />
+<h2 id="43">43. 常见问题：导航新增页面后报错<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<p>例如 <code>mkdocs.yml</code> 中写了：</p>
+<pre><code class="language-yaml">- SVM: notes/svm.md
+</code></pre>
+<p>但实际没有文件：</p>
+<pre><code class="language-text">docs/notes/svm.md
+</code></pre>
+<p>就会报错。</p>
+<p>解决：</p>
+<ul>
+<li>创建对应文件；或者</li>
+<li>从 <code>nav</code> 中删除这一行。</li>
+</ul>
+<hr />
+<h2 id="44">44. 初期最推荐自定义的部分<a class="headerlink" href="#44" title="Permanent link">&para;</a></h2>
+<p>刚开始不要急着深度改样式。建议优先自定义这些：</p>
+<ol>
+<li><code>site_name</code></li>
+<li><code>site_description</code></li>
+<li><code>docs/index.md</code></li>
+<li><code>docs/about.md</code></li>
+<li><code>docs/projects/index.md</code></li>
+<li><code>docs/notes/index.md</code></li>
+<li><code>nav</code> 中的显示名称</li>
+<li>主题主色 <code>primary</code></li>
+<li>主题强调色 <code>accent</code></li>
+</ol>
+<hr />
+<h2 id="45">45. 暂时不建议大改的部分<a class="headerlink" href="#45" title="Permanent link">&para;</a></h2>
+<p>初期不建议马上折腾：</p>
+<ul>
+<li>大量自定义 CSS</li>
+<li>大量自定义 JavaScript</li>
+<li>复杂主页布局</li>
+<li>评论系统</li>
+<li>访问统计</li>
+<li>自定义域名</li>
+<li>自动化 GitHub Actions 部署</li>
+<li>多语言网站</li>
+<li>博客高级插件</li>
+</ul>
+<p>这些都可以后续逐步加。</p>
+<hr />
+<h2 id="46">46. 当前最重要的理解<a class="headerlink" href="#46" title="Permanent link">&para;</a></h2>
+<p>以后修改网站时，不要再想着“改网页”。</p>
+<p>应该这样判断：</p>
+<pre><code class="language-text">我要改网站整体配置 → mkdocs.yml
+我要改页面正文内容 → docs/对应的 .md 文件
+我要改导航显示 → mkdocs.yml 的 nav
+我要新增页面 → 新建 .md 文件 + 在 nav 里注册
+我要改主题颜色 → mkdocs.yml 的 palette
+我要加图片 → 放到 docs/assets/images/ 并在 Markdown 中引用
+</code></pre>
+<hr />
+<h2 id="47">47. 一句话总结<a class="headerlink" href="#47" title="Permanent link">&para;</a></h2>
+<p>MkDocs 网站的维护逻辑是：</p>
+<pre><code class="language-text">main 分支写 Markdown 和配置
+mkdocs serve 本地预览
+git push 保存源码
+mkdocs gh-deploy 发布到 gh-pages
+GitHub Pages 从 gh-pages 显示网站
+</code></pre>
+<p>只要理解：</p>
+<pre><code class="language-text">mkdocs.yml 管全局
+docs/ 管正文
+gh-pages 管发布成品
+</code></pre>
+<p>就能逐步完成大部分自定义。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
