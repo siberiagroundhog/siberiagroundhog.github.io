@@ -1,0 +1,2017 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人学习记录、项目展示与技术笔记">
+      
+      
+        <meta name="author" content="厉飞雨">
+      
+      
+        <link rel="canonical" href="https://siberiagroundhog.github.io/notes/mkdocs_publish_workflow/">
+      
+      
+        <link rel="prev" href="../git/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>MkDocs 维护与发布流程 - 飞雨的个人主页</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mkdocs" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="飞雨的个人主页" class="md-header__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞雨的个人主页
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MkDocs 维护与发布流程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+  项目
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  学习笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="飞雨的个人主页" class="md-nav__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    飞雨的个人主页
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于我
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/github-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Pages 建站
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MkDocs 维护与发布流程
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MkDocs 维护与发布流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 当前网站的基本机制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 当前项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 日常维护的核心原则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 每次更新网站前的准备
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 修改已有页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 新增一篇学习笔记
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 当前理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 新增一个项目页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 添加图片
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 完整发布流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-git-push-mkdocs-gh-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. git push 和 mkdocs gh-deploy 的区别
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. git push 和 mkdocs gh-deploy 的区别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs-gh-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mkdocs gh-deploy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. mkdocs.yml 维护注意事项
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. mkdocs.yml 维护注意事项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 缩进只能使用空格
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 层级要对齐
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 导航路径必须真实存在
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 推荐的内容组织方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 推荐的学习笔记模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 常见问题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 常见问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. 常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1 修改后网站没有更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2 新页面本地能打开，但线上没有
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153-mkdocs-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3 mkdocs serve 报错
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#154" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4 图片不显示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 最简命令清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 当前维护原则总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 当前网站的基本机制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 当前项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 日常维护的核心原则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 每次更新网站前的准备
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 修改已有页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 新增一篇学习笔记
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 当前理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 新增一个项目页面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 添加图片
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 完整发布流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-git-push-mkdocs-gh-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. git push 和 mkdocs gh-deploy 的区别
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. git push 和 mkdocs gh-deploy 的区别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs-gh-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mkdocs gh-deploy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. mkdocs.yml 维护注意事项
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. mkdocs.yml 维护注意事项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 缩进只能使用空格
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 层级要对齐
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 导航路径必须真实存在
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 推荐的内容组织方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 推荐的学习笔记模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 常见问题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 常见问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. 常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1 修改后网站没有更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2 新页面本地能打开，但线上没有
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153-mkdocs-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3 mkdocs serve 报错
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#154" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4 图片不显示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 最简命令清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 当前维护原则总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mkdocs">MkDocs 网站维护与发布流程<a class="headerlink" href="#mkdocs" title="Permanent link">&para;</a></h1>
+<p>本文记录当前个人网站从内容更新到正式发布的完整流程。当前网站采用：</p>
+<ul>
+<li>GitHub Pages 托管</li>
+<li>MkDocs 生成静态网站</li>
+<li>Material for MkDocs 作为主题</li>
+<li><code>main</code> 分支保存网站源码</li>
+<li><code>gh-pages</code> 分支保存生成后的网页成品</li>
+</ul>
+<hr />
+<h2 id="1">1. 当前网站的基本机制<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>当前网站不是直接手写 HTML 页面进行维护，而是使用 MkDocs 管理内容。</p>
+<p>整体流程是：</p>
+<pre><code class="language-text">编写 Markdown 内容
+        ↓
+MkDocs 根据 docs/ 和 mkdocs.yml 生成静态网站
+        ↓
+mkdocs gh-deploy 将生成结果推送到 gh-pages 分支
+        ↓
+GitHub Pages 从 gh-pages / root 发布网站
+        ↓
+用户访问 https://siberiagroundhog.github.io
+</code></pre>
+<p>需要重点区分两个分支：</p>
+<table>
+<thead>
+<tr>
+<th>分支</th>
+<th>作用</th>
+<th>是否手动修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>保存 MkDocs 源码、Markdown 内容和配置文件</td>
+<td>是</td>
+</tr>
+<tr>
+<td><code>gh-pages</code></td>
+<td>保存 MkDocs 生成后的网页文件</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<p>日常维护时，只需要在 <code>main</code> 分支修改内容，不要手动修改 <code>gh-pages</code> 分支。</p>
+<hr />
+<h2 id="2">2. 当前项目结构<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>推荐保持如下结构：</p>
+<pre><code class="language-text">my-homepage/
+├─ mkdocs.yml
+├─ docs/
+│  ├─ index.md
+│  ├─ about.md
+│  ├─ projects/
+│  │  ├─ index.md
+│  │  └─ github-pages.md
+│  ├─ notes/
+│  │  ├─ index.md
+│  │  ├─ python.md
+│  │  └─ git.md
+│  └─ assets/
+│     └─ images/
+├─ README.md
+└─ old-site/
+</code></pre>
+<p>其中：</p>
+<ul>
+<li><code>mkdocs.yml</code>：网站配置文件，控制网站标题、主题、导航栏、扩展功能等。</li>
+<li><code>docs/</code>：网站正文内容目录。</li>
+<li><code>docs/index.md</code>：网站首页。</li>
+<li><code>docs/about.md</code>：关于我页面。</li>
+<li><code>docs/projects/</code>：项目记录。</li>
+<li><code>docs/notes/</code>：学习笔记。</li>
+<li><code>docs/assets/images/</code>：图片资源。</li>
+<li><code>old-site/</code>：旧版手写 HTML 网站备份。</li>
+</ul>
+<hr />
+<h2 id="3">3. 日常维护的核心原则<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>以后维护网站时，尽量不要直接写 HTML。</p>
+<p>推荐方式是：</p>
+<pre><code class="language-text">写 Markdown
+改 mkdocs.yml 导航
+本地预览
+提交 main 分支
+部署到 gh-pages 分支
+</code></pre>
+<p>需要记住：</p>
+<pre><code class="language-text">Markdown 负责内容
+mkdocs.yml 负责导航和配置
+MkDocs 负责生成网页
+GitHub Pages 负责托管网站
+</code></pre>
+<hr />
+<h2 id="4">4. 每次更新网站前的准备<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>进入项目目录：</p>
+<pre><code class="language-bash">cd C:\Users\zyc\Desktop\文件夹合集\my-homepage
+</code></pre>
+<p>激活网站环境：</p>
+<pre><code class="language-bash">conda activate site-docs
+</code></pre>
+<p>确认当前分支：</p>
+<pre><code class="language-bash">git branch
+</code></pre>
+<p>正常应该显示：</p>
+<pre><code class="language-text">* main
+</code></pre>
+<p>如果当前不在 <code>main</code> 分支，切回：</p>
+<pre><code class="language-bash">git switch main
+</code></pre>
+<p>查看当前状态：</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<p>如果工作区干净，通常会看到：</p>
+<pre><code class="language-text">nothing to commit, working tree clean
+</code></pre>
+<hr />
+<h2 id="5">5. 修改已有页面<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>如果只是修改已有内容，例如修改首页：</p>
+<pre><code class="language-text">docs/index.md
+</code></pre>
+<p>或者修改关于我页面：</p>
+<pre><code class="language-text">docs/about.md
+</code></pre>
+<p>直接打开对应 Markdown 文件编辑即可。</p>
+<p>修改完成后，先本地预览：</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>浏览器打开：</p>
+<pre><code class="language-text">http://127.0.0.1:8000
+</code></pre>
+<p>检查无误后，在终端按：</p>
+<pre><code class="language-text">Ctrl + C
+</code></pre>
+<p>停止本地服务。</p>
+<p>然后提交并发布：</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;update site content&quot;
+git push
+mkdocs gh-deploy
+</code></pre>
+<hr />
+<h2 id="6">6. 新增一篇学习笔记<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>例如新增一篇 SVM 学习笔记。</p>
+<p>第一步，在 <code>docs/notes/</code> 下新建文件：</p>
+<pre><code class="language-text">docs/notes/svm.md
+</code></pre>
+<p>内容示例：</p>
+<pre><code class="language-markdown"># SVM 学习笔记
+
+## 1. 基本思想
+
+SVM 的核心目标是寻找分类间隔最大的超平面。
+
+## 2. sklearn 中的基本使用
+
+```python
+from sklearn.svm import SVC
+
+model = SVC(kernel=&quot;rbf&quot;, C=1, gamma=&quot;scale&quot;)
+model.fit(X_train, y_train)
+</code></pre>
+<h2 id="3_1">3. 当前理解<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<p>后续继续补充模型原理、参数含义和实验记录。</p>
+<pre><code>
+第二步，修改 `mkdocs.yml` 中的 `nav`：
+
+```yaml
+nav:
+  - 首页: index.md
+  - 关于我: about.md
+  - 项目:
+      - 项目总览: projects/index.md
+      - GitHub Pages 建站: projects/github-pages.md
+  - 学习笔记:
+      - 笔记总览: notes/index.md
+      - Python: notes/python.md
+      - Git: notes/git.md
+      - SVM: notes/svm.md
+</code></pre>
+<p>第三步，本地预览：</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>确认导航和页面内容正常后，停止服务并发布：</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;add svm note&quot;
+git push
+mkdocs gh-deploy
+</code></pre>
+<hr />
+<h2 id="7">7. 新增一个项目页面<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>例如新增一个机器学习实验项目页面。</p>
+<p>第一步，新建文件：</p>
+<pre><code class="language-text">docs/projects/svm-experiment.md
+</code></pre>
+<p>内容示例：</p>
+<pre><code class="language-markdown"># SVM 三分类实验
+
+## 1. 项目目标
+
+使用 sklearn wine 数据集完成 SVM 三分类实验，并记录模型训练、参数设置和结果分析过程。
+
+## 2. 技术栈
+
+- Python
+- scikit-learn
+- matplotlib
+- pandas
+
+## 3. 实验流程
+
+1. 加载数据
+2. 划分训练集和测试集
+3. 标准化数据
+4. 训练 SVM 模型
+5. 评估准确率
+6. 绘制可视化结果
+
+## 4. 当前结果
+
+后续补充实验结果、图像和参数对比。
+
+## 5. 后续计划
+
+- 增加 GridSearchCV 调参记录
+- 增加 GA / PSO 优化参数记录
+- 增加可视化结果说明
+</code></pre>
+<p>第二步，在 <code>mkdocs.yml</code> 中添加导航：</p>
+<pre><code class="language-yaml">  - 项目:
+      - 项目总览: projects/index.md
+      - GitHub Pages 建站: projects/github-pages.md
+      - SVM 三分类实验: projects/svm-experiment.md
+</code></pre>
+<p>第三步，本地预览并发布：</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>检查无误后：</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;add svm experiment project&quot;
+git push
+mkdocs gh-deploy
+</code></pre>
+<hr />
+<h2 id="8">8. 添加图片<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p>图片建议统一放到：</p>
+<pre><code class="language-text">docs/assets/images/
+</code></pre>
+<p>例如放入：</p>
+<pre><code class="language-text">docs/assets/images/pages-success.png
+</code></pre>
+<p>如果当前 Markdown 文件是：</p>
+<pre><code class="language-text">docs/index.md
+</code></pre>
+<p>引用图片：</p>
+<pre><code class="language-markdown">![GitHub Pages 部署成功截图](assets/images/pages-success.png)
+</code></pre>
+<p>如果当前 Markdown 文件是：</p>
+<pre><code class="language-text">docs/projects/github-pages.md
+</code></pre>
+<p>引用图片：</p>
+<pre><code class="language-markdown">![GitHub Pages 部署成功截图](../assets/images/pages-success.png)
+</code></pre>
+<p>如果当前 Markdown 文件在更深层目录中，要根据相对路径调整。</p>
+<p>本地预览时一定检查图片是否能正常显示。</p>
+<hr />
+<h2 id="9">9. 完整发布流程<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>每次正式发布网站，建议固定使用以下流程。</p>
+<p>第一步，进入项目目录：</p>
+<pre><code class="language-bash">cd C:\Users\zyc\Desktop\文件夹合集\my-homepage
+</code></pre>
+<p>第二步，激活环境：</p>
+<pre><code class="language-bash">conda activate site-docs
+</code></pre>
+<p>第三步，确认分支：</p>
+<pre><code class="language-bash">git branch
+</code></pre>
+<p>应位于：</p>
+<pre><code class="language-text">* main
+</code></pre>
+<p>第四步，本地预览：</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>浏览器访问：</p>
+<pre><code class="language-text">http://127.0.0.1:8000
+</code></pre>
+<p>检查以下内容：</p>
+<ul>
+<li>页面是否能打开</li>
+<li>导航是否正常</li>
+<li>图片是否显示</li>
+<li>代码块是否正常</li>
+<li>中文是否正常</li>
+<li>链接是否能点</li>
+<li>新增页面是否出现在导航栏中</li>
+</ul>
+<p>第五步，停止本地预览：</p>
+<pre><code class="language-text">Ctrl + C
+</code></pre>
+<p>第六步，提交源码：</p>
+<pre><code class="language-bash">git status
+git add .
+git commit -m &quot;update site&quot;
+git push
+</code></pre>
+<p>第七步，部署网站：</p>
+<pre><code class="language-bash">mkdocs gh-deploy
+</code></pre>
+<p>如果需要强制重新部署：</p>
+<pre><code class="language-bash">mkdocs gh-deploy --force
+</code></pre>
+<p>第八步，访问线上网站：</p>
+<pre><code class="language-text">https://siberiagroundhog.github.io
+</code></pre>
+<p>如果页面没有立刻更新，可以等待几十秒到几分钟，或者使用：</p>
+<pre><code class="language-text">Ctrl + F5
+</code></pre>
+<p>强制刷新浏览器缓存。</p>
+<hr />
+<h2 id="10-git-push-mkdocs-gh-deploy">10. <code>git push</code> 和 <code>mkdocs gh-deploy</code> 的区别<a class="headerlink" href="#10-git-push-mkdocs-gh-deploy" title="Permanent link">&para;</a></h2>
+<p>这两个命令作用不同。</p>
+<h3 id="git-push"><code>git push</code><a class="headerlink" href="#git-push" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git push
+</code></pre>
+<p>作用是：</p>
+<pre><code class="language-text">把 main 分支中的 MkDocs 源码推送到 GitHub
+</code></pre>
+<p>包括：</p>
+<ul>
+<li><code>mkdocs.yml</code></li>
+<li><code>docs/*.md</code></li>
+<li>图片资源</li>
+<li>README.md</li>
+</ul>
+<p>它主要负责保存源码。</p>
+<h3 id="mkdocs-gh-deploy"><code>mkdocs gh-deploy</code><a class="headerlink" href="#mkdocs-gh-deploy" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">mkdocs gh-deploy
+</code></pre>
+<p>作用是：</p>
+<pre><code class="language-text">构建网站，并把构建后的网页成品推送到 gh-pages 分支
+</code></pre>
+<p>它主要负责更新线上网站。</p>
+<p>推荐每次发布都执行：</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;update site&quot;
+git push
+mkdocs gh-deploy
+</code></pre>
+<p>只执行 <code>git push</code>，网站可能不会更新。</p>
+<p>只执行 <code>mkdocs gh-deploy</code>，网站可能更新，但源码修改没有保存到 <code>main</code> 分支，不利于长期维护。</p>
+<hr />
+<h2 id="11-mkdocsyml">11. <code>mkdocs.yml</code> 维护注意事项<a class="headerlink" href="#11-mkdocsyml" title="Permanent link">&para;</a></h2>
+<p><code>mkdocs.yml</code> 是网站配置文件，最容易因为格式问题报错。</p>
+<h3 id="111">11.1 缩进只能使用空格<a class="headerlink" href="#111" title="Permanent link">&para;</a></h3>
+<p>正确示例：</p>
+<pre><code class="language-yaml">nav:
+  - 首页: index.md
+  - 学习笔记:
+      - Python: notes/python.md
+</code></pre>
+<p>不要使用 Tab 缩进。</p>
+<h3 id="112">11.2 层级要对齐<a class="headerlink" href="#112" title="Permanent link">&para;</a></h3>
+<p>正确示例：</p>
+<pre><code class="language-yaml">nav:
+  - 首页: index.md
+  - 关于我: about.md
+  - 项目:
+      - 项目总览: projects/index.md
+      - GitHub Pages 建站: projects/github-pages.md
+  - 学习笔记:
+      - 笔记总览: notes/index.md
+      - Python: notes/python.md
+</code></pre>
+<h3 id="113">11.3 导航路径必须真实存在<a class="headerlink" href="#113" title="Permanent link">&para;</a></h3>
+<p>如果写了：</p>
+<pre><code class="language-yaml">- SVM: notes/svm.md
+</code></pre>
+<p>就必须存在：</p>
+<pre><code class="language-text">docs/notes/svm.md
+</code></pre>
+<p>否则 MkDocs 构建时会报错。</p>
+<hr />
+<h2 id="12">12. 推荐的内容组织方式<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>后续内容多了以后，可以逐步整理成：</p>
+<pre><code class="language-text">docs/
+├─ index.md
+├─ about.md
+├─ projects/
+│  ├─ index.md
+│  ├─ github-pages.md
+│  ├─ python-data-analysis.md
+│  └─ svm-experiment.md
+├─ notes/
+│  ├─ index.md
+│  ├─ python/
+│  │  ├─ basic.md
+│  │  ├─ function.md
+│  │  └─ oop.md
+│  ├─ git/
+│  │  ├─ basic.md
+│  │  └─ github-pages.md
+│  ├─ machine-learning/
+│  │  ├─ svm.md
+│  │  ├─ svr.md
+│  │  └─ neural-network.md
+│  └─ public-health/
+│     ├─ logistic-regression.md
+│     └─ forest-plot.md
+├─ tools/
+│  ├─ index.md
+│  └─ calculator.md
+└─ assets/
+   └─ images/
+</code></pre>
+<p>不要一开始就建太复杂的结构。内容少时保持简单，内容多了再分类。</p>
+<hr />
+<h2 id="13">13. 推荐的学习笔记模板<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<pre><code class="language-markdown"># 主题名称
+
+## 1. 背景
+
+为什么学这个内容。
+
+## 2. 核心概念
+
+整理关键概念。
+
+## 3. 示例代码
+
+```python
+print(&quot;hello&quot;)
+</code></pre>
+<h2 id="4_1">4. 常见问题<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<p>记录自己容易错的地方。</p>
+<h2 id="5_1">5. 总结<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h2>
+<p>用自己的话总结。</p>
+<pre><code>
+---
+
+## 14. 推荐的项目记录模板
+
+```markdown
+# 项目名称
+
+## 1. 项目目标
+
+写清楚这个项目要解决什么问题。
+
+## 2. 技术栈
+
+- Python
+- MkDocs
+- GitHub Pages
+
+## 3. 实现过程
+
+记录关键步骤。
+
+## 4. 遇到的问题
+
+记录报错和解决方案。
+
+## 5. 当前结果
+
+放截图、链接或实验结果。
+
+## 6. 后续计划
+
+记录下一步。
+</code></pre>
+<hr />
+<h2 id="15">15. 常见问题<a class="headerlink" href="#15" title="Permanent link">&para;</a></h2>
+<h3 id="151">15.1 修改后网站没有更新<a class="headerlink" href="#151" title="Permanent link">&para;</a></h3>
+<p>可能原因：</p>
+<ol>
+<li>只执行了 <code>git push</code>，没有执行 <code>mkdocs gh-deploy</code>。</li>
+<li>GitHub Pages 部署还没完成，需要等一会儿。</li>
+<li>浏览器缓存导致看到旧页面。</li>
+</ol>
+<p>解决：</p>
+<pre><code class="language-bash">mkdocs gh-deploy --force
+</code></pre>
+<p>然后浏览器按：</p>
+<pre><code class="language-text">Ctrl + F5
+</code></pre>
+<hr />
+<h3 id="152">15.2 新页面本地能打开，但线上没有<a class="headerlink" href="#152" title="Permanent link">&para;</a></h3>
+<p>检查是否执行了：</p>
+<pre><code class="language-bash">git push
+mkdocs gh-deploy
+</code></pre>
+<p>再检查 GitHub Pages 设置是否仍然是：</p>
+<pre><code class="language-text">gh-pages / root
+</code></pre>
+<hr />
+<h3 id="153-mkdocs-serve">15.3 <code>mkdocs serve</code> 报错<a class="headerlink" href="#153-mkdocs-serve" title="Permanent link">&para;</a></h3>
+<p>优先检查：</p>
+<ol>
+<li><code>mkdocs.yml</code> 缩进是否正确。</li>
+<li><code>nav</code> 中的文件路径是否真实存在。</li>
+<li>Markdown 代码块的三个反引号是否成对。</li>
+<li>当前终端是否激活了 <code>site-docs</code> 环境。</li>
+</ol>
+<hr />
+<h3 id="154">15.4 图片不显示<a class="headerlink" href="#154" title="Permanent link">&para;</a></h3>
+<p>优先检查：</p>
+<ol>
+<li>图片是否放在 <code>docs/assets/images/</code>。</li>
+<li>Markdown 中的相对路径是否正确。</li>
+<li>文件名大小写是否一致。</li>
+<li>图片扩展名是否写对，例如 <code>.png</code>、<code>.jpg</code>。</li>
+</ol>
+<hr />
+<h2 id="16">16. 最简命令清单<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<p>本地预览：</p>
+<pre><code class="language-bash">conda activate site-docs
+mkdocs serve
+</code></pre>
+<p>正常发布：</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;update site&quot;
+git push
+mkdocs gh-deploy
+</code></pre>
+<p>强制发布：</p>
+<pre><code class="language-bash">mkdocs gh-deploy --force
+</code></pre>
+<p>查看状态：</p>
+<pre><code class="language-bash">git status
+git branch
+</code></pre>
+<hr />
+<h2 id="17">17. 当前维护原则总结<a class="headerlink" href="#17" title="Permanent link">&para;</a></h2>
+<p>以后维护网站时，记住这句话：</p>
+<pre><code class="language-text">只在 main 分支写 Markdown 和配置，使用 mkdocs gh-deploy 自动发布到 gh-pages。
+</code></pre>
+<p>日常流程可以简化成：</p>
+<pre><code class="language-text">写 Markdown
+        ↓
+mkdocs serve 本地预览
+        ↓
+git push 保存源码
+        ↓
+mkdocs gh-deploy 发布网站
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

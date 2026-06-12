@@ -59,7 +59,6 @@ my-homepage/
 │  └─ assets/
 │     └─ images/
 ├─ README.md
-└─ old-site/
 ```
 
 其中：
@@ -71,7 +70,6 @@ my-homepage/
 - `docs/projects/`：项目记录。
 - `docs/notes/`：学习笔记。
 - `docs/assets/images/`：图片资源。
-- `old-site/`：旧版手写 HTML 网站备份。
 
 ---
 

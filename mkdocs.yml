@@ -1,6 +1,6 @@
 site_name: 飞雨的个人主页
 site_description: 个人学习记录、项目展示与技术笔记
-site_author: 厉飞雨
+site_author: 朱亚超
 site_url: https://siberiagroundhog.github.io/
 
 theme:
@@ -33,12 +33,13 @@ nav:
   - 关于我: about.md
   - 项目:
       - 项目总览: projects/index.md
-      - GitHub Pages 建站: projects/github-pages.md
+      - GitHub Pages建站: projects/github-pages.md
   - 学习笔记:
       - 笔记总览: notes/index.md
+      - 网站维护流程: notes/mkdocs_publish_workflow.md
+      - Mkdocs自定义说明: notes/mkdocs_custom.md
       - Python: notes/python.md
       - Git: notes/git.md
-      - MkDocs 维护与发布流程: notes/mkdocs_publish_workflow.md
 
 markdown_extensions:
   - admonition
