@@ -1,0 +1,6662 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人学习记录、项目展示与技术笔记">
+      
+      
+        <meta name="author" content="朱亚超">
+      
+      
+        <link rel="canonical" href="https://siberiagroundhog.github.io/notes/machine_learning/">
+      
+      
+        <link rel="prev" href="../mkdocs_custom/">
+      
+      
+        <link rel="next" href="../../games/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>机器学习笔记 - 飞雨的个人主页</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="飞雨的个人主页" class="md-header__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞雨的个人主页
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              机器学习笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+  项目
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  学习笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../games/" class="md-tabs__link">
+          
+  
+  
+  小游戏
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="飞雨的个人主页" class="md-nav__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    飞雨的个人主页
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于我
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/github-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Pages建站
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_publish_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网站维护流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_custom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mkdocs自定义说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习笔记
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 学习背景与项目总览
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 学习背景与项目总览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 学习这本书的目的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 当前已复现项目总览表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 本笔记的分类方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 基础神经网络与函数拟合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 基础神经网络与函数拟合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-bp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 BP 神经网络非线性拟合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 BP 神经网络非线性拟合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rbf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 RBF 径向基函数网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RBF 径向基函数网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-grnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 GRNN 广义回归神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 GRNN 广义回归神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-elm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 ELM 极限学习机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 ELM 极限学习机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 支持向量机系列
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 支持向量机系列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-svm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 SVM 葡萄酒分类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 SVM 葡萄酒分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-svm-gridsearchrandomizedsearchgapso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 SVM 参数优化：GridSearch、RandomizedSearch、GA、PSO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 SVM 参数优化：GridSearch、RandomizedSearch、GA、PSO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-svr-qqq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 SVR 时间序列回归：QQQ 收盘价预测
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 SVR 时间序列回归：QQQ 收盘价预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-svc-qqq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 SVC 信息粒化分类：QQQ 趋势预测
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 SVC 信息粒化分类：QQQ 趋势预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 传统机器学习与可解释模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 传统机器学习与可解释模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 决策树乳腺癌分类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 决策树乳腺癌分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 决策树剪枝与网格搜索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 决策树剪枝与网格搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 无监督学习与竞争学习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 无监督学习与竞争学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 自组织竞争网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 自组织竞争网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-kmeans-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 竞争网络与 KMeans / PCA 可视化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 竞争网络与 KMeans / PCA 可视化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 特征选择与变量重要性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 特征选择与变量重要性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-miv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 MIV 变量筛选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 MIV 变量筛选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 遗传算法特征选择
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 遗传算法特征选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 时间序列与动态神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 时间序列与动态神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-elman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Elman 神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1 Elman 神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 小波神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 小波神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 灰色预测与灰色神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 灰色预测与灰色神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-narx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 NARX / 动态神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.4 NARX / 动态神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 智能优化算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 智能优化算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 遗传算法 GA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 遗传算法 GA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-pso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 粒子群优化 PSO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 粒子群优化 PSO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-ga-pso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 GA / PSO 在当前实验中的使用对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 GA / PSO 在当前实验中的使用对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 自定义网络与训练工程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 自定义网络与训练工程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 自定义 MLP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 自定义 MLP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-twobranchnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 双分支网络 TwoBranchNet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 双分支网络 TwoBranchNet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-morletlayer-waveletnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 MorletLayer 与 WaveletNet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3 MorletLayer 与 WaveletNet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 GPU 加速与高效训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 GPU 加速与高效训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 横向对比总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 横向对比总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 分类任务对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 回归任务对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 时间序列任务对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 特征选择方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 调参方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.6 各模型适用场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 这段时间的学习大总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 这段时间的学习大总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 我完成了哪些复现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 我真正理解了哪些机器学习概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 我目前还薄弱的地方
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 后续继续复习和补强建议
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小游戏
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    小游戏
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    游戏总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/snake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪吃蛇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/2048/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2048
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/minesweeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    扫雷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/dino-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小恐龙跑酷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 学习背景与项目总览
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 学习背景与项目总览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 学习这本书的目的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 当前已复现项目总览表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 本笔记的分类方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 基础神经网络与函数拟合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 基础神经网络与函数拟合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-bp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 BP 神经网络非线性拟合
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 BP 神经网络非线性拟合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rbf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 RBF 径向基函数网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RBF 径向基函数网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-grnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 GRNN 广义回归神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 GRNN 广义回归神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-elm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 ELM 极限学习机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 ELM 极限学习机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 支持向量机系列
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 支持向量机系列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-svm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 SVM 葡萄酒分类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 SVM 葡萄酒分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-svm-gridsearchrandomizedsearchgapso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 SVM 参数优化：GridSearch、RandomizedSearch、GA、PSO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 SVM 参数优化：GridSearch、RandomizedSearch、GA、PSO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-svr-qqq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 SVR 时间序列回归：QQQ 收盘价预测
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 SVR 时间序列回归：QQQ 收盘价预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-svc-qqq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 SVC 信息粒化分类：QQQ 趋势预测
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 SVC 信息粒化分类：QQQ 趋势预测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 传统机器学习与可解释模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 传统机器学习与可解释模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 决策树乳腺癌分类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 决策树乳腺癌分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 决策树剪枝与网格搜索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 决策树剪枝与网格搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 无监督学习与竞争学习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 无监督学习与竞争学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 自组织竞争网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 自组织竞争网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-kmeans-pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 竞争网络与 KMeans / PCA 可视化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 竞争网络与 KMeans / PCA 可视化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 特征选择与变量重要性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 特征选择与变量重要性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-miv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 MIV 变量筛选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 MIV 变量筛选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 遗传算法特征选择
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 遗传算法特征选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 时间序列与动态神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 时间序列与动态神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-elman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Elman 神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1 Elman 神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 小波神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 小波神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 灰色预测与灰色神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 灰色预测与灰色神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-narx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 NARX / 动态神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.4 NARX / 动态神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 智能优化算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 智能优化算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 遗传算法 GA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 遗传算法 GA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-pso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 粒子群优化 PSO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 粒子群优化 PSO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-ga-pso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 GA / PSO 在当前实验中的使用对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 GA / PSO 在当前实验中的使用对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 自定义网络与训练工程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 自定义网络与训练工程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 自定义 MLP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 自定义 MLP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-twobranchnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 双分支网络 TwoBranchNet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 双分支网络 TwoBranchNet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-morletlayer-waveletnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 MorletLayer 与 WaveletNet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3 MorletLayer 与 WaveletNet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 GPU 加速与高效训练流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 GPU 加速与高效训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 模型原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 我的实验过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 实验总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 后续改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 横向对比总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 横向对比总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 分类任务对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 回归任务对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 时间序列任务对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 特征选择方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 调参方法对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.6 各模型适用场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 这段时间的学习大总结
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 这段时间的学习大总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 我完成了哪些复现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 我真正理解了哪些机器学习概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 我目前还薄弱的地方
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 后续继续复习和补强建议
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">机器学习笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#1-学习背景与项目总览">1. 学习背景与项目总览</a></li>
+<li><a href="#2-基础神经网络与函数拟合">2. 基础神经网络与函数拟合</a></li>
+<li><a href="#3-支持向量机系列">3. 支持向量机系列</a></li>
+<li><a href="#4-传统机器学习与可解释模型">4. 传统机器学习与可解释模型</a></li>
+<li><a href="#5-无监督学习与竞争学习">5. 无监督学习与竞争学习</a></li>
+<li><a href="#6-特征选择与变量重要性">6. 特征选择与变量重要性</a></li>
+<li><a href="#7-时间序列与动态神经网络">7. 时间序列与动态神经网络</a></li>
+<li><a href="#8-智能优化算法">8. 智能优化算法</a></li>
+<li><a href="#9-自定义网络与训练工程">9. 自定义网络与训练工程</a></li>
+<li><a href="#10-横向对比总结">10. 横向对比总结</a></li>
+<li><a href="#11-这段时间的学习大总结">11. 这段时间的学习大总结</a></li>
+</ul>
+<h2 id="1">1. 学习背景与项目总览<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 学习这本书的目的<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>本项目围绕《MATLAB 神经网络 43 个案例分析》展开。学习目标不是简单照抄书中的 MATLAB 代码，而是把书中典型案例迁移到 Python、PyTorch 和 sklearn 环境中，通过复现训练机器学习建模的基本能力。</p>
+<p>这段时间的学习重点包括：</p>
+<ul>
+<li>理解常见模型的基本原理。</li>
+<li>熟悉分类、回归、聚类、时间序列预测、特征选择和参数优化等任务。</li>
+<li>掌握数据预处理、训练测试划分、模型训练、指标评估和结果可视化。</li>
+<li>通过 notebook 复现，把书中案例变成自己能解释、能修改、能复盘的实验。</li>
+</ul>
+<h3 id="12">1.2 当前已复现项目总览表<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>已复现内容</th>
+<th>对应目录或文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础神经网络</td>
+<td>BP 非线性拟合</td>
+<td><code>1_4_BP/bp.ipynb</code></td>
+</tr>
+<tr>
+<td>基础神经网络</td>
+<td>RBF 回归、GRNN 回归</td>
+<td><code>7_8_rbf_grnn/rbf_grnn.ipynb</code></td>
+</tr>
+<tr>
+<td>基础神经网络</td>
+<td>ELM 回归与分类</td>
+<td><code>29_ELM/elm.ipynb</code></td>
+</tr>
+<tr>
+<td>支持向量机</td>
+<td>SVM 葡萄酒分类、SVM 参数优化</td>
+<td><code>12_15_svm_wine/main.ipynb</code></td>
+</tr>
+<tr>
+<td>支持向量机</td>
+<td>SVR 时间序列回归</td>
+<td><code>16_17_svr_qqq/svr.ipynb</code></td>
+</tr>
+<tr>
+<td>支持向量机</td>
+<td>SVC 信息粒化趋势分类</td>
+<td><code>16_17_svr_qqq/svc_qqq.ipynb</code></td>
+</tr>
+<tr>
+<td>树模型</td>
+<td>决策树乳腺癌分类、剪枝、网格搜索</td>
+<td><code>28_decisionTree/main.ipynb</code></td>
+</tr>
+<tr>
+<td>竞争学习</td>
+<td>自组织竞争网络分类</td>
+<td><code>21_自组织竞争网络/compettitive_network.ipynb</code></td>
+</tr>
+<tr>
+<td>特征选择</td>
+<td>MIV 变量重要性分析</td>
+<td><code>25_MIV/miv.ipynb</code></td>
+</tr>
+<tr>
+<td>特征选择</td>
+<td>遗传算法特征选择</td>
+<td><code>36_ga_select_feature/main.ipynb</code></td>
+</tr>
+<tr>
+<td>时间序列</td>
+<td>Elman 神经网络预测</td>
+<td><code>23_Elman/main.ipynb</code></td>
+</tr>
+<tr>
+<td>时间序列</td>
+<td>小波神经网络预测</td>
+<td><code>32_小波神经网络/main.ipynb</code></td>
+</tr>
+<tr>
+<td>时间序列</td>
+<td>灰色预测、灰色神经网络、残差 BP</td>
+<td><code>37_grey_model/main.ipynb</code></td>
+</tr>
+<tr>
+<td>时间序列</td>
+<td>NARX / 动态神经网络预测</td>
+<td><code>40_narx/main.ipynb</code></td>
+</tr>
+<tr>
+<td>自定义网络</td>
+<td>MLP、双分支网络、小波层、自定义网络结构</td>
+<td><code>41_42_自定义_GPU加速/main.ipynb</code></td>
+</tr>
+<tr>
+<td>训练工程</td>
+<td>设备管理、训练模式、推理模式、数据加载、混合精度</td>
+<td><code>41_42_自定义_GPU加速/main.ipynb</code></td>
+</tr>
+<tr>
+<td>公共工具</td>
+<td>通用 GA 参数优化函数</td>
+<td><code>utils/ga.py</code></td>
+</tr>
+<tr>
+<td>公共工具</td>
+<td>通用 PSO 参数优化函数</td>
+<td><code>utils/pso.py</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="13">1.3 本笔记的分类方式<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>本笔记不按书中案例编号逐个罗列，而是按能力和模型类型分类。这样整理的好处是更便于复习：同一类问题放在一起，可以比较不同模型在任务、数据、训练方式和结果解释上的差异。</p>
+<p>每个模型或实验尽量按固定结构记录：</p>
+<ul>
+<li>模型原理。</li>
+<li>核心代码。</li>
+<li>我的实验过程。</li>
+<li>实验总结。</li>
+<li>后续改进。</li>
+</ul>
+<h2 id="2">2. 基础神经网络与函数拟合<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-bp">2.1 BP 神经网络非线性拟合<a class="headerlink" href="#21-bp" title="Permanent link">&para;</a></h3>
+<h4 id="1_1">1. 模型原理<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<p>BP 神经网络本质上是一个前馈神经网络，通过隐藏层和激活函数学习输入到输出之间的非线性映射。前向传播得到预测值，损失函数衡量预测值与真实值的差距，反向传播根据损失计算梯度，优化器根据梯度更新网络参数。</p>
+<p>在本实验中，输入是一个一维变量 <code>x</code>，输出是连续值 <code>y</code>。目标函数为：</p>
+<pre><code class="language-text">y = sin(x) + 0.2x + noise
+</code></pre>
+<p>这个实验适合用来理解神经网络训练的最小闭环：构造数据、定义模型、定义损失函数、训练模型、可视化拟合结果。</p>
+<h4 id="2_1">2. 核心代码<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class BPNet(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim):
+        super(BPNet, self).__init__()
+        self.layer1 = nn.Linear(input_dim, hidden_dim)
+        self.relu = nn.ReLU()
+        self.layer2 = nn.Linear(hidden_dim, output_dim)
+
+    def forward(self, x):
+        x = self.layer1(x)
+        x = self.relu(x)
+        x = self.layer2(x)
+        return x
+</code></pre>
+<pre><code class="language-python">criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+
+for epoch in range(epochs):
+    y_pred = model(X_tensor)
+    loss = criterion(y_pred, y_tensor)
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+</code></pre>
+<h4 id="3">3. 我的实验过程<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>实验先用 <code>np.linspace(-5, 5, 500)</code> 构造一维输入，再生成带噪声的目标函数值。随后把数据转成 <code>torch.float32</code> 张量，定义两层全连接网络，用 MSE 作为回归损失，用 Adam 优化器训练。</p>
+<p>训练完成后，通过散点图和预测曲线对比观察模型是否拟合了整体趋势。</p>
+<h4 id="4">4. 实验总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p>这个实验让我完整跑通了 PyTorch 训练流程。最关键的理解是：神经网络不是直接记住样本点，而是通过参数学习输入和输出之间的函数关系。ReLU 激活函数提供非线性表达能力，MSE 负责度量预测误差，<code>loss.backward()</code> 和 <code>optimizer.step()</code> 完成参数更新。</p>
+<p>当前实验的不足是没有划分训练集和测试集，也没有记录完整 loss 曲线，模型保存和实验配置管理也还不完整。</p>
+<h4 id="5">5. 后续改进<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>增加 train/test 划分。</li>
+<li>记录并绘制 loss 曲线。</li>
+<li>对比不同隐藏层维度、学习率和训练轮数。</li>
+<li>加入模型保存和加载。</li>
+<li>把训练和评估封装成函数。</li>
+</ul>
+<h3 id="22-rbf">2.2 RBF 径向基函数网络<a class="headerlink" href="#22-rbf" title="Permanent link">&para;</a></h3>
+<h4 id="1_2">1. 模型原理<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h4>
+<p>RBF 网络是一种基于径向基函数的前馈网络。它的核心思想是：先选择若干中心点，再计算样本到这些中心点的距离，距离越近响应越强，最后用线性输出层组合这些响应得到预测结果。</p>
+<p>与普通 BP 网络相比，RBF 更强调局部响应。BP 通过全局参数逐层变换学习非线性函数，RBF 则通过“样本离中心点有多近”来构造隐藏层特征。</p>
+<h4 id="2_2">2. 核心代码<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def gaussian_rbf(X, centers, spread):
+    diff = X[:, None, :] - centers[None, :, :]
+    dist_sq = np.sum(diff**2, axis=2)
+    Phi = np.exp(-dist_sq / (2 * spread**2))
+    return Phi
+</code></pre>
+<pre><code class="language-python">class RBFRegressor:
+    def __init__(self, n_centers=50, spread=1.0, random_state=None):
+        self.n_centers = n_centers
+        self.spread = spread
+        self.random_state = random_state
+
+    def fit(self, X, y):
+        rng = np.random.default_rng(self.random_state)
+        center_indices = rng.choice(len(X), size=self.n_centers, replace=False)
+        self.centers_ = X[center_indices]
+        Phi = self._gaussian_rbf(X, self.centers_)
+        Phi_bias = np.column_stack([Phi, np.ones(len(Phi))])
+        params = np.linalg.lstsq(Phi_bias, y, rcond=None)[0]
+        self.weights_ = params[:-1]
+        self.bias_ = params[-1]
+        return self
+</code></pre>
+<h4 id="3_1">3. 我的实验过程<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<p>实验中先划分训练集和测试集，再手写高斯 RBF 函数。RBFRegressor 随机选择训练样本作为中心点，计算训练集到中心点的响应矩阵，然后用最小二乘求输出层权重。</p>
+<h4 id="4_1">4. 实验总结<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h4>
+<p>RBF 的训练过程比 BP 更“显式”：隐藏层不是通过反向传播慢慢学习出来，而是先由中心点和宽度参数决定，再求解输出权重。这个实验让我理解了“特征映射 + 线性回归”的思想。</p>
+<p>RBF 的效果对中心点数量和 <code>spread</code> 很敏感。中心点太少可能欠拟合，太多可能过拟合；<code>spread</code> 太小会导致响应过窄，太大又会使局部差异被抹平。</p>
+<h4 id="5_1">5. 后续改进<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>用 KMeans 选择中心点，而不是随机选择。</li>
+<li>系统对比不同 <code>n_centers</code> 和 <code>spread</code>。</li>
+<li>增加交叉验证选择参数。</li>
+<li>与普通 MLP 做误差和曲线对比。</li>
+</ul>
+<h3 id="23-grnn">2.3 GRNN 广义回归神经网络<a class="headerlink" href="#23-grnn" title="Permanent link">&para;</a></h3>
+<h4 id="1_3">1. 模型原理<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h4>
+<p>GRNN 可以看成一种基于样本相似度加权的回归模型。预测新样本时，模型会计算它与所有训练样本的距离，用高斯函数把距离转成权重，再对训练样本的目标值加权平均。</p>
+<p>它不需要像 BP 那样长时间迭代训练，核心参数是平滑因子 <code>spread</code>。<code>spread</code> 越小，模型越依赖近邻样本；<code>spread</code> 越大，预测越平滑。</p>
+<h4 id="2_3">2. 核心代码<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class GRNNRegressor:
+    def __init__(self, spread=1.0):
+        self.spread = spread
+
+    def fit(self, x, y):
+        self.x_train_ = np.asarray(x)
+        self.y_train_ = np.asarray(y).reshape(-1, 1)
+        return self
+
+    def predict(self, x):
+        diff = x[:, None, :] - self.x_train_[None, :, :]
+        dist_sq = np.sum(diff**2, axis=2)
+        weights = np.exp(-dist_sq / (2 * self.spread**2))
+        weight_sum = np.sum(weights, axis=1, keepdims=True)
+        weight_sum = np.where(weight_sum == 0, 1e-12, weight_sum)
+        return weights @ self.y_train_ / weight_sum
+</code></pre>
+<h4 id="3_2">3. 我的实验过程<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h4>
+<p>实验中使用训练集样本作为 GRNN 的记忆样本。预测时不再训练参数，而是根据测试样本与训练样本的距离计算权重，并得到加权平均预测值。</p>
+<h4 id="4_2">4. 实验总结<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h4>
+<p>GRNN 的优点是实现简单、训练很快，适合小样本回归。这个实验让我理解了核回归的基本思想：预测结果来自相似样本的加权组合。</p>
+<p>它的不足也很明显：预测时要和所有训练样本计算距离，数据量大时速度会下降；同时 <code>spread</code> 对效果影响很大，需要调参。</p>
+<h4 id="5_2">5. 后续改进<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对 <code>spread</code> 做网格搜索。</li>
+<li>和 RBF、BP 在同一数据上比较误差。</li>
+<li>观察样本量变大时预测速度变化。</li>
+</ul>
+<h3 id="24-elm">2.4 ELM 极限学习机<a class="headerlink" href="#24-elm" title="Permanent link">&para;</a></h3>
+<h4 id="1_4">1. 模型原理<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h4>
+<p>ELM 的核心思想是：隐藏层权重随机生成并固定，只求解输出层权重。它把神经网络训练转化为“随机特征映射 + 线性输出层求解”。</p>
+<p>普通 BP 需要反向传播迭代更新所有参数，而 ELM 只需要一次前向计算隐藏层输出，再通过最小二乘或岭回归求输出层权重，因此训练速度通常很快。</p>
+<h4 id="2_4">2. 核心代码<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class ELMRegressor:
+    def __init__(self, n_hidden=50, activation=&quot;tanh&quot;, alpha=1e-3, random_state=None):
+        self.n_hidden = n_hidden
+        self.activation = activation
+        self.alpha = alpha
+        self.random_state = random_state
+
+    def _activate(self, Z):
+        if self.activation == &quot;sigmoid&quot;:
+            return 1 / (1 + np.exp(-Z))
+        if self.activation == &quot;tanh&quot;:
+            return np.tanh(Z)
+        if self.activation == &quot;relu&quot;:
+            return np.maximum(0, Z)
+        raise ValueError(&quot;unsupported activation&quot;)
+</code></pre>
+<pre><code class="language-python">class ELMClassifier:
+    def fit(self, X, y):
+        Y = self._one_hot(y)
+        H = self._activate(X @ self.W_ + self.b_)
+        I = np.eye(H.shape[1])
+        self.beta_ = np.linalg.solve(H.T @ H + self.alpha * I, H.T @ Y)
+        return self
+</code></pre>
+<h4 id="3_3">3. 我的实验过程<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h4>
+<p>实验中分别实现了 ELMRegressor 和 ELMClassifier，并与 BPRegressor 做对比。ELM 用随机隐藏层构造特征，输出层通过解析方式求解；BP 则使用 PyTorch 网络，通过损失函数和优化器迭代训练。</p>
+<h4 id="4_3">4. 实验总结<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h4>
+<p>ELM 的最大特点是训练快，代码结构也比较清晰。它让我理解到：神经网络不一定都要通过完整反向传播训练，有时固定随机特征后，只训练输出层也能得到不错效果。</p>
+<p>ELM 的不足是隐藏层随机性较强，效果依赖隐藏节点数量、激活函数和随机种子。它的表示能力不如可端到端训练的深层网络灵活。</p>
+<h4 id="5_3">5. 后续改进<a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>多次随机初始化，观察结果稳定性。</li>
+<li>系统比较 <code>n_hidden</code>、<code>activation</code>、<code>alpha</code>。</li>
+<li>对比 ELM 和 BP 的训练耗时、误差和泛化能力。</li>
+</ul>
+<h2 id="3_4">3. 支持向量机系列<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h2>
+<h3 id="31-svm">3.1 SVM 葡萄酒分类<a class="headerlink" href="#31-svm" title="Permanent link">&para;</a></h3>
+<h4 id="1_5">1. 模型原理<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
+<p>SVM 用于分类时，核心目标是找到一个分类边界，使不同类别之间的间隔尽可能大。离分类边界最近、真正决定边界位置的样本称为支持向量。</p>
+<p>当数据线性不可分时，可以使用核函数把数据映射到更高维空间。常用核函数包括线性核、多项式核和 RBF 核。SVM 对特征尺度敏感，因此训练前通常需要标准化或归一化。</p>
+<h4 id="2_5">2. 核心代码<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.4, random_state=24
+)
+
+scaler = MinMaxScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+</code></pre>
+<pre><code class="language-python">model = SVC(kernel=&quot;linear&quot;, C=1)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+acc = accuracy_score(y_test, y_pred)
+print(confusion_matrix(y_test, y_pred))
+print(model.support_vectors_.shape)
+print(model.n_support_)
+</code></pre>
+<h4 id="3_5">3. 我的实验过程<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h4>
+<p>实验使用 sklearn 的葡萄酒数据集。先做二分类实验，并选取两个特征便于观察分类边界；随后扩展到三分类任务，使用 RBF 核和多分类策略进行分类。</p>
+<p>实验中特别注意了标准化不能对全量数据先 <code>fit</code>，而是必须只在训练集上 <code>fit_transform</code>，再对测试集 <code>transform</code>，避免数据泄漏。</p>
+<h4 id="4_4">4. 实验总结<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了 SVM 的几个关键点：支持向量决定分类边界，核函数决定模型如何处理非线性，<code>C</code> 控制间隔与误分类之间的权衡，标准化对基于距离和间隔的模型非常重要。</p>
+<p>不足是最初只用少量特征做可视化时，模型表达的信息有限；如果使用全部特征，效果更完整但不容易画出二维分类边界。</p>
+<h4 id="5_4">5. 后续改进<a class="headerlink" href="#5_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对不同核函数做系统对比。</li>
+<li>增加分类报告，观察 precision、recall、F1。</li>
+<li>对支持向量数量和分类效果之间的关系做分析。</li>
+</ul>
+<h3 id="32-svm-gridsearchrandomizedsearchgapso">3.2 SVM 参数优化：GridSearch、RandomizedSearch、GA、PSO<a class="headerlink" href="#32-svm-gridsearchrandomizedsearchgapso" title="Permanent link">&para;</a></h3>
+<h4 id="1_6">1. 模型原理<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h4>
+<p>SVM 的表现高度依赖超参数。<code>C</code> 决定模型对误分类的惩罚力度，<code>gamma</code> 决定 RBF 核的影响范围。参数过小或过大都可能导致欠拟合或过拟合。</p>
+<p>本项目中尝试了四类调参方法：</p>
+<ul>
+<li>GridSearch：穷举给定网格。</li>
+<li>RandomizedSearch：随机抽取参数组合。</li>
+<li>GA：用遗传算法搜索参数。</li>
+<li>PSO：用粒子群算法搜索参数。</li>
+</ul>
+<h4 id="2_6">2. 核心代码<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">param_grid = {
+    &quot;C&quot;: [0.01, 0.1, 0.5, 1, 5, 10, 100],
+    &quot;gamma&quot;: [&quot;scale&quot;, &quot;auto&quot;],
+    &quot;kernel&quot;: [&quot;linear&quot;, &quot;rbf&quot;, &quot;poly&quot;, &quot;sigmoid&quot;],
+    &quot;decision_function_shape&quot;: [&quot;ovo&quot;, &quot;ovr&quot;],
+}
+
+grid_search = GridSearchCV(
+    estimator=model,
+    param_grid=param_grid,
+    cv=5,
+    n_jobs=-1
+)
+grid_search.fit(X_train, y_train)
+</code></pre>
+<pre><code class="language-python">def fitness_function(params):
+    C = params[0]
+    gamma = params[1]
+    model = SVC(C=C, gamma=gamma, kernel=&quot;rbf&quot;)
+    scores = cross_val_score(model, X_train, y_train, cv=5)
+    return scores.mean()
+</code></pre>
+<h4 id="3_6">3. 我的实验过程<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h4>
+<p>实验中先用 GridSearchCV 在固定参数表里搜索，再用 RandomizedSearchCV 随机搜索。随后将 <code>C</code>、<code>gamma</code> 等参数转化为连续搜索空间，用 GA 和 PSO 进行启发式搜索。</p>
+<p>为了让调参效果更明显，实验中还使用了 <code>make_moons</code> 生成非线性分类数据。</p>
+<h4 id="4_5">4. 实验总结<a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h4>
+<p>GridSearch 简单直接，但搜索空间大时成本高。RandomizedSearch 更灵活，适合先粗略探索。GA 和 PSO 不要求枚举所有组合，可以在连续空间中搜索，但实现和参数设置更复杂。</p>
+<p>这个实验让我理解了：调参不是盲目换参数，而是要定义评价函数、搜索空间和验证方式。</p>
+<h4 id="5_5">5. 后续改进<a class="headerlink" href="#5_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>记录不同调参方法的耗时。</li>
+<li>对比不同搜索方法得到的测试集表现。</li>
+<li>把搜索过程画成收敛曲线。</li>
+</ul>
+<h3 id="33-svr-qqq">3.3 SVR 时间序列回归：QQQ 收盘价预测<a class="headerlink" href="#33-svr-qqq" title="Permanent link">&para;</a></h3>
+<h4 id="1_7">1. 模型原理<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h4>
+<p>SVR 是 SVM 的回归版本。分类 SVM 关注分类间隔，SVR 关注预测值与真实值之间的偏差，并允许一定范围内的误差不被惩罚。</p>
+<p>时间序列回归的关键是把历史数据转成监督学习样本。例如用过去若干天的收盘价预测下一天收盘价。</p>
+<h4 id="2_7">2. 核心代码<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">model = SVR(kernel=&quot;rbf&quot;, C=1, gamma=&quot;scale&quot;)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+print(mean_squared_error(y_test, y_pred))
+</code></pre>
+<pre><code class="language-python">param_grid = {
+    &quot;C&quot;: np.arange(0.1, 100, 5),
+    &quot;gamma&quot;: np.arange(0.01, 10, 0.5),
+}
+
+grid_search = GridSearchCV(
+    estimator=model,
+    param_grid=param_grid,
+    cv=5,
+    n_jobs=-1
+)
+grid_search.fit(X_train, y_train)
+</code></pre>
+<h4 id="3_7">3. 我的实验过程<a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h4>
+<p>实验使用 QQQ 历史行情数据，构造历史窗口作为输入，用未来收盘价作为标签。训练 SVR 后使用 MSE 评价误差，并画出真实价格和预测价格曲线。</p>
+<p>实验还使用 GridSearchCV 搜索 <code>C</code> 和 <code>gamma</code>，再用最优参数重新训练模型。</p>
+<h4 id="4_6">4. 实验总结<a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了时间序列可以通过滑动窗口转成普通监督学习问题。SVR 能处理非线性回归，但它对特征尺度和参数很敏感。</p>
+<p>当前实验的不足是验证方式还可以更严格，时间序列任务不应随意打乱顺序；同时只预测价格本身容易受到趋势影响，评价时需要结合曲线和误差一起看。</p>
+<h4 id="5_6">5. 后续改进<a class="headerlink" href="#5_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>使用更严格的时间顺序验证。</li>
+<li>增加简单基线模型，比如“明天等于今天”。</li>
+<li>比较不同窗口长度对预测效果的影响。</li>
+</ul>
+<h3 id="34-svc-qqq">3.4 SVC 信息粒化分类：QQQ 趋势预测<a class="headerlink" href="#34-svc-qqq" title="Permanent link">&para;</a></h3>
+<h4 id="1_8">1. 模型原理<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h4>
+<p>信息粒化的思想是把连续数值问题转成更粗粒度的类别问题。本实验中不直接预测未来价格，而是把未来收益率划分为上涨、横盘、下跌三类。</p>
+<p>这样做可以降低任务难度，也更适合观察模型是否能判断趋势方向。标签通过未来收益率的分位数生成，避免主观设定固定阈值。</p>
+<h4 id="2_8">2. 核心代码<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">df[&quot;return&quot;] = df[&quot;close&quot;].pct_change()
+df[&quot;MA5&quot;] = df[&quot;close&quot;].rolling(window=5).mean()
+df[&quot;MA5_ratio&quot;] = df[&quot;close&quot;] / df[&quot;MA5&quot;]
+df[&quot;MA20&quot;] = df[&quot;close&quot;].rolling(window=20).mean()
+df[&quot;MA20_ratio&quot;] = df[&quot;close&quot;] / df[&quot;MA20&quot;]
+df[&quot;volume_change&quot;] = df[&quot;volume&quot;].pct_change()
+</code></pre>
+<pre><code class="language-python">df[&quot;future_return&quot;] = df[&quot;close&quot;].shift(-5) / df[&quot;close&quot;] - 1
+upper = df[&quot;future_return&quot;].quantile(0.66)
+lower = df[&quot;future_return&quot;].quantile(0.33)
+
+def label_price(x):
+    if x &gt; upper:
+        return 1
+    if x &lt; lower:
+        return -1
+    return 0
+</code></pre>
+<pre><code class="language-python">model = Pipeline([
+    (&quot;scaler&quot;, StandardScaler()),
+    (&quot;svc&quot;, SVC(C=1, gamma=&quot;scale&quot;, kernel=&quot;rbf&quot;))
+])
+model.fit(X_train, y_train)
+</code></pre>
+<h4 id="3_8">3. 我的实验过程<a class="headerlink" href="#3_8" title="Permanent link">&para;</a></h4>
+<p>实验构造了收益率、均线比例、成交量变化率、RSI 等特征。标签使用未来 5 天收益率，并按 33% 和 66% 分位数划分为三类。</p>
+<p>划分训练集和测试集时使用 <code>shuffle=False</code>，避免把未来数据混入训练集。调参时使用 <code>TimeSeriesSplit</code>，并用 PSO 搜索 <code>C</code>、<code>gamma</code> 和多分类策略。</p>
+<h4 id="4_7">4. 实验总结<a class="headerlink" href="#4_7" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了真实数据建模中，特征工程和标签设计非常关键。相比直接预测价格，趋势分类更强调任务定义和数据处理。</p>
+<p>不足是目前特征仍然比较基础，评价指标主要看 accuracy 和混淆矩阵，对三分类任务还可以补充每个类别的 precision、recall、F1。</p>
+<h4 id="5_7">5. 后续改进<a class="headerlink" href="#5_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>增加更多技术指标。</li>
+<li>对不同预测周期进行比较。</li>
+<li>增加分类报告。</li>
+<li>用滚动验证方式评估模型稳定性。</li>
+</ul>
+<h2 id="4_8">4. 传统机器学习与可解释模型<a class="headerlink" href="#4_8" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 决策树乳腺癌分类<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h4 id="1_9">1. 模型原理<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h4>
+<p>决策树通过一系列特征判断把样本划分到不同叶子节点。每一次分裂都会选择一个特征和阈值，使划分后的样本更“纯”。常见划分标准包括基尼系数和信息增益。</p>
+<p>决策树的优点是可解释性强，能看出模型根据哪些特征做判断；缺点是容易过拟合，特别是树太深时会记住训练集细节。</p>
+<h4 id="2_9">2. 核心代码<a class="headerlink" href="#2_9" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=24
+)
+
+model = DecisionTreeClassifier(random_state=24)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+</code></pre>
+<h4 id="3_9">3. 我的实验过程<a class="headerlink" href="#3_9" title="Permanent link">&para;</a></h4>
+<p>实验使用 sklearn 的乳腺癌数据集，先训练基础决策树，再用混淆矩阵和分类报告评估分类效果。</p>
+<h4 id="4_9">4. 实验总结<a class="headerlink" href="#4_9" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了决策树的直观性：模型的预测过程可以拆成一条条规则。相比 SVM 这类模型，决策树更容易解释，但也更容易过拟合。</p>
+<h4 id="5_8">5. 后续改进<a class="headerlink" href="#5_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>可视化树结构。</li>
+<li>分析特征重要性。</li>
+<li>和随机森林等集成模型做对比。</li>
+</ul>
+<h3 id="42">4.2 决策树剪枝与网格搜索<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<h4 id="1_10">1. 模型原理<a class="headerlink" href="#1_10" title="Permanent link">&para;</a></h4>
+<p>剪枝是控制决策树复杂度的重要方法。预剪枝是在树生长过程中提前限制复杂度，例如限制最大深度、最小叶子样本数；后剪枝是在树先充分生长后，再通过代价复杂度参数 <code>ccp_alpha</code> 删除不必要分支。</p>
+<p>网格搜索用于系统比较不同参数组合，选择交叉验证表现更好的模型。</p>
+<h4 id="2_10">2. 核心代码<a class="headerlink" href="#2_10" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">param_grid = {
+    &quot;max_depth&quot;: [2, 3, 4, 5, None],
+    &quot;min_samples_split&quot;: [2, 5, 10],
+    &quot;min_samples_leaf&quot;: [1, 2, 4],
+    &quot;criterion&quot;: [&quot;gini&quot;, &quot;entropy&quot;],
+}
+
+grid_search = GridSearchCV(
+    DecisionTreeClassifier(random_state=24),
+    param_grid=param_grid,
+    cv=5,
+    scoring=&quot;accuracy&quot;
+)
+grid_search.fit(X_train, y_train)
+</code></pre>
+<h4 id="3_10">3. 我的实验过程<a class="headerlink" href="#3_10" title="Permanent link">&para;</a></h4>
+<p>实验中先尝试手动设置树深度、叶子节点样本数等预剪枝参数，再使用 GridSearchCV 自动搜索。后剪枝部分通过不同 <code>ccp_alpha</code> 观察模型复杂度和效果变化。</p>
+<h4 id="4_10">4. 实验总结<a class="headerlink" href="#4_10" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了过拟合和模型复杂度控制之间的关系。决策树如果不限制，会倾向于把训练集分得很细；剪枝能牺牲部分训练集拟合能力，换取更好的泛化能力。</p>
+<h4 id="5_9">5. 后续改进<a class="headerlink" href="#5_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>绘制 <code>ccp_alpha</code> 与测试准确率关系曲线。</li>
+<li>对比剪枝前后树深度、叶子数和准确率。</li>
+<li>分析误分类样本。</li>
+</ul>
+<h2 id="5_10">5. 无监督学习与竞争学习<a class="headerlink" href="#5_10" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 自组织竞争网络<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<h4 id="1_11">1. 模型原理<a class="headerlink" href="#1_11" title="Permanent link">&para;</a></h4>
+<p>自组织竞争网络通过“胜者为王”的机制学习样本原型。每个神经元有一个权重向量，输入样本到来时，计算样本与所有神经元权重的距离，距离最近的神经元获胜，并向该样本方向更新。</p>
+<p>这个过程不直接使用标签训练，标签主要用于训练后评估聚类结果。</p>
+<h4 id="2_11">2. 核心代码<a class="headerlink" href="#2_11" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class CompetitiveNetwork:
+    def __init__(self, n_neurons=2, lr=0.01, epochs=100, random_state=None):
+        self.n_neurons = n_neurons
+        self.lr = lr
+        self.epochs = epochs
+        self.random_state = random_state
+
+    def fit(self, X):
+        rng = np.random.default_rng(self.random_state)
+        init_indices = rng.choice(len(X), size=self.n_neurons, replace=False)
+        self.weights_ = X[init_indices].copy()
+
+        for epoch in range(self.epochs):
+            for idx in rng.permutation(len(X)):
+                x = X[idx]
+                distances = np.linalg.norm(self.weights_ - x, axis=1)
+                winner = np.argmin(distances)
+                self.weights_[winner] += self.lr * (x - self.weights_[winner])
+        return self
+</code></pre>
+<h4 id="3_11">3. 我的实验过程<a class="headerlink" href="#3_11" title="Permanent link">&para;</a></h4>
+<p>实验使用乳腺癌数据集，先做标准化，再用竞争网络训练聚类原型。训练完成后，将聚类编号映射到真实标签，用 accuracy、confusion matrix 和 classification report 评估聚类效果。</p>
+<h4 id="4_11">4. 实验总结<a class="headerlink" href="#4_11" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了无监督学习和监督学习的区别：训练时模型不知道真实类别，只能根据样本分布学习原型。竞争网络的核心在于距离度量和获胜神经元更新。</p>
+<p>不足是竞争网络对初始化、学习率和神经元数量敏感，聚类编号本身没有类别含义，需要后处理映射到真实标签。</p>
+<h4 id="5_11">5. 后续改进<a class="headerlink" href="#5_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比不同神经元数量。</li>
+<li>调整学习率和训练轮数。</li>
+<li>多次随机初始化观察稳定性。</li>
+</ul>
+<h3 id="52-kmeans-pca">5.2 竞争网络与 KMeans / PCA 可视化<a class="headerlink" href="#52-kmeans-pca" title="Permanent link">&para;</a></h3>
+<h4 id="1_12">1. 模型原理<a class="headerlink" href="#1_12" title="Permanent link">&para;</a></h4>
+<p>KMeans 和竞争网络都可以理解为学习若干聚类中心。区别是 KMeans 通常批量迭代更新中心，而竞争网络更像在线学习，每次样本只更新获胜神经元。</p>
+<p>PCA 用于把高维数据降到二维，方便观察聚类结果和类别分布。</p>
+<h4 id="2_12">2. 核心代码<a class="headerlink" href="#2_12" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+
+pca = PCA(n_components=2)
+X_2d = pca.fit_transform(X_scaled)
+
+kmeans = KMeans(n_clusters=2, random_state=24)
+cluster_labels = kmeans.fit_predict(X_scaled)
+</code></pre>
+<h4 id="3_12">3. 我的实验过程<a class="headerlink" href="#3_12" title="Permanent link">&para;</a></h4>
+<p>实验中使用 PCA 将乳腺癌高维特征压缩到二维，再可视化不同聚类标签的分布。KMeans 作为对照方法，用来帮助理解竞争网络学到的聚类结构。</p>
+<h4 id="4_12">4. 实验总结<a class="headerlink" href="#4_12" title="Permanent link">&para;</a></h4>
+<p>PCA 可视化让我更直观地看到高维样本在低维空间中的分布。KMeans 和竞争网络虽然实现不同，但都在寻找能代表样本群体的中心或原型。</p>
+<h4 id="5_12">5. 后续改进<a class="headerlink" href="#5_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比 PCA 前后聚类效果。</li>
+<li>使用不同随机种子重复实验。</li>
+<li>增加轮廓系数等无监督评价指标。</li>
+</ul>
+<h2 id="6">6. 特征选择与变量重要性<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61-miv">6.1 MIV 变量筛选<a class="headerlink" href="#61-miv" title="Permanent link">&para;</a></h3>
+<h4 id="1_13">1. 模型原理<a class="headerlink" href="#1_13" title="Permanent link">&para;</a></h4>
+<p>MIV 的全称是 Mean Impact Value，核心思想是通过扰动某个输入变量，观察模型输出平均变化，从而判断该变量对预测结果的影响程度。</p>
+<p>如果某个变量增加或减少后，模型输出变化很大，说明模型对这个变量比较敏感；如果输出变化很小，说明这个变量可能不重要。</p>
+<h4 id="2_13">2. 核心代码<a class="headerlink" href="#2_13" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class BPRegressor(nn.Module):
+    def __init__(self, input_dim, hidden_dim=20):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.Tanh(),
+            nn.Linear(hidden_dim, 1)
+        )
+
+    def forward(self, x):
+        return self.net(x)
+</code></pre>
+<pre><code class="language-python">def compute_miv(model, X_original, x_scaler, y_scaler, feature_names, change_rate=0.1):
+    miv_results = []
+    for j, name in enumerate(feature_names):
+        X_plus = X_original.copy()
+        X_minus = X_original.copy()
+        X_plus[:, j] *= (1 + change_rate)
+        X_minus[:, j] *= (1 - change_rate)
+
+        plus_scaled = x_scaler.transform(X_plus)
+        minus_scaled = x_scaler.transform(X_minus)
+        with torch.no_grad():
+            y_plus = model(torch.tensor(plus_scaled, dtype=torch.float32)).numpy()
+            y_minus = model(torch.tensor(minus_scaled, dtype=torch.float32)).numpy()
+        miv_results.append((name, np.mean(y_plus - y_minus)))
+    return miv_results
+</code></pre>
+<h4 id="3_13">3. 我的实验过程<a class="headerlink" href="#3_13" title="Permanent link">&para;</a></h4>
+<p>实验先训练一个 BP 回归模型，再分别对每个输入特征进行正向和负向扰动。通过扰动前后预测值的平均差异计算 MIV，并根据绝对值大小排序变量重要性。</p>
+<h4 id="4_13">4. 实验总结<a class="headerlink" href="#4_13" title="Permanent link">&para;</a></h4>
+<p>MIV 让我理解了“模型解释”的一种思路：不是只看模型预测结果，而是分析输入变量变化会如何影响输出。它类似特征消融和扰动分析。</p>
+<p>不足是 MIV 依赖已经训练好的模型，如果模型本身训练不好，变量重要性也不可靠；同时特征之间如果强相关，单独扰动一个变量可能无法完全反映真实影响。</p>
+<h4 id="5_13">5. 后续改进<a class="headerlink" href="#5_13" title="Permanent link">&para;</a></h4>
+<ul>
+<li>多次训练模型，观察 MIV 排名稳定性。</li>
+<li>与 permutation importance 做对比。</li>
+<li>用筛选后的特征重新训练模型，验证性能变化。</li>
+</ul>
+<h3 id="62">6.2 遗传算法特征选择<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<h4 id="1_14">1. 模型原理<a class="headerlink" href="#1_14" title="Permanent link">&para;</a></h4>
+<p>遗传算法特征选择把“是否选择某个特征”编码成 0/1 染色体。每个个体代表一个特征子集，适应度函数通常由模型交叉验证准确率和特征数量惩罚共同决定。</p>
+<p>通过选择、交叉、变异不断产生新特征子集，逐步搜索效果更好、特征更少的组合。</p>
+<h4 id="2_14">2. 核心代码<a class="headerlink" href="#2_14" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def fitness_function(individual, X, y, penalty=0.01):
+    selected_indices = np.where(np.asarray(individual) == 1)[0]
+    if len(selected_indices) == 0:
+        return 0.0
+
+    X_selected = X[:, selected_indices]
+    model = Pipeline([
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;clf&quot;, LogisticRegression(max_iter=5000, random_state=24))
+    ])
+    scores = cross_val_score(model, X_selected, y, cv=5, scoring=&quot;accuracy&quot;)
+    accuracy = scores.mean()
+    feature_ratio = len(selected_indices) / X.shape[1]
+    return accuracy - penalty * feature_ratio
+</code></pre>
+<pre><code class="language-python">def initialize_population(pop_size, n_features):
+    population = np.random.randint(0, 2, size=(pop_size, n_features))
+    for i in range(pop_size):
+        if population[i].sum() == 0:
+            population[i, np.random.randint(0, n_features)] = 1
+    return population
+</code></pre>
+<h4 id="3_14">3. 我的实验过程<a class="headerlink" href="#3_14" title="Permanent link">&para;</a></h4>
+<p>实验使用乳腺癌数据集，以逻辑回归作为评价模型。先训练使用全部特征的 baseline，再用 GA 搜索特征子集。适应度函数不仅考虑交叉验证准确率，还加入特征数量惩罚，避免模型选择过多特征。</p>
+<h4 id="4_14">4. 实验总结<a class="headerlink" href="#4_14" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了特征选择可以被转化为组合优化问题。GA 不直接优化模型参数，而是优化“选哪些特征”。特征数量惩罚很重要，否则算法可能倾向于保留大部分特征。</p>
+<p>不足是 GA 搜索结果有随机性，且计算成本较高，因为每个个体都需要做交叉验证。</p>
+<h4 id="5_14">5. 后续改进<a class="headerlink" href="#5_14" title="Permanent link">&para;</a></h4>
+<ul>
+<li>多次运行 GA，观察选中特征稳定性。</li>
+<li>对比无惩罚和有惩罚的结果。</li>
+<li>与 MIV 筛选结果进行比较。</li>
+</ul>
+<h2 id="7">7. 时间序列与动态神经网络<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71-elman">7.1 Elman 神经网络<a class="headerlink" href="#71-elman" title="Permanent link">&para;</a></h3>
+<h4 id="1_15">1. 模型原理<a class="headerlink" href="#1_15" title="Permanent link">&para;</a></h4>
+<p>Elman 网络是一种早期循环神经网络。它通过上下文层保存上一时刻隐藏状态，使模型能够利用历史信息。相比普通前馈网络，Elman 网络更适合处理带时间依赖的数据。</p>
+<p>在本实验中，序列数据被构造成固定长度窗口，模型根据过去若干时刻预测未来输出。</p>
+<h4 id="2_15">2. 核心代码<a class="headerlink" href="#2_15" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def make_elman_dataset(data, seq_len=3):
+    X, y = [], []
+    for i in range(len(data) - seq_len):
+        X.append(data[i:i + seq_len])
+        y.append(data[i + seq_len])
+    return np.array(X), np.array(y)
+</code></pre>
+<pre><code class="language-python">class ElmanRegressor(nn.Module):
+    def __init__(self, input_dim=3, hidden_dim=5, output_dim=3):
+        super().__init__()
+        self.rnn = nn.RNN(
+            input_size=input_dim,
+            hidden_size=hidden_dim,
+            batch_first=True
+        )
+        self.fc = nn.Linear(hidden_dim, output_dim)
+
+    def forward(self, x):
+        out, hidden = self.rnn(x)
+        return self.fc(out[:, -1, :])
+</code></pre>
+<h4 id="3_15">3. 我的实验过程<a class="headerlink" href="#3_15" title="Permanent link">&para;</a></h4>
+<p>实验先把时间序列数据处理成滑动窗口样本，再进行标准化。模型使用 PyTorch 的 RNN 层模拟 Elman 网络结构，最后接全连接层输出预测结果。</p>
+<h4 id="4_15">4. 实验总结<a class="headerlink" href="#4_15" title="Permanent link">&para;</a></h4>
+<p>Elman 实验让我理解了时间序列模型和普通回归模型的差别：普通模型只看当前构造好的特征，而 Elman 网络通过隐藏状态表达历史依赖。</p>
+<p>不足是当前实验序列长度和隐藏层规模较小，对复杂时间依赖的表达能力有限。</p>
+<h4 id="5_15">5. 后续改进<a class="headerlink" href="#5_15" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比不同 <code>seq_len</code>。</li>
+<li>增加训练/验证损失曲线。</li>
+<li>与普通 MLP 滑动窗口模型比较。</li>
+</ul>
+<h3 id="72">7.2 小波神经网络<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<h4 id="1_16">1. 模型原理<a class="headerlink" href="#1_16" title="Permanent link">&para;</a></h4>
+<p>小波神经网络把小波函数作为隐藏层激活函数。小波函数具有局部性，适合描述局部变化明显的序列。实验中使用 Morlet 小波函数，对滑动窗口输入进行非线性变换，再通过输出层预测下一时刻。</p>
+<h4 id="2_16">2. 核心代码<a class="headerlink" href="#2_16" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def make_window_dataset(values, window_size=6):
+    X, y = [], []
+    for i in range(len(values) - window_size):
+        X.append(values[i:i + window_size])
+        y.append(values[i + window_size])
+    return np.array(X), np.array(y)
+</code></pre>
+<pre><code class="language-python">def morlet(x):
+    return torch.cos(1.75 * x) * torch.exp(-0.5 * x**2)
+
+class WaveletNNRegressor(nn.Module):
+    def __init__(self, input_dim, hidden_dim=10):
+        super().__init__()
+        self.W = nn.Parameter(torch.randn(input_dim, hidden_dim) * 0.5)
+        self.b = nn.Parameter(torch.randn(hidden_dim) * 0.1)
+        self.raw_a = nn.Parameter(torch.randn(hidden_dim) * 0.1)
+        self.output_layer = nn.Linear(hidden_dim, 1)
+
+    def forward(self, x):
+        net = x @ self.W
+        a = torch.nn.functional.softplus(self.raw_a) + 1e-6
+        z = (net - self.b) / a
+        h = morlet(z)
+        return self.output_layer(h)
+</code></pre>
+<h4 id="3_16">3. 我的实验过程<a class="headerlink" href="#3_16" title="Permanent link">&para;</a></h4>
+<p>实验以交通流量类时间序列为对象，先用滑动窗口构造输入和标签，再训练小波神经网络预测下一时刻值。随后又实现普通 MLPRegressor 作为对照模型。</p>
+<h4 id="4_16">4. 实验总结<a class="headerlink" href="#4_16" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了模型结构可以根据任务特点进行设计。小波神经网络不是简单堆叠全连接层，而是把小波函数引入隐藏层，用局部响应建模序列变化。</p>
+<p>不足是小波参数训练可能不稳定，且需要和普通 MLP 在相同划分和指标下系统比较。</p>
+<h4 id="5_16">5. 后续改进<a class="headerlink" href="#5_16" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比不同窗口长度。</li>
+<li>对比小波网络和 MLP 的 MSE、MAE、R2。</li>
+<li>观察小波伸缩参数和平移参数的训练结果。</li>
+</ul>
+<h3 id="73">7.3 灰色预测与灰色神经网络<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<h4 id="1_17">1. 模型原理<a class="headerlink" href="#1_17" title="Permanent link">&para;</a></h4>
+<p>灰色预测适合小样本、不完全信息的序列预测。GM(1,1) 先对原始序列做一次累加生成，弱化随机波动，再通过微分方程形式拟合趋势。</p>
+<p>灰色神经网络和残差 BP 的思想是：先用灰色模型捕捉整体趋势，再用神经网络补充非线性或残差部分。</p>
+<h4 id="2_17">2. 核心代码<a class="headerlink" href="#2_17" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class GM11:
+    def fit(self, x0):
+        x0 = np.asarray(x0, dtype=float)
+        self.x0_ = x0
+        x1 = np.cumsum(x0)
+        z1 = 0.5 * (x1[1:] + x1[:-1])
+        B = np.column_stack([-z1, np.ones(len(z1))])
+        Y = x0[1:].reshape(-1, 1)
+        params = np.linalg.lstsq(B, Y, rcond=None)[0].ravel()
+        self.a_, self.b_ = params[0], params[1]
+        return self
+</code></pre>
+<pre><code class="language-python">def make_grey_nn_dataset(series, time_index, window_size=3):
+    X_lag, X_time, y = [], [], []
+    for i in range(window_size, len(series)):
+        X_lag.append(series[i - window_size:i])
+        X_time.append(time_index[i])
+        y.append(series[i])
+    return np.array(X_time).reshape(-1, 1), np.array(X_lag), np.array(y)
+</code></pre>
+<h4 id="3_17">3. 我的实验过程<a class="headerlink" href="#3_17" title="Permanent link">&para;</a></h4>
+<p>实验实现了三种方案：GM(1,1)、书中灰色神经网络思路、GM(1,1) 加 BP 残差修正。先用灰色模型预测趋势，再计算训练残差，并用 BP 对残差序列建模。</p>
+<h4 id="4_17">4. 实验总结<a class="headerlink" href="#4_17" title="Permanent link">&para;</a></h4>
+<p>灰色模型让我理解了另一种时间序列建模方式：不是直接用大量样本训练复杂模型，而是利用累加生成和趋势方程处理小样本序列。残差 BP 的思想也很清晰，即先用简单模型拟合主趋势，再用神经网络修正误差。</p>
+<p>不足是灰色模型假设较强，对非单调、强波动序列可能效果有限；残差模型也容易受到训练样本少的限制。</p>
+<h4 id="5_17">5. 后续改进<a class="headerlink" href="#5_17" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比 GM、灰色神经网络、残差 BP 的误差。</li>
+<li>增加滚动预测实验。</li>
+<li>分析残差序列是否仍有规律。</li>
+</ul>
+<h3 id="74-narx">7.4 NARX / 动态神经网络<a class="headerlink" href="#74-narx" title="Permanent link">&para;</a></h3>
+<h4 id="1_18">1. 模型原理<a class="headerlink" href="#1_18" title="Permanent link">&para;</a></h4>
+<p>NARX 模型强调两类历史信息：外部输入的历史值和目标输出的历史值。当前输出不仅由过去的外部变量决定，也由过去的输出状态决定。</p>
+<p>本实验用动态延迟特征近似 NARX 思想，把过去若干时刻的 <code>x</code> 和 <code>y</code> 拼接为输入，再用前馈网络预测当前 <code>y</code>。</p>
+<h4 id="2_18">2. 核心代码<a class="headerlink" href="#2_18" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def make_dynamic_dataset(x_series, y_series, delay=3):
+    X, y = [], []
+    for i in range(delay, len(y_series)):
+        x_history = x_series[i - delay:i]
+        y_history = y_series[i - delay:i]
+        features = np.concatenate([x_history, y_history])
+        X.append(features)
+        y.append(y_series[i])
+    return np.array(X), np.array(y)
+</code></pre>
+<pre><code class="language-python">class DynamicNNRegressor(nn.Module):
+    def __init__(self, input_dim, hidden_dim=20):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.Tanh(),
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.Tanh(),
+            nn.Linear(hidden_dim, 1)
+        )
+
+    def forward(self, x):
+        return self.net(x)
+</code></pre>
+<h4 id="3_18">3. 我的实验过程<a class="headerlink" href="#3_18" title="Permanent link">&para;</a></h4>
+<p>实验使用外部输入序列和目标输出序列构造动态样本。后续又设计了对比函数，分别测试只用历史 <code>x</code>、只用历史 <code>y</code>、同时使用历史 <code>x</code> 和 <code>y</code> 三种模式。</p>
+<h4 id="4_18">4. 实验总结<a class="headerlink" href="#4_18" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了动态系统建模中“历史信息”的重要性。相比只看当前输入，加入历史输出能让模型获得系统自身状态变化的信息。</p>
+<p>不足是当前实现是固定窗口特征加前馈网络，还不是完整反馈式网络；同时需要更严格比较不同 delay 和不同输入模式。</p>
+<h4 id="5_18">5. 后续改进<a class="headerlink" href="#5_18" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比 <code>mode="x"</code>、<code>mode="y"</code>、<code>mode="xy"</code> 的效果。</li>
+<li>调整 delay 长度。</li>
+<li>增加更完整的误差曲线和预测曲线。</li>
+</ul>
+<h2 id="8">8. 智能优化算法<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="81-ga">8.1 遗传算法 GA<a class="headerlink" href="#81-ga" title="Permanent link">&para;</a></h3>
+<h4 id="1_19">1. 模型原理<a class="headerlink" href="#1_19" title="Permanent link">&para;</a></h4>
+<p>遗传算法模拟生物进化过程，通过种群、适应度、选择、交叉和变异进行搜索。它适合处理参数搜索、特征选择等不容易直接求导的问题。</p>
+<p>在当前项目中，GA 既用于 SVM 参数优化，也用于特征选择。</p>
+<h4 id="2_19">2. 核心代码<a class="headerlink" href="#2_19" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def ga_optimize(
+    fitness_function,
+    param_ranges,
+    population_size=20,
+    generations=20,
+    mutation_rate=0.1,
+    verbose=True
+):
+    population = []
+    for _ in range(population_size):
+        individual = [
+            np.random.uniform(r[0], r[1])
+            for r in param_ranges
+        ]
+        population.append(individual)
+</code></pre>
+<pre><code class="language-python">combined = list(zip(population, fitness_scores))
+combined = sorted(combined, key=lambda x: x[1], reverse=True)
+survivors = [item[0] for item in combined[:population_size // 2]]
+
+child = []
+for j in range(len(param_ranges)):
+    child.append(parent1[j] if np.random.rand() &lt; 0.5 else parent2[j])
+</code></pre>
+<h4 id="3_19">3. 我的实验过程<a class="headerlink" href="#3_19" title="Permanent link">&para;</a></h4>
+<p>在 SVM 参数优化中，个体表示一组超参数，适应度是交叉验证分数。在特征选择中，个体是 0/1 编码，表示是否选择某个特征。</p>
+<h4 id="4_19">4. 实验总结<a class="headerlink" href="#4_19" title="Permanent link">&para;</a></h4>
+<p>GA 的优点是通用，不要求目标函数可导，也不要求搜索空间很规则。缺点是计算成本较高，结果有随机性，需要设置种群规模、迭代次数和变异率。</p>
+<h4 id="5_19">5. 后续改进<a class="headerlink" href="#5_19" title="Permanent link">&para;</a></h4>
+<ul>
+<li>多次运行观察稳定性。</li>
+<li>调整变异率和种群规模。</li>
+<li>画出每一代最优适应度曲线。</li>
+</ul>
+<h3 id="82-pso">8.2 粒子群优化 PSO<a class="headerlink" href="#82-pso" title="Permanent link">&para;</a></h3>
+<h4 id="1_20">1. 模型原理<a class="headerlink" href="#1_20" title="Permanent link">&para;</a></h4>
+<p>PSO 模拟粒子群在搜索空间中移动。每个粒子有当前位置和速度，同时记住自己的历史最优位置和群体历史最优位置。速度更新由惯性项、个体学习项和群体学习项共同决定。</p>
+<p>PSO 适合连续参数搜索。本项目中主要用于 SVM / SVC 参数优化。</p>
+<h4 id="2_20">2. 核心代码<a class="headerlink" href="#2_20" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def pso_optimize(
+    fitness_function,
+    param_ranges,
+    particle_num=20,
+    iterations=20,
+    w=0.7,
+    c1=2,
+    c2=2,
+    verbose=True
+):
+    positions = []
+    velocities = []
+    for _ in range(particle_num):
+        position = [np.random.uniform(r[0], r[1]) for r in param_ranges]
+        velocity = [
+            np.random.uniform(-(r[1] - r[0]) * 0.1, (r[1] - r[0]) * 0.1)
+            for r in param_ranges
+        ]
+        positions.append(position)
+        velocities.append(velocity)
+</code></pre>
+<pre><code class="language-python">velocities[i] = (
+    w * velocities[i]
+    + c1 * r1 * (pbest_positions[i] - positions[i])
+    + c2 * r2 * (gbest_position - positions[i])
+)
+positions[i] = positions[i] + velocities[i]
+</code></pre>
+<h4 id="3_20">3. 我的实验过程<a class="headerlink" href="#3_20" title="Permanent link">&para;</a></h4>
+<p>实验中把 <code>C</code>、<code>gamma</code> 等超参数作为粒子位置，适应度函数返回交叉验证准确率。每次迭代后更新粒子速度和位置，并记录全局最优分数。</p>
+<h4 id="4_20">4. 实验总结<a class="headerlink" href="#4_20" title="Permanent link">&para;</a></h4>
+<p>PSO 比网格搜索更灵活，可以在连续空间中移动搜索。相比 GA，PSO 的更新方向更依赖历史最优位置，收敛过程更像一群粒子逐渐靠近较优区域。</p>
+<p>不足是 PSO 也需要调参数，如粒子数量、迭代次数、惯性权重和学习因子。</p>
+<h4 id="5_20">5. 后续改进<a class="headerlink" href="#5_20" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对比不同 <code>w</code>、<code>c1</code>、<code>c2</code>。</li>
+<li>与 GA、GridSearch 的耗时和效果比较。</li>
+<li>绘制最优分数随迭代变化曲线。</li>
+</ul>
+<h3 id="83-ga-pso">8.3 GA / PSO 在当前实验中的使用对比<a class="headerlink" href="#83-ga-pso" title="Permanent link">&para;</a></h3>
+<h4 id="1_21">1. 模型原理<a class="headerlink" href="#1_21" title="Permanent link">&para;</a></h4>
+<p>GA 和 PSO 都属于启发式优化算法。它们不直接依赖梯度，而是通过反复试验候选解来寻找更优参数。</p>
+<p>GA 更像“种群繁殖”，通过选择、交叉、变异产生新解；PSO 更像“群体移动”，通过个体经验和群体经验更新搜索方向。</p>
+<h4 id="2_21">2. 核心代码<a class="headerlink" href="#2_21" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">best_params, best_score, history = ga_optimize(
+    fitness_function=fitness_function,
+    param_ranges=param_ranges,
+    population_size=20,
+    generations=20
+)
+</code></pre>
+<pre><code class="language-python">best_params, best_score, history = pso_optimize(
+    fitness_function=fitness_function,
+    param_ranges=param_ranges,
+    particle_num=20,
+    iterations=30,
+    w=0.7,
+    c1=2,
+    c2=2
+)
+</code></pre>
+<h4 id="3_21">3. 我的实验过程<a class="headerlink" href="#3_21" title="Permanent link">&para;</a></h4>
+<p>在 SVM 类实验中，GA 和 PSO 都被用来搜索超参数；在特征选择实验中，GA 被用来搜索特征子集。</p>
+<h4 id="4_21">4. 实验总结<a class="headerlink" href="#4_21" title="Permanent link">&para;</a></h4>
+<p>GA 更适合离散组合问题，例如特征选择；PSO 更适合连续参数搜索，例如 <code>C</code> 和 <code>gamma</code>。两者都需要合理设计适应度函数，否则搜索结果没有意义。</p>
+<h4 id="5_21">5. 后续改进<a class="headerlink" href="#5_21" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在同一任务上统一比较两者。</li>
+<li>固定随机种子减少偶然性。</li>
+<li>记录搜索过程和最终测试集表现。</li>
+</ul>
+<h2 id="9">9. 自定义网络与训练工程<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<h3 id="91-mlp">9.1 自定义 MLP<a class="headerlink" href="#91-mlp" title="Permanent link">&para;</a></h3>
+<h4 id="1_22">1. 模型原理<a class="headerlink" href="#1_22" title="Permanent link">&para;</a></h4>
+<p>自定义 MLP 是理解 PyTorch 模型结构的基础。<code>__init__</code> 定义网络层和参数，<code>forward</code> 定义数据如何流过这些层。</p>
+<h4 id="2_22">2. 核心代码<a class="headerlink" href="#2_22" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class MLP(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim):
+        super().__init__()
+        self.fc1 = nn.Linear(input_dim, hidden_dim)
+        self.act = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_dim, output_dim)
+
+    def forward(self, x):
+        h = self.fc1(x)
+        h = self.act(h)
+        out = self.fc2(h)
+        return out
+</code></pre>
+<h4 id="3_22">3. 我的实验过程<a class="headerlink" href="#3_22" title="Permanent link">&para;</a></h4>
+<p>实验中先实现最基础的 MLP，明确 PyTorch 自定义模型的两个核心部分：层定义和前向传播。</p>
+<h4 id="4_22">4. 实验总结<a class="headerlink" href="#4_22" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了 <code>nn.Module</code> 的基本写法。模型不是黑箱，网络结构需要在代码中明确表达。</p>
+<h4 id="5_22">5. 后续改进<a class="headerlink" href="#5_22" title="Permanent link">&para;</a></h4>
+<ul>
+<li>增加多层 MLP。</li>
+<li>加入 Dropout 或 BatchNorm。</li>
+<li>对比不同激活函数。</li>
+</ul>
+<h3 id="92-twobranchnet">9.2 双分支网络 TwoBranchNet<a class="headerlink" href="#92-twobranchnet" title="Permanent link">&para;</a></h3>
+<h4 id="1_23">1. 模型原理<a class="headerlink" href="#1_23" title="Permanent link">&para;</a></h4>
+<p>双分支网络适合处理两组不同来源或不同含义的输入。每个分支先独立提取特征，再把两个分支的表示拼接起来，送入统一输出头。</p>
+<h4 id="2_23">2. 核心代码<a class="headerlink" href="#2_23" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class TwoBranchNet(nn.Module):
+    def __init__(self, dim_a, dim_b, hidden_dim, output_dim):
+        super().__init__()
+        self.branch_a = nn.Sequential(
+            nn.Linear(dim_a, hidden_dim),
+            nn.ReLU()
+        )
+        self.branch_b = nn.Sequential(
+            nn.Linear(dim_b, hidden_dim),
+            nn.ReLU()
+        )
+        self.head = nn.Sequential(
+            nn.Linear(hidden_dim * 2, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, output_dim)
+        )
+
+    def forward(self, x_a, x_b):
+        h_a = self.branch_a(x_a)
+        h_b = self.branch_b(x_b)
+        h = torch.cat([h_a, h_b], dim=1)
+        return self.head(h)
+</code></pre>
+<h4 id="3_23">3. 我的实验过程<a class="headerlink" href="#3_23" title="Permanent link">&para;</a></h4>
+<p>实验中通过 TwoBranchNet 学习如何处理多输入结构。两个输入分别进入不同分支，再融合为最终预测。</p>
+<h4 id="4_23">4. 实验总结<a class="headerlink" href="#4_23" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了自定义网络不一定是单一路径。对于多源特征，分支结构能让模型先分别提取信息，再做融合。</p>
+<h4 id="5_23">5. 后续改进<a class="headerlink" href="#5_23" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在真实多特征任务中使用双分支结构。</li>
+<li>对比早期拼接输入和分支后融合的效果。</li>
+</ul>
+<h3 id="93-morletlayer-waveletnet">9.3 MorletLayer 与 WaveletNet<a class="headerlink" href="#93-morletlayer-waveletnet" title="Permanent link">&para;</a></h3>
+<h4 id="1_24">1. 模型原理<a class="headerlink" href="#1_24" title="Permanent link">&para;</a></h4>
+<p>MorletLayer 把小波函数封装为自定义神经网络层。WaveletNet 则利用这个层构建小波神经网络。它展示了如何把自己定义的数学变换写成 PyTorch 模块。</p>
+<h4 id="2_24">2. 核心代码<a class="headerlink" href="#2_24" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class MorletLayer(nn.Module):
+    def __init__(self, input_dim, hidden_dim):
+        super().__init__()
+        self.W = nn.Parameter(torch.randn(input_dim, hidden_dim))
+        self.b = nn.Parameter(torch.zeros(hidden_dim))
+        self.raw_a = nn.Parameter(torch.zeros(hidden_dim))
+
+    def forward(self, x):
+        a = torch.nn.functional.softplus(self.raw_a) + 1e-6
+        z = (x @ self.W - self.b) / a
+        return torch.cos(1.75 * z) * torch.exp(-0.5 * z**2)
+</code></pre>
+<pre><code class="language-python">class WaveletNet(nn.Module):
+    def __init__(self, input_dim, hidden_dim):
+        super().__init__()
+        self.wavelet = MorletLayer(input_dim, hidden_dim)
+        self.output = nn.Linear(hidden_dim, 1)
+
+    def forward(self, x):
+        h = self.wavelet(x)
+        return self.output(h)
+</code></pre>
+<h4 id="3_24">3. 我的实验过程<a class="headerlink" href="#3_24" title="Permanent link">&para;</a></h4>
+<p>实验把小波变换写成可训练层，并把它组合进完整网络中。这和前面的小波神经网络实验互相对应。</p>
+<h4 id="4_24">4. 实验总结<a class="headerlink" href="#4_24" title="Permanent link">&para;</a></h4>
+<p>这个实验让我理解了 PyTorch 的灵活性：只要能写出前向计算，并用 <code>nn.Parameter</code> 注册可训练参数，就可以构造自定义层。</p>
+<h4 id="5_24">5. 后续改进<a class="headerlink" href="#5_24" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对自定义层做单元测试。</li>
+<li>可视化不同隐藏节点的小波响应。</li>
+<li>检查参数是否正常更新。</li>
+</ul>
+<h3 id="94-gpu">9.4 GPU 加速与高效训练流程<a class="headerlink" href="#94-gpu" title="Permanent link">&para;</a></h3>
+<h4 id="1_25">1. 模型原理<a class="headerlink" href="#1_25" title="Permanent link">&para;</a></h4>
+<p>GPU 加速的核心不是只把模型放到 GPU，而是保证模型、输入数据、标签和计算都在同一个设备上。训练时要使用 <code>model.train()</code>，推理时要使用 <code>model.eval()</code> 和 <code>torch.no_grad()</code> 或 <code>torch.inference_mode()</code>。</p>
+<h4 id="2_25">2. 核心代码<a class="headerlink" href="#2_25" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+model = model.to(device)
+
+for batch_X, batch_y in train_loader:
+    batch_X = batch_X.to(device)
+    batch_y = batch_y.to(device)
+
+    y_pred = model(batch_X)
+    loss = criterion(y_pred, batch_y)
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+</code></pre>
+<pre><code class="language-python">model.eval()
+X_test_tensor = torch.tensor(X_test, dtype=torch.float32).to(device)
+with torch.inference_mode():
+    y_pred = model(X_test_tensor)
+y_pred_np = y_pred.cpu().numpy()
+</code></pre>
+<pre><code class="language-python">scaler = torch.amp.GradScaler(&quot;cuda&quot;, enabled=use_amp)
+with torch.amp.autocast(&quot;cuda&quot;, enabled=use_amp):
+    y_pred = model(batch_X)
+    loss = criterion(y_pred, batch_y)
+scaler.scale(loss).backward()
+scaler.step(optimizer)
+scaler.update()
+</code></pre>
+<h4 id="3_25">3. 我的实验过程<a class="headerlink" href="#3_25" title="Permanent link">&para;</a></h4>
+<p>实验中整理了 GPU 训练模板、推理模板、DataLoader 参数和自动混合精度写法。重点是理解设备管理、训练模式、评估模式和数据加载效率。</p>
+<h4 id="4_25">4. 实验总结<a class="headerlink" href="#4_25" title="Permanent link">&para;</a></h4>
+<p>这个实验让我意识到训练工程不只是模型结构，还包括设备、数据加载、模式切换和推理过程。如果模型和数据不在同一设备上，会直接报错；如果评估时忘记关闭梯度，会浪费显存和计算。</p>
+<h4 id="5_25">5. 后续改进<a class="headerlink" href="#5_25" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在真实训练脚本中统一封装 <code>device</code>。</li>
+<li>增加训练日志和 checkpoint。</li>
+<li>对比 CPU 和 GPU 训练耗时。</li>
+</ul>
+<h2 id="10">10. 横向对比总结<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<h3 id="101">10.1 分类任务对比<a class="headerlink" href="#101" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>任务</th>
+<th>优点</th>
+<th>不足</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SVM / SVC</td>
+<td>葡萄酒分类、趋势分类</td>
+<td>小样本表现好，核函数灵活</td>
+<td>对特征尺度和参数敏感</td>
+</tr>
+<tr>
+<td>决策树</td>
+<td>乳腺癌分类</td>
+<td>可解释性强，训练直观</td>
+<td>容易过拟合</td>
+</tr>
+<tr>
+<td>自组织竞争网络</td>
+<td>乳腺癌聚类后映射分类</td>
+<td>能体现无监督学习思想</td>
+<td>聚类标签需要后处理</td>
+</tr>
+<tr>
+<td>ELMClassifier</td>
+<td>乳腺癌分类</td>
+<td>训练快，结构简单</td>
+<td>结果受随机隐藏层影响</td>
+</tr>
+<tr>
+<td>Logistic Regression + GA</td>
+<td>特征选择评价</td>
+<td>简单稳定，适合做 baseline</td>
+<td>表达能力有限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="102">10.2 回归任务对比<a class="headerlink" href="#102" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>任务</th>
+<th>优点</th>
+<th>不足</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BP</td>
+<td>非线性函数拟合</td>
+<td>训练流程清晰，表达能力强</td>
+<td>需要迭代训练和调参</td>
+</tr>
+<tr>
+<td>RBF</td>
+<td>非线性回归</td>
+<td>局部响应直观</td>
+<td>中心点和宽度敏感</td>
+</tr>
+<tr>
+<td>GRNN</td>
+<td>小样本回归</td>
+<td>训练简单</td>
+<td>预测时依赖全部训练样本</td>
+</tr>
+<tr>
+<td>SVR</td>
+<td>时间序列回归</td>
+<td>适合非线性回归</td>
+<td>参数敏感，解释性一般</td>
+</tr>
+<tr>
+<td>ELMRegressor</td>
+<td>回归拟合</td>
+<td>训练速度快</td>
+<td>随机性较强</td>
+</tr>
+</tbody>
+</table>
+<h3 id="103">10.3 时间序列任务对比<a class="headerlink" href="#103" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>使用历史信息方式</th>
+<th>主要理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SVR 滑动窗口</td>
+<td>过去价格窗口</td>
+<td>时间序列可转监督学习</td>
+</tr>
+<tr>
+<td>SVC 粒化分类</td>
+<td>技术指标和未来收益标签</td>
+<td>标签设计很关键</td>
+</tr>
+<tr>
+<td>Elman</td>
+<td>RNN 隐藏状态</td>
+<td>历史状态可参与预测</td>
+</tr>
+<tr>
+<td>小波神经网络</td>
+<td>窗口 + 小波激活</td>
+<td>局部变化可用小波表达</td>
+</tr>
+<tr>
+<td>灰色模型</td>
+<td>累加生成和趋势方程</td>
+<td>小样本趋势预测</td>
+</tr>
+<tr>
+<td>NARX</td>
+<td>历史外部输入 + 历史输出</td>
+<td>动态系统要看延迟信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="104">10.4 特征选择方法对比<a class="headerlink" href="#104" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>思想</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIV</td>
+<td>扰动单个变量，看输出变化</td>
+<td>分析变量重要性</td>
+</tr>
+<tr>
+<td>GA 特征选择</td>
+<td>用 0/1 染色体搜索特征子集</td>
+<td>特征组合优化</td>
+</tr>
+<tr>
+<td>决策树特征重要性</td>
+<td>根据树分裂贡献评估特征</td>
+<td>树模型解释</td>
+</tr>
+</tbody>
+</table>
+<h3 id="105">10.5 调参方法对比<a class="headerlink" href="#105" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>优点</th>
+<th>不足</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GridSearch</td>
+<td>简单、可复现</td>
+<td>搜索空间大时成本高</td>
+</tr>
+<tr>
+<td>RandomizedSearch</td>
+<td>比网格搜索更灵活</td>
+<td>结果有随机性</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>适合组合优化和复杂空间</td>
+<td>参数较多，计算成本高</td>
+</tr>
+<tr>
+<td>PSO</td>
+<td>适合连续参数搜索</td>
+<td>需要设置粒子数量和学习因子</td>
+</tr>
+</tbody>
+</table>
+<h3 id="106">10.6 各模型适用场景<a class="headerlink" href="#106" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>可优先考虑的模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小规模分类</td>
+<td>SVM、决策树、ELM</td>
+</tr>
+<tr>
+<td>可解释分类</td>
+<td>决策树</td>
+</tr>
+<tr>
+<td>非线性函数拟合</td>
+<td>BP、RBF、GRNN、ELM</td>
+</tr>
+<tr>
+<td>时间序列预测</td>
+<td>SVR、Elman、小波神经网络、NARX、灰色模型</td>
+</tr>
+<tr>
+<td>特征选择</td>
+<td>MIV、GA</td>
+</tr>
+<tr>
+<td>参数优化</td>
+<td>GridSearch、RandomizedSearch、GA、PSO</td>
+</tr>
+<tr>
+<td>自定义结构实验</td>
+<td>PyTorch MLP、TwoBranchNet、WaveletNet</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11_1">11. 这段时间的学习大总结<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h2>
+<h3 id="111">11.1 我完成了哪些复现<a class="headerlink" href="#111" title="Permanent link">&para;</a></h3>
+<p>这段时间完成的内容已经覆盖了机器学习中多个重要方向：</p>
+<ul>
+<li>基础神经网络：BP、RBF、GRNN、ELM。</li>
+<li>支持向量机：SVM 分类、SVR 回归、SVC 趋势分类。</li>
+<li>树模型：决策树分类、剪枝、网格搜索。</li>
+<li>无监督学习：自组织竞争网络、KMeans 对照、PCA 可视化。</li>
+<li>特征选择：MIV、GA 特征选择。</li>
+<li>时间序列预测：Elman、小波神经网络、灰色模型、NARX。</li>
+<li>智能优化：GA、PSO。</li>
+<li>训练工程：自定义网络结构、GPU 训练模板、推理模板、DataLoader 和混合精度。</li>
+</ul>
+<h3 id="112">11.2 我真正理解了哪些机器学习概念<a class="headerlink" href="#112" title="Permanent link">&para;</a></h3>
+<p>通过这些实验，我对以下概念有了更具体的理解：</p>
+<ul>
+<li>监督学习需要明确输入特征和输出标签。</li>
+<li>分类、回归、聚类和时间序列预测的建模方式不同。</li>
+<li>数据预处理会直接影响模型效果，尤其是标准化和时间顺序切分。</li>
+<li>模型效果不能只看一次训练结果，需要结合验证方式和评价指标。</li>
+<li>调参需要定义搜索空间和评价函数。</li>
+<li>特征工程和标签设计常常比模型本身更影响实验结果。</li>
+<li>简单模型也有价值，关键是知道它适合什么、不适合什么。</li>
+<li>神经网络训练离不开损失函数、反向传播、优化器和训练循环。</li>
+<li>时间序列任务要特别注意历史窗口、延迟信息和数据泄漏。</li>
+</ul>
+<h3 id="113">11.3 我目前还薄弱的地方<a class="headerlink" href="#113" title="Permanent link">&para;</a></h3>
+<p>当前项目仍有一些需要继续补强的地方：</p>
+<ul>
+<li>部分 notebook 还偏实验草稿，缺少统一训练函数和评估函数。</li>
+<li>一些实验还没有系统记录 loss 曲线、对比表和最终指标。</li>
+<li>对模型数学原理的理解还可以更深入，尤其是 SVM、RBF、灰色模型和动态网络。</li>
+<li>时间序列实验还可以加入更严格的滚动验证。</li>
+<li>代码结构还可以进一步模块化，把数据处理、模型、训练和评估拆开。</li>
+<li>部分 notes 还比较简略，需要继续补充实验过程和结果解释。</li>
+</ul>
+<h3 id="114">11.4 后续继续复习和补强建议<a class="headerlink" href="#114" title="Permanent link">&para;</a></h3>
+<p>后续复习可以按以下顺序进行：</p>
+<ol>
+<li>先复习 BP、SVM、决策树，确保分类、回归、训练评估这些基础概念扎实。</li>
+<li>再复习 RBF、GRNN、ELM，理解不同神经网络变体的建模思路。</li>
+<li>然后集中复习时间序列部分，包括 SVR、Elman、小波神经网络、灰色模型和 NARX。</li>
+<li>最后复习 GA、PSO、MIV 和 GA 特征选择，把优化和变量筛选串起来。</li>
+<li>每复习一个实验，都补充三个内容：最终指标、关键图像、自己对失败点的解释。</li>
+</ol>
+<p>这份笔记可以作为后续回看整个学习过程的总索引。再次复习时，不必一开始就打开所有 notebook，可以先看本笔记中的原理、核心代码和实验总结，再根据需要回到对应目录查看完整实现。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
