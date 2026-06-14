@@ -38,6 +38,7 @@ nav:
       - 笔记总览: notes/index.md
       - 网站维护流程: notes/mkdocs_publish_workflow.md
       - Mkdocs自定义说明: notes/mkdocs_custom.md
+      - 机器学习笔记: notes/machine_learning.md
   - 小游戏:
       - 游戏总览: games/index.md
       - 贪吃蛇: games/snake/index.md
