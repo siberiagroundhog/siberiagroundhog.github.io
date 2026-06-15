@@ -1,0 +1,3103 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人学习记录、项目展示与技术笔记">
+      
+      
+        <meta name="author" content="朱亚超">
+      
+      
+        <link rel="canonical" href="https://siberiagroundhog.github.io/notes/logging/">
+      
+      
+        <link rel="prev" href="../machine_learning/">
+      
+      
+        <link rel="next" href="../../games/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Logging库使用指南 - 飞雨的个人主页</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="飞雨的个人主页" class="md-header__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞雨的个人主页
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Logging库使用指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+  项目
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  学习笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../games/" class="md-tabs__link">
+          
+  
+  
+  小游戏
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="飞雨的个人主页" class="md-nav__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    飞雨的个人主页
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于我
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/github-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Pages建站
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_publish_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网站维护流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_custom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mkdocs自定义说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging库使用指南
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging库使用指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 日志管理是什么？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 为什么不要长期使用 print？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. logging 模块基础
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 日志级别
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 项目中推荐的 logger 写法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 什么时候应该打日志？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 什么时候应该打日志？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 程序启动和结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 配置加载
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 数据读取
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 关键函数开始和结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 关键参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 重要中间结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 文件保存
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 异常捕获处
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 外部资源访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 不建议打日志的位置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 不建议打日志的位置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 不要每一行都打日志
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 不要记录敏感信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 不要用日志掩盖错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 日志格式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 推荐项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 最小可用日志模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 在其他模块中使用日志
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 在其他模块中使用日志">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 数据读取模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 训练模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 程序入口
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-loggerexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. logger.exception() 的使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 日志文件过大怎么办？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 按日期切分日志
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-loggerpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 更实用的完整 logger.py 模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 机器学习项目中的日志设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 数据分析项目中的日志设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Web 项目中的日志设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. 日志级别推荐策略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19. 日志级别推荐策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开发阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正常运行阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长期运行或线上项目
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. 常见错误写法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20. 常见错误写法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#201-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1 重复添加 handler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#202-basicconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2 到处使用 basicConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#203" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.3 捕获异常但不抛出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#204" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.4 日志内容过于模糊
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. 日志管理最小实践清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. 推荐使用方式总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. 最终建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小游戏
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    小游戏
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    游戏总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/snake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪吃蛇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/2048/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2048
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/minesweeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    扫雷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/dino-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小恐龙跑酷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 日志管理是什么？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 为什么不要长期使用 print？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. logging 模块基础
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 日志级别
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 项目中推荐的 logger 写法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 什么时候应该打日志？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 什么时候应该打日志？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 程序启动和结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 配置加载
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 数据读取
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 关键函数开始和结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 关键参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 重要中间结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 文件保存
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 异常捕获处
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 外部资源访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 不建议打日志的位置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 不建议打日志的位置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 不要每一行都打日志
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 不要记录敏感信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 不要用日志掩盖错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 日志格式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 推荐项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 最小可用日志模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 在其他模块中使用日志
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 在其他模块中使用日志">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 数据读取模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 训练模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 程序入口
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-loggerexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. logger.exception() 的使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 日志文件过大怎么办？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 按日期切分日志
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-loggerpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 更实用的完整 logger.py 模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 机器学习项目中的日志设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 数据分析项目中的日志设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Web 项目中的日志设计
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. 日志级别推荐策略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19. 日志级别推荐策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开发阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正常运行阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长期运行或线上项目
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. 常见错误写法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20. 常见错误写法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#201-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1 重复添加 handler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#202-basicconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2 到处使用 basicConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#203" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.3 捕获异常但不抛出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#204" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.4 日志内容过于模糊
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. 日志管理最小实践清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. 推荐使用方式总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. 最终建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python">Python 项目日志管理教程<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>适用对象：正在写 Python 脚本、算法题项目、机器学习训练项目、数据分析项目、Web 后端项目的初学者。<br />
+目标：用 <code>logging</code> 替代杂乱的 <code>print()</code>，让项目运行过程可追踪、可定位、可排查。</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 日志管理是什么？<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>日志管理不是简单地把信息打印出来，而是<strong>有层次、有格式、有位置地记录程序运行过程</strong>。</p>
+<p>在正式项目中，日志主要回答这些问题：</p>
+<ul>
+<li>程序什么时候启动？</li>
+<li>程序运行到了哪一步？</li>
+<li>使用了哪些关键配置？</li>
+<li>读取了哪些数据？</li>
+<li>关键函数是否正常执行？</li>
+<li>哪里发生了异常？</li>
+<li>异常发生在哪个文件、哪一行？</li>
+<li>程序最终是否正常结束？</li>
+</ul>
+<p>简单理解：</p>
+<pre><code class="language-python">print()   # 临时调试用
+logging   # 正式项目记录运行过程用
+</code></pre>
+<hr />
+<h2 id="2-print">2. 为什么不要长期使用 print？<a class="headerlink" href="#2-print" title="Permanent link">&para;</a></h2>
+<p><code>print()</code> 的问题主要有：</p>
+<ol>
+<li>没有日志级别；</li>
+<li>不知道信息来自哪个模块；</li>
+<li>不方便保存到文件；</li>
+<li>不方便控制输出格式；</li>
+<li>不适合长期运行项目；</li>
+<li>上线或提交项目时容易遗留调试信息。</li>
+</ol>
+<p>例如：</p>
+<pre><code class="language-python">print(&quot;开始加载数据&quot;)
+print(&quot;数据加载完成&quot;)
+print(&quot;出错了&quot;)
+</code></pre>
+<p>这些信息对于小脚本还能勉强使用，但项目变复杂后，很难判断：</p>
+<ul>
+<li>这是哪个文件输出的？</li>
+<li>什么时候输出的？</li>
+<li>是普通信息还是错误信息？</li>
+<li>是否需要保存下来？</li>
+</ul>
+<p>因此，正式项目应该使用 <code>logging</code>。</p>
+<hr />
+<h2 id="3-logging">3. logging 模块基础<a class="headerlink" href="#3-logging" title="Permanent link">&para;</a></h2>
+<p>Python 内置了 <code>logging</code> 模块，不需要额外安装。</p>
+<pre><code class="language-python">import logging
+</code></pre>
+<p>最简单用法：</p>
+<pre><code class="language-python">import logging
+
+logging.basicConfig(level=logging.INFO)
+
+logging.info(&quot;程序开始&quot;)
+logging.warning(&quot;这是一个警告&quot;)
+logging.error(&quot;这是一个错误&quot;)
+</code></pre>
+<p>输出类似：</p>
+<pre><code class="language-text">INFO:root:程序开始
+WARNING:root:这是一个警告
+ERROR:root:这是一个错误
+</code></pre>
+<p>这种写法适合很小的脚本，不太适合正式项目。</p>
+<hr />
+<h2 id="4">4. 日志级别<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p><code>logging</code> 常用 5 个日志级别。</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>含义</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DEBUG</code></td>
+<td>调试信息</td>
+<td>开发阶段，记录详细变量和中间过程</td>
+</tr>
+<tr>
+<td><code>INFO</code></td>
+<td>普通信息</td>
+<td>程序正常运行流程</td>
+</tr>
+<tr>
+<td><code>WARNING</code></td>
+<td>警告</td>
+<td>程序还能继续运行，但存在风险</td>
+</tr>
+<tr>
+<td><code>ERROR</code></td>
+<td>错误</td>
+<td>某个操作失败</td>
+</tr>
+<tr>
+<td><code>CRITICAL</code></td>
+<td>严重错误</td>
+<td>程序可能无法继续运行</td>
+</tr>
+</tbody>
+</table>
+<p>示例：</p>
+<pre><code class="language-python">logger.debug(&quot;当前变量值: %s&quot;, value)
+logger.info(&quot;开始训练模型&quot;)
+logger.warning(&quot;配置缺失，使用默认值&quot;)
+logger.error(&quot;模型保存失败&quot;)
+logger.critical(&quot;数据库连接失败，程序终止&quot;)
+</code></pre>
+<p>推荐理解：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐级别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>程序启动、结束</td>
+<td><code>INFO</code></td>
+</tr>
+<tr>
+<td>加载配置、加载数据</td>
+<td><code>INFO</code></td>
+</tr>
+<tr>
+<td>每轮训练结果</td>
+<td><code>INFO</code> 或 <code>DEBUG</code></td>
+</tr>
+<tr>
+<td>数据为空但程序还能运行</td>
+<td><code>WARNING</code></td>
+</tr>
+<tr>
+<td>文件不存在、请求失败</td>
+<td><code>ERROR</code></td>
+</tr>
+<tr>
+<td>捕获异常并记录堆栈</td>
+<td><code>EXCEPTION</code></td>
+</tr>
+<tr>
+<td>数据库完全无法连接</td>
+<td><code>CRITICAL</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-logger">5. 项目中推荐的 logger 写法<a class="headerlink" href="#5-logger" title="Permanent link">&para;</a></h2>
+<p>正式项目中，不建议直接写：</p>
+<pre><code class="language-python">logging.info(&quot;开始执行&quot;)
+</code></pre>
+<p>更推荐在每个模块中创建自己的 <code>logger</code>：</p>
+<pre><code class="language-python">import logging
+
+logger = logging.getLogger(__name__)
+</code></pre>
+<p>然后使用：</p>
+<pre><code class="language-python">logger.info(&quot;开始执行&quot;)
+</code></pre>
+<p><code>__name__</code> 会自动对应当前模块名。</p>
+<p>例如文件结构如下：</p>
+<pre><code class="language-text">src/
+├── data.py
+├── train.py
+└── model.py
+</code></pre>
+<p>在 <code>src/data.py</code> 中：</p>
+<pre><code class="language-python">logger = logging.getLogger(__name__)
+</code></pre>
+<p>日志里可能会显示：</p>
+<pre><code class="language-text">src.data
+</code></pre>
+<p>这样你就能知道日志来自哪个模块。</p>
+<hr />
+<h2 id="6">6. 什么时候应该打日志？<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>日志不是越多越好，而是应该打在<strong>关键节点</strong>。</p>
+<h3 id="61">6.1 程序启动和结束<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">logger.info(&quot;程序启动&quot;)
+logger.info(&quot;程序结束&quot;)
+</code></pre>
+<p>适合放在程序入口，例如 <code>main()</code> 函数。</p>
+<hr />
+<h3 id="62">6.2 配置加载<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<p>例如配置文件路径、模型路径、数据路径。</p>
+<pre><code class="language-python">logger.info(&quot;加载配置文件: %s&quot;, config_path)
+logger.info(&quot;模型保存目录: %s&quot;, model_dir)
+</code></pre>
+<p>注意：不要记录密码、token、密钥等敏感信息。</p>
+<hr />
+<h3 id="63">6.3 数据读取<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">logger.info(&quot;开始读取数据: %s&quot;, data_path)
+logger.info(&quot;数据读取完成，共 %d 条样本&quot;, len(data))
+</code></pre>
+<p>数据分析、机器学习项目尤其应该记录：</p>
+<ul>
+<li>数据文件路径；</li>
+<li>样本数量；</li>
+<li>特征数量；</li>
+<li>缺失值处理结果；</li>
+<li>数据划分比例。</li>
+</ul>
+<hr />
+<h3 id="64">6.4 关键函数开始和结束<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">logger.info(&quot;开始数据预处理&quot;)
+logger.info(&quot;数据预处理完成&quot;)
+
+logger.info(&quot;开始训练模型&quot;)
+logger.info(&quot;模型训练完成&quot;)
+</code></pre>
+<p>这类日志可以帮助你快速判断程序卡在哪一步。</p>
+<hr />
+<h3 id="65">6.5 关键参数<a class="headerlink" href="#65" title="Permanent link">&para;</a></h3>
+<p>例如训练参数、模型参数、运行参数。</p>
+<pre><code class="language-python">logger.info(
+    &quot;训练参数: epochs=%d, batch_size=%d, lr=%.5f&quot;,
+    epochs,
+    batch_size,
+    lr
+)
+</code></pre>
+<p>推荐使用 <code>%s</code>、<code>%d</code>、<code>%.4f</code> 这种格式化方式，而不是字符串拼接。</p>
+<p>不推荐：</p>
+<pre><code class="language-python">logger.info(&quot;epochs=&quot; + str(epochs))
+</code></pre>
+<p>推荐：</p>
+<pre><code class="language-python">logger.info(&quot;epochs=%d&quot;, epochs)
+</code></pre>
+<hr />
+<h3 id="66">6.6 重要中间结果<a class="headerlink" href="#66" title="Permanent link">&para;</a></h3>
+<p>例如训练过程中的 loss、accuracy、验证集指标。</p>
+<pre><code class="language-python">logger.info(
+    &quot;Epoch %d/%d | train_loss=%.4f | val_loss=%.4f | val_acc=%.4f&quot;,
+    epoch,
+    epochs,
+    train_loss,
+    val_loss,
+    val_acc
+)
+</code></pre>
+<hr />
+<h3 id="67">6.7 文件保存<a class="headerlink" href="#67" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">logger.info(&quot;模型已保存到: %s&quot;, model_path)
+logger.info(&quot;结果文件已保存到: %s&quot;, output_path)
+</code></pre>
+<p>这可以避免后续找不到输出文件。</p>
+<hr />
+<h3 id="68">6.8 异常捕获处<a class="headerlink" href="#68" title="Permanent link">&para;</a></h3>
+<p>只要写了 <code>try-except</code>，通常就应该记录日志。</p>
+<pre><code class="language-python">try:
+    data = load_data(data_path)
+except FileNotFoundError:
+    logger.exception(&quot;数据文件不存在: %s&quot;, data_path)
+    raise
+</code></pre>
+<p><code>logger.exception()</code> 会自动记录完整的异常堆栈，适合在 <code>except</code> 中使用。</p>
+<hr />
+<h3 id="69">6.9 外部资源访问<a class="headerlink" href="#69" title="Permanent link">&para;</a></h3>
+<p>例如：</p>
+<ul>
+<li>数据库；</li>
+<li>API；</li>
+<li>文件系统；</li>
+<li>网络请求；</li>
+<li>第三方模型；</li>
+<li>远程服务器。</li>
+</ul>
+<pre><code class="language-python">logger.info(&quot;开始请求接口: %s&quot;, url)
+logger.info(&quot;开始连接数据库: %s&quot;, db_name)
+logger.info(&quot;开始加载模型: %s&quot;, model_path)
+</code></pre>
+<p>不要记录数据库密码、API token、cookie 等敏感内容。</p>
+<hr />
+<h2 id="7">7. 不建议打日志的位置<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 不要每一行都打日志<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<p>不推荐：</p>
+<pre><code class="language-python">logger.info(&quot;进入 if&quot;)
+logger.info(&quot;进入 for&quot;)
+logger.info(&quot;变量 a 存在&quot;)
+logger.info(&quot;变量 b 存在&quot;)
+</code></pre>
+<p>这种日志没有排查价值，只会制造噪音。</p>
+<hr />
+<h3 id="72">7.2 不要记录敏感信息<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<p>不推荐：</p>
+<pre><code class="language-python">logger.info(&quot;password=%s&quot;, password)
+logger.info(&quot;token=%s&quot;, token)
+</code></pre>
+<p>推荐：</p>
+<pre><code class="language-python">logger.info(&quot;数据库配置加载完成&quot;)
+</code></pre>
+<hr />
+<h3 id="73">7.3 不要用日志掩盖错误<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<p>不推荐：</p>
+<pre><code class="language-python">try:
+    run()
+except Exception:
+    logger.exception(&quot;程序出错&quot;)
+</code></pre>
+<p>这段代码的问题是：异常被吞掉了，程序可能继续运行，导致更隐蔽的问题。</p>
+<p>更推荐：</p>
+<pre><code class="language-python">try:
+    run()
+except Exception:
+    logger.exception(&quot;程序出错&quot;)
+    raise
+</code></pre>
+<p>这样既记录错误，又保留异常抛出。</p>
+<hr />
+<h2 id="8">8. 日志格式<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p>推荐日志至少包含：</p>
+<ul>
+<li>时间；</li>
+<li>日志级别；</li>
+<li>模块名；</li>
+<li>文件名；</li>
+<li>行号；</li>
+<li>日志内容。</li>
+</ul>
+<p>推荐格式：</p>
+<pre><code class="language-python">&quot;%(asctime)s | %(levelname)s | %(name)s | %(filename)s:%(lineno)d | %(message)s&quot;
+</code></pre>
+<p>输出示例：</p>
+<pre><code class="language-text">2026-06-15 21:30:12 | INFO | src.data | data.py:15 | 开始读取数据: data/train.csv
+</code></pre>
+<p>字段含义：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>asctime</code></td>
+<td>日志时间</td>
+</tr>
+<tr>
+<td><code>levelname</code></td>
+<td>日志级别</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>logger 名称，通常是模块名</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>文件名</td>
+</tr>
+<tr>
+<td><code>lineno</code></td>
+<td>日志所在行号</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>日志正文</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9">9. 推荐项目结构<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>中小型 Python 项目可以采用以下结构：</p>
+<pre><code class="language-text">my_project/
+├── configs/
+│   └── train.yaml
+├── data/
+│   └── train.csv
+├── logs/
+│   └── app.log
+├── scripts/
+│   └── run_train.py
+├── src/
+│   ├── __init__.py
+│   ├── data.py
+│   ├── model.py
+│   ├── train.py
+│   └── utils/
+│       ├── __init__.py
+│       └── logger.py
+└── README.md
+</code></pre>
+<p>推荐职责：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/utils/logger.py</code></td>
+<td>封装日志配置</td>
+</tr>
+<tr>
+<td><code>scripts/run_train.py</code></td>
+<td>程序入口</td>
+</tr>
+<tr>
+<td><code>src/data.py</code></td>
+<td>数据读取与预处理</td>
+</tr>
+<tr>
+<td><code>src/train.py</code></td>
+<td>模型训练</td>
+</tr>
+<tr>
+<td><code>logs/</code></td>
+<td>保存日志文件</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10">10. 最小可用日志模板<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<p>新建文件：</p>
+<pre><code class="language-text">src/utils/logger.py
+</code></pre>
+<p>内容如下：</p>
+<pre><code class="language-python">import logging
+import sys
+from pathlib import Path
+
+
+def setup_logger(
+    name: str = None,
+    log_file: str = &quot;logs/app.log&quot;,
+    level: int = logging.INFO,
+) -&gt; logging.Logger:
+    &quot;&quot;&quot;
+    创建项目 logger。
+
+    功能:
+    1. 输出日志到控制台
+    2. 输出日志到文件
+    3. 自动创建 logs 目录
+    4. 显示时间、级别、模块、文件和行号
+    &quot;&quot;&quot;
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.propagate = False
+
+    # 避免重复添加 handler
+    if logger.handlers:
+        return logger
+
+    log_path = Path(log_file)
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+
+    formatter = logging.Formatter(
+        fmt=&quot;%(asctime)s | %(levelname)s | %(name)s | %(filename)s:%(lineno)d | %(message)s&quot;,
+        datefmt=&quot;%Y-%m-%d %H:%M:%S&quot;
+    )
+
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(level)
+    console_handler.setFormatter(formatter)
+
+    file_handler = logging.FileHandler(log_file, encoding=&quot;utf-8&quot;)
+    file_handler.setLevel(level)
+    file_handler.setFormatter(formatter)
+
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
+</code></pre>
+<hr />
+<h2 id="11">11. 在其他模块中使用日志<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<h3 id="111">11.1 数据读取模块<a class="headerlink" href="#111" title="Permanent link">&para;</a></h3>
+<p>文件：</p>
+<pre><code class="language-text">src/data.py
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">from src.utils.logger import setup_logger
+
+logger = setup_logger(__name__)
+
+
+def load_data(path: str):
+    logger.info(&quot;开始读取数据: %s&quot;, path)
+
+    try:
+        with open(path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+            data = f.readlines()
+    except FileNotFoundError:
+        logger.exception(&quot;数据文件不存在: %s&quot;, path)
+        raise
+
+    logger.info(&quot;数据读取完成，共 %d 行&quot;, len(data))
+    return data
+</code></pre>
+<hr />
+<h3 id="112">11.2 训练模块<a class="headerlink" href="#112" title="Permanent link">&para;</a></h3>
+<p>文件：</p>
+<pre><code class="language-text">src/train.py
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">from src.utils.logger import setup_logger
+
+logger = setup_logger(__name__)
+
+
+def train_model(model, train_data, epochs: int):
+    logger.info(&quot;开始训练模型&quot;)
+    logger.info(&quot;训练样本数: %d&quot;, len(train_data))
+    logger.info(&quot;训练轮数: %d&quot;, epochs)
+
+    for epoch in range(1, epochs + 1):
+        loss = 0.1234
+
+        logger.info(
+            &quot;Epoch %d/%d | loss=%.4f&quot;,
+            epoch,
+            epochs,
+            loss
+        )
+
+    logger.info(&quot;模型训练完成&quot;)
+</code></pre>
+<hr />
+<h3 id="113">11.3 程序入口<a class="headerlink" href="#113" title="Permanent link">&para;</a></h3>
+<p>文件：</p>
+<pre><code class="language-text">scripts/run_train.py
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">from src.data import load_data
+from src.train import train_model
+from src.utils.logger import setup_logger
+
+logger = setup_logger(__name__)
+
+
+def main():
+    logger.info(&quot;训练脚本启动&quot;)
+
+    data_path = &quot;data/train.txt&quot;
+
+    data = load_data(data_path)
+
+    model = None
+    train_model(model, data, epochs=10)
+
+    logger.info(&quot;训练脚本结束&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>运行后，日志会同时输出到：</p>
+<pre><code class="language-text">控制台
+logs/app.log
+</code></pre>
+<hr />
+<h2 id="12-loggerexception">12. logger.exception() 的使用<a class="headerlink" href="#12-loggerexception" title="Permanent link">&para;</a></h2>
+<p><code>logger.exception()</code> 只能在 <code>except</code> 代码块中使用。</p>
+<p>示例：</p>
+<pre><code class="language-python">try:
+    result = 10 / 0
+except ZeroDivisionError:
+    logger.exception(&quot;计算失败&quot;)
+</code></pre>
+<p>它会记录完整 traceback：</p>
+<pre><code class="language-text">ERROR | 计算失败
+Traceback (most recent call last):
+  File &quot;main.py&quot;, line 2, in &lt;module&gt;
+    result = 10 / 0
+ZeroDivisionError: division by zero
+</code></pre>
+<p>这比普通的 <code>logger.error()</code> 更适合排查异常。</p>
+<hr />
+<h2 id="13">13. 日志文件过大怎么办？<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<p>如果程序长期运行，不能一直写入同一个日志文件，否则 <code>app.log</code> 会越来越大。</p>
+<p>可以使用 <code>RotatingFileHandler</code>，按文件大小切分日志。</p>
+<pre><code class="language-python">from logging.handlers import RotatingFileHandler
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">import logging
+from logging.handlers import RotatingFileHandler
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+handler = RotatingFileHandler(
+    filename=&quot;logs/app.log&quot;,
+    maxBytes=10 * 1024 * 1024,
+    backupCount=5,
+    encoding=&quot;utf-8&quot;
+)
+
+formatter = logging.Formatter(
+    &quot;%(asctime)s | %(levelname)s | %(name)s | %(message)s&quot;
+)
+
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+logger.info(&quot;程序启动&quot;)
+</code></pre>
+<p>参数含义：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maxBytes</code></td>
+<td>单个日志文件最大大小</td>
+</tr>
+<tr>
+<td><code>backupCount</code></td>
+<td>最多保留多少个历史日志文件</td>
+</tr>
+</tbody>
+</table>
+<p>例如：</p>
+<pre><code class="language-python">maxBytes=10 * 1024 * 1024
+backupCount=5
+</code></pre>
+<p>表示：</p>
+<ul>
+<li>单个日志文件最大 10MB；</li>
+<li>最多保留 5 个历史日志文件。</li>
+</ul>
+<p>生成文件可能如下：</p>
+<pre><code class="language-text">app.log
+app.log.1
+app.log.2
+app.log.3
+</code></pre>
+<hr />
+<h2 id="14">14. 按日期切分日志<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<p>如果希望每天生成一个日志文件，可以使用 <code>TimedRotatingFileHandler</code>。</p>
+<pre><code class="language-python">from logging.handlers import TimedRotatingFileHandler
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">import logging
+from logging.handlers import TimedRotatingFileHandler
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+handler = TimedRotatingFileHandler(
+    filename=&quot;logs/app.log&quot;,
+    when=&quot;midnight&quot;,
+    interval=1,
+    backupCount=7,
+    encoding=&quot;utf-8&quot;
+)
+
+formatter = logging.Formatter(
+    &quot;%(asctime)s | %(levelname)s | %(name)s | %(message)s&quot;
+)
+
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+logger.info(&quot;程序启动&quot;)
+</code></pre>
+<p>参数含义：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>when="midnight"</code></td>
+<td>每天凌晨切分</td>
+</tr>
+<tr>
+<td><code>interval=1</code></td>
+<td>每 1 天切分一次</td>
+</tr>
+<tr>
+<td><code>backupCount=7</code></td>
+<td>保留 7 个历史日志文件</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-loggerpy">15. 更实用的完整 logger.py 模板<a class="headerlink" href="#15-loggerpy" title="Permanent link">&para;</a></h2>
+<p>对于中小型项目，可以直接使用下面这个版本。</p>
+<pre><code class="language-python">import logging
+import sys
+from pathlib import Path
+from logging.handlers import RotatingFileHandler
+
+
+def setup_logger(
+    name: str = None,
+    log_file: str = &quot;logs/app.log&quot;,
+    level: int = logging.INFO,
+    max_bytes: int = 10 * 1024 * 1024,
+    backup_count: int = 5,
+) -&gt; logging.Logger:
+    &quot;&quot;&quot;
+    项目通用日志配置。
+
+    功能:
+    1. 同时输出到控制台和文件
+    2. 自动创建 logs 目录
+    3. 支持日志文件按大小切分
+    4. 避免重复添加 handler
+    5. 日志包含时间、级别、模块、文件名和行号
+    &quot;&quot;&quot;
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.propagate = False
+
+    if logger.handlers:
+        return logger
+
+    log_path = Path(log_file)
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+
+    formatter = logging.Formatter(
+        fmt=&quot;%(asctime)s | %(levelname)s | %(name)s | %(filename)s:%(lineno)d | %(message)s&quot;,
+        datefmt=&quot;%Y-%m-%d %H:%M:%S&quot;
+    )
+
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(level)
+    console_handler.setFormatter(formatter)
+
+    file_handler = RotatingFileHandler(
+        filename=log_file,
+        maxBytes=max_bytes,
+        backupCount=backup_count,
+        encoding=&quot;utf-8&quot;
+    )
+    file_handler.setLevel(level)
+    file_handler.setFormatter(formatter)
+
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
+</code></pre>
+<p>使用方式：</p>
+<pre><code class="language-python">from src.utils.logger import setup_logger
+
+logger = setup_logger(__name__)
+
+logger.info(&quot;程序启动&quot;)
+logger.warning(&quot;发现异常情况&quot;)
+logger.error(&quot;执行失败&quot;)
+</code></pre>
+<hr />
+<h2 id="16">16. 机器学习项目中的日志设计<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<p>机器学习训练项目通常建议记录：</p>
+<pre><code class="language-text">程序启动
+配置文件路径
+数据路径
+训练集大小
+验证集大小
+测试集大小
+模型名称
+模型参数
+训练轮数
+batch_size
+learning_rate
+每轮训练 loss
+每轮验证指标
+最佳模型指标
+模型保存路径
+异常信息
+程序结束
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">logger.info(&quot;程序启动&quot;)
+logger.info(&quot;配置文件: %s&quot;, config_path)
+logger.info(&quot;训练数据: %s&quot;, train_path)
+logger.info(&quot;验证数据: %s&quot;, val_path)
+
+logger.info(&quot;训练集样本数: %d&quot;, len(train_dataset))
+logger.info(&quot;验证集样本数: %d&quot;, len(val_dataset))
+
+logger.info(
+    &quot;模型参数: model=%s, lr=%.5f, batch_size=%d, epochs=%d&quot;,
+    model_name,
+    lr,
+    batch_size,
+    epochs
+)
+
+best_acc = 0.0
+
+for epoch in range(1, epochs + 1):
+    logger.info(
+        &quot;Epoch %d/%d | train_loss=%.4f | val_loss=%.4f | val_acc=%.4f&quot;,
+        epoch,
+        epochs,
+        train_loss,
+        val_loss,
+        val_acc
+    )
+
+    if val_acc &gt; best_acc:
+        best_acc = val_acc
+        logger.info(&quot;发现更优模型，当前 best_acc=%.4f&quot;, best_acc)
+
+logger.info(&quot;模型已保存到: %s&quot;, model_path)
+logger.info(&quot;程序结束&quot;)
+</code></pre>
+<hr />
+<h2 id="17">17. 数据分析项目中的日志设计<a class="headerlink" href="#17" title="Permanent link">&para;</a></h2>
+<p>数据分析项目通常建议记录：</p>
+<pre><code class="language-text">读取了哪个文件
+原始数据维度
+缺失值数量
+重复值数量
+清洗后数据维度
+使用了哪些变量
+输出了哪些图表
+结果保存到了哪里
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">logger.info(&quot;读取数据文件: %s&quot;, data_path)
+logger.info(&quot;原始数据维度: rows=%d, cols=%d&quot;, df.shape[0], df.shape[1])
+
+missing_count = df.isna().sum().sum()
+logger.info(&quot;缺失值总数: %d&quot;, missing_count)
+
+df = df.drop_duplicates()
+logger.info(&quot;去重后数据维度: rows=%d, cols=%d&quot;, df.shape[0], df.shape[1])
+
+logger.info(&quot;分析变量: %s&quot;, selected_columns)
+logger.info(&quot;结果保存到: %s&quot;, output_path)
+</code></pre>
+<hr />
+<h2 id="18-web">18. Web 项目中的日志设计<a class="headerlink" href="#18-web" title="Permanent link">&para;</a></h2>
+<p>Web 项目通常建议记录：</p>
+<pre><code class="language-text">服务启动
+请求路径
+请求方法
+用户 ID
+响应状态码
+请求耗时
+异常堆栈
+数据库操作失败
+外部接口调用失败
+</code></pre>
+<p>示例：</p>
+<pre><code class="language-python">logger.info(&quot;服务启动，监听端口: %d&quot;, port)
+logger.info(&quot;收到请求: method=%s path=%s&quot;, method, path)
+logger.warning(&quot;请求参数缺失: user_id&quot;)
+logger.error(&quot;数据库查询失败&quot;)
+</code></pre>
+<p>注意：不要在日志中记录用户密码、身份证号、完整手机号、token 等敏感数据。</p>
+<hr />
+<h2 id="19">19. 日志级别推荐策略<a class="headerlink" href="#19" title="Permanent link">&para;</a></h2>
+<h3 id="_1">开发阶段<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>开发阶段可以使用：</p>
+<pre><code class="language-python">level=logging.DEBUG
+</code></pre>
+<p>记录更多细节，方便调试。</p>
+<h3 id="_2">正常运行阶段<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>普通项目运行时可以使用：</p>
+<pre><code class="language-python">level=logging.INFO
+</code></pre>
+<p>记录主要流程。</p>
+<h3 id="_3">长期运行或线上项目<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>长期运行项目可以使用：</p>
+<pre><code class="language-python">level=logging.WARNING
+</code></pre>
+<p>减少日志数量，只记录警告和错误。</p>
+<hr />
+<h2 id="20">20. 常见错误写法<a class="headerlink" href="#20" title="Permanent link">&para;</a></h2>
+<h3 id="201-handler">20.1 重复添加 handler<a class="headerlink" href="#201-handler" title="Permanent link">&para;</a></h3>
+<p>如果多次执行：</p>
+<pre><code class="language-python">logger.addHandler(handler)
+</code></pre>
+<p>可能导致一条日志重复输出多次。</p>
+<p>因此在封装时要写：</p>
+<pre><code class="language-python">if logger.handlers:
+    return logger
+</code></pre>
+<hr />
+<h3 id="202-basicconfig">20.2 到处使用 basicConfig<a class="headerlink" href="#202-basicconfig" title="Permanent link">&para;</a></h3>
+<p>不推荐在多个模块里反复写：</p>
+<pre><code class="language-python">logging.basicConfig(...)
+</code></pre>
+<p>推荐只在程序入口或统一的 <code>logger.py</code> 中配置一次。</p>
+<hr />
+<h3 id="203">20.3 捕获异常但不抛出<a class="headerlink" href="#203" title="Permanent link">&para;</a></h3>
+<p>不推荐：</p>
+<pre><code class="language-python">try:
+    run()
+except Exception:
+    logger.exception(&quot;运行失败&quot;)
+</code></pre>
+<p>推荐：</p>
+<pre><code class="language-python">try:
+    run()
+except Exception:
+    logger.exception(&quot;运行失败&quot;)
+    raise
+</code></pre>
+<hr />
+<h3 id="204">20.4 日志内容过于模糊<a class="headerlink" href="#204" title="Permanent link">&para;</a></h3>
+<p>不推荐：</p>
+<pre><code class="language-python">logger.error(&quot;出错了&quot;)
+</code></pre>
+<p>推荐：</p>
+<pre><code class="language-python">logger.exception(&quot;读取配置文件失败: %s&quot;, config_path)
+</code></pre>
+<p>日志要尽量说明：</p>
+<ul>
+<li>做什么事失败；</li>
+<li>涉及哪个文件或参数；</li>
+<li>是否有异常堆栈。</li>
+</ul>
+<hr />
+<h2 id="21">21. 日志管理最小实践清单<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>一个 Python 项目至少应该做到：</p>
+<ul>
+<li>[ ] 不再用 <code>print()</code> 做正式运行输出；</li>
+<li>[ ] 每个模块使用 <code>logger = setup_logger(__name__)</code>；</li>
+<li>[ ] 程序入口记录启动和结束；</li>
+<li>[ ] 数据读取处记录路径和数据规模；</li>
+<li>[ ] 关键流程开始和结束处记录日志；</li>
+<li>[ ] 关键参数记录到日志；</li>
+<li>[ ] 异常捕获处使用 <code>logger.exception()</code>；</li>
+<li>[ ] 日志同时输出到控制台和文件；</li>
+<li>[ ] 日志包含时间、级别、模块、文件名和行号；</li>
+<li>[ ] 不记录密码、token、cookie、身份证号等敏感信息；</li>
+<li>[ ] 长期运行项目使用日志切分。</li>
+</ul>
+<hr />
+<h2 id="22">22. 推荐使用方式总结<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<p>日常写项目时，可以形成固定习惯：</p>
+<pre><code class="language-python">from src.utils.logger import setup_logger
+
+logger = setup_logger(__name__)
+</code></pre>
+<p>然后在关键位置使用：</p>
+<pre><code class="language-python">logger.debug(&quot;调试细节&quot;)
+logger.info(&quot;正常流程&quot;)
+logger.warning(&quot;可疑情况&quot;)
+logger.error(&quot;普通错误&quot;)
+logger.exception(&quot;异常堆栈&quot;)
+logger.critical(&quot;严重错误&quot;)
+</code></pre>
+<p>最常用的是：</p>
+<pre><code class="language-python">logger.info()
+logger.warning()
+logger.exception()
+</code></pre>
+<p>对于学习项目和中小型项目来说，掌握这些已经足够。</p>
+<hr />
+<h2 id="23">23. 最终建议<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>日志管理的核心不是“多写日志”，而是：</p>
+<blockquote>
+<p>在关键位置，用合适的级别，记录对排查问题有价值的信息。</p>
+</blockquote>
+<p>好的日志应该做到：</p>
+<ol>
+<li>看得懂；</li>
+<li>找得到问题；</li>
+<li>能定位文件和行号；</li>
+<li>不泄露敏感信息；</li>
+<li>不制造无用噪音；</li>
+<li>能长期保存和切分。</li>
+</ol>
+<p>如果你正在做 Python 学习项目、机器学习训练项目或数据分析项目，建议直接使用本文中的 <code>setup_logger()</code> 模板，把它放到：</p>
+<pre><code class="language-text">src/utils/logger.py
+</code></pre>
+<p>以后每个模块都用：</p>
+<pre><code class="language-python">logger = setup_logger(__name__)
+</code></pre>
+<p>这就是一个比较规范、够用、容易维护的日志管理方案。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
