@@ -1,0 +1,5198 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人学习记录、项目展示与技术笔记">
+      
+      
+        <meta name="author" content="朱亚超">
+      
+      
+        <link rel="canonical" href="https://siberiagroundhog.github.io/notes/deeplearn/">
+      
+      
+        <link rel="prev" href="../logging/">
+      
+      
+        <link rel="next" href="../../games/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>深度学习学习笔记 - 飞雨的个人主页</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pytorchanncnn-rnn" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="飞雨的个人主页" class="md-header__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞雨的个人主页
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              深度学习学习笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+  项目
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  学习笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../games/" class="md-tabs__link">
+          
+  
+  
+  小游戏
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="飞雨的个人主页" class="md-nav__button md-logo" aria-label="飞雨的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    飞雨的个人主页
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于我
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/github-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Pages建站
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_publish_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网站维护流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs_custom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mkdocs自定义说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging库使用指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度学习学习笔记
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度学习学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 当前阶段的知识地图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 当前阶段的知识地图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 这些概念是什么关系？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 目前的两个深度学习练习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 深度学习的最小知识框架
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 深度学习的最小知识框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 从一个分类任务开始理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 前向传播、损失与反向传播
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-batchiterationepoch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 batch、iteration、epoch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练集、验证集与测试集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 欠拟合与过拟合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. PyTorch 简单入门
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. PyTorch 简单入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 PyTorch 的几个核心模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-nnmodule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 用 nn.Module 定义模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cpu-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 CPU 与 GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-dataset-dataloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Dataset 与 DataLoader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 训练模式、评估模式和推理模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 模型保存与加载
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 一个容易混淆的点：训练与继续训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tensor：张量专章
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tensor：张量专章">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 什么是张量？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 常见创建方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-dtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 dtype：数据类型很重要
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 索引与切片
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-reshapeviewflatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 改变形状：reshape、view、flatten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-transpose-permute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 交换维度：transpose 与 permute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 增加与删除长度为 1 的维度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-cat-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 拼接：cat 与 stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 广播机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 聚合与矩阵乘法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 自动求导与计算图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 项目中的关键张量形状
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ANN：人工神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. ANN：人工神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 从一个神经元理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 为什么需要激活函数？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 多层感知机 MLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-logits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 输出层、logits 与交叉熵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 优化器与学习率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-ann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 ANN 的局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cnn-cifar-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. CNN：结合 CIFAR-10 图像分类代码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. CNN：结合 CIFAR-10 图像分类代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 为什么图像适合 CNN？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-nchw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 图像张量的 NCHW 格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 卷积层参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 池化层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-imageclassifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 ImageClassifier 的完整形状追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 数据集与图像转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 训练循环逐步解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#68-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 为什么平均 loss 要乘样本数？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 评估流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#610-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 当前 CNN 代码的理解提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. RNN：结合歌词生成代码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. RNN：结合歌词生成代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 为什么文本需要序列模型？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 从原始歌词到词索引
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 滑动窗口构造训练样本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-embedding-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Embedding：把词 ID 变成词向量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-textgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 TextGenerator 的完整形状追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 隐藏状态的形状
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 RNN 的训练过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#78" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8 歌词生成过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#79-train_logtxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9 如何看 train_log.txt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#710-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10 当前 RNN 代码的理解提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#711-rnn-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11 从 RNN 走向现代 NLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-anncnnrnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ANN、CNN、RNN 横向对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. ANN、CNN、RNN 横向对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 如何选择？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PyTorch 通用训练模板
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. PyTorch 通用训练模板">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 训练循环的固定顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 更完整的检查点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 常见错误与排查清单
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 常见错误与排查清单">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 形状不匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-dtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 dtype 不正确
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 设备不一致
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-crossentropyloss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 CrossEntropyLoss 使用错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 忘记清除梯度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.6 忘记切换模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#107" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.7 模型文件加载失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#108-cuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.8 CUDA 显存不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#109-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.9 loss 不下降
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-nlpgnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 后续 NLP、GNN 与大模型学习路线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 后续 NLP、GNN 与大模型学习路线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 NLP 路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-gnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 GNN 路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Transformer 与大模型路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 建议补充的数学基础
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5 推荐实践顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 快速复习附录
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. 快速复习附录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 一页流程速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 高频 API 速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 关键公式速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 两个项目的形状总表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.4 两个项目的形状总表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5 术语中英文对照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.6 自测题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#127" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.7 建议的小练习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结语
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小游戏
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    小游戏
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    游戏总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/snake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪吃蛇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/2048/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2048
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/minesweeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    扫雷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../games/dino-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小恐龙跑酷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 当前阶段的知识地图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 当前阶段的知识地图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 这些概念是什么关系？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 目前的两个深度学习练习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 深度学习的最小知识框架
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 深度学习的最小知识框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 从一个分类任务开始理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 前向传播、损失与反向传播
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-batchiterationepoch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 batch、iteration、epoch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 训练集、验证集与测试集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 欠拟合与过拟合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. PyTorch 简单入门
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. PyTorch 简单入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 PyTorch 的几个核心模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-nnmodule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 用 nn.Module 定义模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cpu-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 CPU 与 GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-dataset-dataloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Dataset 与 DataLoader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 训练模式、评估模式和推理模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 模型保存与加载
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 一个容易混淆的点：训练与继续训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tensor：张量专章
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tensor：张量专章">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 什么是张量？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 常见创建方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-dtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 dtype：数据类型很重要
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 索引与切片
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-reshapeviewflatten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 改变形状：reshape、view、flatten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-transpose-permute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 交换维度：transpose 与 permute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 增加与删除长度为 1 的维度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-cat-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 拼接：cat 与 stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 广播机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 聚合与矩阵乘法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 自动求导与计算图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 项目中的关键张量形状
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ANN：人工神经网络
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. ANN：人工神经网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 从一个神经元理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 为什么需要激活函数？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 多层感知机 MLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-logits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 输出层、logits 与交叉熵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 优化器与学习率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-ann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 ANN 的局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cnn-cifar-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. CNN：结合 CIFAR-10 图像分类代码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. CNN：结合 CIFAR-10 图像分类代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 为什么图像适合 CNN？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-nchw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 图像张量的 NCHW 格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 卷积层参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 池化层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-imageclassifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 ImageClassifier 的完整形状追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 数据集与图像转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 训练循环逐步解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#68-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 为什么平均 loss 要乘样本数？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 评估流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#610-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 当前 CNN 代码的理解提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. RNN：结合歌词生成代码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. RNN：结合歌词生成代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 为什么文本需要序列模型？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 从原始歌词到词索引
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 滑动窗口构造训练样本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-embedding-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Embedding：把词 ID 变成词向量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-textgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 TextGenerator 的完整形状追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 隐藏状态的形状
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 RNN 的训练过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#78" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8 歌词生成过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#79-train_logtxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9 如何看 train_log.txt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#710-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10 当前 RNN 代码的理解提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#711-rnn-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11 从 RNN 走向现代 NLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-anncnnrnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ANN、CNN、RNN 横向对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. ANN、CNN、RNN 横向对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 如何选择？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PyTorch 通用训练模板
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. PyTorch 通用训练模板">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 训练循环的固定顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 更完整的检查点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 常见错误与排查清单
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 常见错误与排查清单">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 形状不匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-dtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 dtype 不正确
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 设备不一致
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-crossentropyloss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 CrossEntropyLoss 使用错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 忘记清除梯度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.6 忘记切换模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#107" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.7 模型文件加载失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#108-cuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.8 CUDA 显存不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#109-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.9 loss 不下降
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-nlpgnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 后续 NLP、GNN 与大模型学习路线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 后续 NLP、GNN 与大模型学习路线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-nlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 NLP 路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-gnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 GNN 路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Transformer 与大模型路线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 建议补充的数学基础
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5 推荐实践顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 秒复习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 快速复习附录
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. 快速复习附录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 一页流程速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 高频 API 速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 关键公式速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 两个项目的形状总表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.4 两个项目的形状总表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5 术语中英文对照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.6 自测题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#127" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.7 建议的小练习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结语
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="pytorchanncnn-rnn">深度学习阶段性知识笔记：PyTorch、ANN、CNN 与 RNN<a class="headerlink" href="#pytorchanncnn-rnn" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>适用阶段：完成 Python 基础，并刚开始使用 PyTorch 编写神经网络。<br />
+使用方法：第一次按顺序阅读；复习时优先查看每章末尾的“30 秒复习”和最后的速查附录。</p>
+</blockquote>
+<h2 id="1">1. 当前阶段的知识地图<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 这些概念是什么关系？<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>人工神经网络（ANN）是一个大类。常见的多层全连接网络、CNN、RNN 都属于人工神经网络，只是它们针对的数据结构不同。</p>
+<pre><code class="language-text">深度学习
+└─ 人工神经网络 ANN
+   ├─ 全连接网络 / MLP：普通表格、固定长度向量
+   ├─ CNN：图像、空间结构
+   └─ RNN：文本、时间序列等顺序数据
+</code></pre>
+<ul>
+<li><strong>ANN/MLP</strong> 学习“特征之间的组合关系”。</li>
+<li><strong>CNN</strong> 用卷积提取局部空间特征，例如边缘、纹理和物体部件。</li>
+<li><strong>RNN</strong> 按顺序读取数据，用隐藏状态记录前文信息。</li>
+<li><strong>Transformer</strong> 通过注意力机制建模序列，是当前 NLP 和大模型的核心结构。</li>
+<li><strong>GNN</strong> 在图结构上聚合邻居信息，适合节点和边关系明显的数据。</li>
+</ul>
+<h3 id="12">1.2 目前的两个深度学习练习<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>任务</th>
+<th>输入</th>
+<th>输出</th>
+<th>核心模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CNN/main.py</code></td>
+<td>CIFAR-10 图像分类</td>
+<td><code>32×32</code> 彩色图片</td>
+<td>10 个类别的分数</td>
+<td>卷积层 + 全连接层</td>
+</tr>
+<tr>
+<td><code>RNN/main.py</code></td>
+<td>歌词文本生成</td>
+<td>若干连续词的索引</td>
+<td>下一个词的概率分数</td>
+<td>Embedding + RNN + Linear</td>
+</tr>
+</tbody>
+</table>
+<p>这两个项目已经包含了深度学习最核心的完整闭环：</p>
+<pre><code class="language-text">准备数据 → 构造批次 → 定义模型 → 前向传播 → 计算损失
+        → 反向传播 → 更新参数 → 保存模型 → 加载模型 → 推理
+</code></pre>
+<h3 id="30">30 秒复习<a class="headerlink" href="#30" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ANN 是总称，CNN 和 RNN 都是 ANN 的具体类型。</li>
+<li>CNN 擅长空间结构，RNN 擅长顺序结构。</li>
+<li>PyTorch 负责张量计算、自动求导、模型搭建和训练。</li>
+</ul>
+<hr />
+<h2 id="2">2. 深度学习的最小知识框架<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 从一个分类任务开始理解<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>以 CIFAR-10 为例：给模型一张图片，希望模型判断它是飞机、汽车、鸟、猫等 10 类中的哪一类。</p>
+<ul>
+<li><strong>样本（sample）</strong>：一张图片。</li>
+<li><strong>特征（feature）</strong>：图片中的像素及模型从像素中提取出的信息。</li>
+<li><strong>标签（label）</strong>：图片的正确类别，例如 <code>3</code> 表示猫。</li>
+<li><strong>参数（parameter）</strong>：模型训练时自动学习的权重和偏置。</li>
+<li><strong>超参数（hyperparameter）</strong>：由人设置的配置，如学习率、batch size、epoch 数。</li>
+</ul>
+<p>模型训练可以理解为反复做四件事：</p>
+<ol>
+<li>根据当前参数做预测。</li>
+<li>用损失函数衡量预测与正确答案的差距。</li>
+<li>计算每个参数应该向哪个方向调整。</li>
+<li>由优化器更新参数，使下次预测更好。</li>
+</ol>
+<h3 id="22">2.2 前向传播、损失与反向传播<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">输入 x ──前向传播──&gt; 预测值 y_pred
+                         │
+正确答案 y ───────────&gt; 损失 loss
+                         │
+                    反向传播
+                         │
+                    参数梯度
+                         │
+                    优化器更新
+</code></pre>
+<ul>
+<li><strong>前向传播（forward）</strong>：输入通过网络得到预测结果。</li>
+<li><strong>损失函数（loss function）</strong>：用一个数表示预测有多差，通常越小越好。</li>
+<li><strong>反向传播（backpropagation）</strong>：根据链式法则计算各参数的梯度。</li>
+<li><strong>梯度（gradient）</strong>：损失对参数的变化率，提示参数的调整方向。</li>
+<li><strong>优化器（optimizer）</strong>：根据梯度更新参数，例如 Adam、SGD。</li>
+</ul>
+<h3 id="23-batchiterationepoch">2.3 batch、iteration、epoch<a class="headerlink" href="#23-batchiterationepoch" title="Permanent link">&para;</a></h3>
+<p>假设训练集有 50,000 张图片，<code>batch_size=1000</code>：</p>
+<ul>
+<li><strong>batch</strong>：一次交给模型的 1,000 张图片。</li>
+<li><strong>iteration/step</strong>：处理一个 batch 并更新一次参数。</li>
+<li><strong>epoch</strong>：完整看完一次 50,000 张训练图片。</li>
+<li>每个 epoch 大约有 <code>50000 / 1000 = 50</code> 次 iteration。</li>
+</ul>
+<p>你的 CNN 使用 <code>batch_size=1024</code>，RNN 使用 <code>BATCH_SIZE=128</code>。</p>
+<h3 id="24">2.4 训练集、验证集与测试集<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>用途</th>
+<th>是否更新模型参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>训练集</td>
+<td>学习参数</td>
+<td>是</td>
+</tr>
+<tr>
+<td>验证集</td>
+<td>选择超参数、观察过拟合</td>
+<td>否</td>
+</tr>
+<tr>
+<td>测试集</td>
+<td>最终评估泛化能力</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<p>当前 CNN 项目使用训练集训练、测试集评估，还没有单独划分验证集。这对入门练习完全可以，但以后做正式实验时应增加验证集，避免一边调参一边“偷看”测试集。</p>
+<h3 id="25">2.5 欠拟合与过拟合<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>欠拟合</strong>：训练集都学不好，可能模型太简单、训练时间不足或学习率不合适。</li>
+<li><strong>过拟合</strong>：训练集表现很好，测试集表现明显较差，说明模型记住了训练数据但泛化不足。</li>
+<li>常见缓解手段：更多数据、数据增强、正则化、Dropout、早停、减小模型复杂度。</li>
+</ul>
+<h3 id="30_1">30 秒复习<a class="headerlink" href="#30_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>训练就是“预测 → 算损失 → 求梯度 → 更新参数”的循环。</li>
+<li>epoch 是完整遍历训练集一次；batch 是一次处理的一小批数据。</li>
+<li>测试集只用于评估，不参与参数更新。</li>
+</ul>
+<hr />
+<h2 id="3-pytorch">3. PyTorch 简单入门<a class="headerlink" href="#3-pytorch" title="Permanent link">&para;</a></h2>
+<h3 id="31-pytorch">3.1 PyTorch 的几个核心模块<a class="headerlink" href="#31-pytorch" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>作用</th>
+<th>当前代码中的例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>torch</code></td>
+<td>张量、设备、自动求导、模型读写</td>
+<td><code>torch.tensor</code>、<code>torch.save</code></td>
+</tr>
+<tr>
+<td><code>torch.nn</code></td>
+<td>神经网络层和损失函数</td>
+<td><code>nn.Conv2d</code>、<code>nn.RNN</code>、<code>nn.CrossEntropyLoss</code></td>
+</tr>
+<tr>
+<td><code>torch.optim</code></td>
+<td>优化器</td>
+<td><code>optim.Adam</code></td>
+</tr>
+<tr>
+<td><code>torch.utils.data</code></td>
+<td>数据集和批量加载</td>
+<td><code>Dataset</code>、<code>DataLoader</code></td>
+</tr>
+<tr>
+<td><code>torchvision</code></td>
+<td>图像数据集和图像变换</td>
+<td><code>CIFAR10</code>、<code>ToTensor</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-nnmodule">3.2 用 <code>nn.Module</code> 定义模型<a class="headerlink" href="#32-nnmodule" title="Permanent link">&para;</a></h3>
+<p>PyTorch 模型通常继承 <code>nn.Module</code>：</p>
+<pre><code class="language-python">class MyModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.layer = nn.Linear(10, 3)
+
+    def forward(self, x):
+        return self.layer(x)
+</code></pre>
+<ul>
+<li><code>__init__()</code>：声明模型中有哪些可训练层。</li>
+<li><code>forward()</code>：规定数据按什么顺序经过这些层。</li>
+<li>调用 <code>model(x)</code> 时，PyTorch 会执行模型的 <code>forward(x)</code>。</li>
+<li>只要层被赋值为模型成员，如 <code>self.layer</code>，其中的参数就会被 PyTorch 注册并交给优化器。</li>
+</ul>
+<p>对应到项目：</p>
+<ul>
+<li>CNN 的 <code>ImageClassifier(nn.Module)</code> 声明卷积、池化和全连接层。</li>
+<li>RNN 的 <code>TextGenerator(nn.Module)</code> 声明 Embedding、RNN 和输出层。</li>
+</ul>
+<h3 id="33-cpu-gpu">3.3 CPU 与 GPU<a class="headerlink" href="#33-cpu-gpu" title="Permanent link">&para;</a></h3>
+<p>CNN 代码会自动选择设备：</p>
+<pre><code class="language-python">device = torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+model = ImageClassifier().to(device)
+x = x.to(device)
+y = y.to(device)
+</code></pre>
+<p>重要规则：<strong>参与同一次运算的模型和张量必须在同一设备上。</strong></p>
+<p>例如模型在 GPU、输入在 CPU，就会出现设备不一致错误。RNN 代码目前全部运行在 CPU；以后迁移到 GPU 时，输入、标签和隐藏状态 <code>hidden</code> 都需要移动到相同设备。</p>
+<h3 id="34-dataset-dataloader">3.4 Dataset 与 DataLoader<a class="headerlink" href="#34-dataset-dataloader" title="Permanent link">&para;</a></h3>
+<p><code>Dataset</code> 负责回答两个问题：</p>
+<ol>
+<li>一共有多少条数据？——<code>__len__()</code></li>
+<li>第 <code>idx</code> 条数据是什么？——<code>__getitem__(idx)</code></li>
+</ol>
+<p><code>DataLoader</code> 进一步负责：</p>
+<ul>
+<li>自动组成 batch；</li>
+<li>打乱训练数据；</li>
+<li>多进程读取数据；</li>
+<li>把单条样本堆叠成批量张量。</li>
+</ul>
+<pre><code class="language-python">dataloader = DataLoader(
+    dataset,
+    batch_size=128,
+    shuffle=True
+)
+</code></pre>
+<p>训练时通常 <code>shuffle=True</code>，评估时通常 <code>shuffle=False</code>。</p>
+<h3 id="35">3.5 训练模式、评估模式和推理模式<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">model.train()  # 训练模式
+model.eval()   # 评估模式
+
+with torch.inference_mode():
+    y_pred = model(x)
+</code></pre>
+<ul>
+<li><code>model.train()</code> 与 <code>model.eval()</code> 会影响 Dropout、BatchNorm 等层的行为。</li>
+<li><code>torch.inference_mode()</code> 表示只做推理，不构建梯度计算图，速度更快、内存占用更少。</li>
+<li><code>model.eval()</code> 和 <code>torch.inference_mode()</code> 解决的是不同问题，正式推理时通常两者一起使用。</li>
+</ul>
+<p>当前 CNN 的 <code>evaluate()</code> 已正确使用 <code>model.eval()</code> 和 <code>torch.inference_mode()</code>。</p>
+<h3 id="36">3.6 模型保存与加载<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<p>项目保存的是参数字典：</p>
+<pre><code class="language-python">torch.save(model.state_dict(), &quot;./model/image_model.pth&quot;)
+</code></pre>
+<p>加载时必须先创建相同结构的模型：</p>
+<pre><code class="language-python">model = ImageClassifier()
+model.load_state_dict(torch.load(&quot;./model/image_model.pth&quot;))
+</code></pre>
+<p><code>state_dict()</code> 主要包含每一层的权重和偏置，不包含 Python 类定义。因此加载模型时仍然需要 <code>ImageClassifier</code> 或 <code>TextGenerator</code> 的代码。</p>
+<p>如果模型文件来自 GPU，而当前在 CPU 上运行，可以使用：</p>
+<pre><code class="language-python">state = torch.load(&quot;model.pth&quot;, map_location=&quot;cpu&quot;)
+model.load_state_dict(state)
+</code></pre>
+<h3 id="37">3.7 一个容易混淆的点：训练与继续训练<a class="headerlink" href="#37" title="Permanent link">&para;</a></h3>
+<p>两个项目的 <code>train()</code> 都会先调用 <code>load_state_dict()</code>，因此实际含义是：</p>
+<blockquote>
+<p>从已有 <code>.pth</code> 参数继续训练，而不是从随机参数开始训练。</p>
+</blockquote>
+<p>如果 <code>.pth</code> 文件不存在，程序会报错。初次训练通常直接创建模型；继续训练时才加载检查点。</p>
+<h3 id="30_2">30 秒复习<a class="headerlink" href="#30_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>nn.Module</code> 定义模型，<code>forward()</code> 定义数据流。</li>
+<li><code>Dataset</code> 管单条样本，<code>DataLoader</code> 管批量、打乱和加载。</li>
+<li>模型、输入、标签和隐藏状态必须在同一设备。</li>
+<li>训练用 <code>train()</code>；评估用 <code>eval()</code> 加 <code>inference_mode()</code>。</li>
+</ul>
+<hr />
+<h2 id="4-tensor">4. Tensor：张量专章<a class="headerlink" href="#4-tensor" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 什么是张量？<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>张量可以先理解成“可以放在 CPU/GPU 上进行批量计算的多维数组”。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>常见名称</th>
+<th>示例 shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 维</td>
+<td>标量</td>
+<td><code>()</code></td>
+</tr>
+<tr>
+<td>1 维</td>
+<td>向量</td>
+<td><code>(5,)</code></td>
+</tr>
+<tr>
+<td>2 维</td>
+<td>矩阵</td>
+<td><code>(3, 4)</code></td>
+</tr>
+<tr>
+<td>3 维</td>
+<td>三维张量</td>
+<td><code>(batch, length, feature)</code></td>
+</tr>
+<tr>
+<td>4 维</td>
+<td>四维张量</td>
+<td><code>(batch, channel, height, width)</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>shape</code> 描述张量每个维度的大小：</p>
+<pre><code class="language-python">x = torch.randn(32, 3, 28, 28)
+print(x.shape)       # torch.Size([32, 3, 28, 28])
+print(x.size(0))     # 32，即 batch size
+print(x.numel())     # 张量中元素总数
+</code></pre>
+<h3 id="42">4.2 常见创建方法<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">torch.tensor([1, 2, 3])       # 从 Python 数据创建
+torch.zeros(2, 3)             # 全 0
+torch.ones(2, 3)              # 全 1
+torch.randn(2, 3)             # 标准正态分布随机数
+torch.rand(2, 3)              # [0, 1) 均匀分布随机数
+torch.arange(0, 10, 2)        # 0, 2, 4, 6, 8
+torch.eye(3)                  # 3×3 单位矩阵
+</code></pre>
+<h3 id="43-dtype">4.3 dtype：数据类型很重要<a class="headerlink" href="#43-dtype" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">x = torch.tensor([1.0, 2.0], dtype=torch.float32)
+y = torch.tensor([0, 2, 1], dtype=torch.long)
+</code></pre>
+<p>常见规则：</p>
+<ul>
+<li>神经网络输入和参数通常是 <code>torch.float32</code>。</li>
+<li>分类标签通常是 <code>torch.long</code>，因为它保存的是类别索引。</li>
+<li><code>nn.Embedding</code> 的输入也必须是整数索引，通常为 <code>torch.long</code>。</li>
+<li>布尔掩码使用 <code>torch.bool</code>。</li>
+</ul>
+<p>你的 RNN 中 <code>torch.tensor(x)</code> 由整数列表创建，因此默认得到整型张量，可以作为 Embedding 输入。</p>
+<h3 id="44">4.4 索引与切片<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">x = torch.arange(12).reshape(3, 4)
+
+x[0]          # 第 1 行
+x[:, 1]       # 所有行的第 2 列
+x[0:2, 1:3]   # 行和列切片
+x[x &gt; 5]      # 布尔条件筛选
+</code></pre>
+<p>索引通常会减少一个维度，切片通常会保留该维度：</p>
+<pre><code class="language-python">x[0].shape      # (4,)
+x[0:1].shape    # (1, 4)
+</code></pre>
+<h3 id="45-reshapeviewflatten">4.5 改变形状：reshape、view、flatten<a class="headerlink" href="#45-reshapeviewflatten" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">x = torch.randn(8, 3, 4)
+y = x.reshape(8, 12)
+z = x.flatten(start_dim=1)
+</code></pre>
+<ul>
+<li><code>reshape()</code>：把元素重新组织成指定形状，元素总数必须不变。</li>
+<li><code>view()</code>：作用类似，但通常要求内存连续。</li>
+<li><code>flatten(start_dim=1)</code>：从指定维度开始展平，CNN 中很常用。</li>
+<li><code>-1</code> 表示让 PyTorch 自动推断该维度。</li>
+</ul>
+<p>CNN 使用：</p>
+<pre><code class="language-python">x = x.reshape(x.size(0), -1)
+</code></pre>
+<p>这里保留第 0 维 batch，把每张图片剩余的通道和空间维度展平成一个向量。</p>
+<h3 id="46-transpose-permute">4.6 交换维度：transpose 与 permute<a class="headerlink" href="#46-transpose-permute" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">x = torch.randn(32, 5, 128)   # (batch, length, feature)
+
+x.transpose(0, 1).shape       # (5, 32, 128)，只交换两个维度
+x.permute(1, 0, 2).shape      # (5, 32, 128)，重新排列全部维度
+</code></pre>
+<p>RNN 代码中的 Embedding 输出是 <code>(batch, seq_len, embedding_dim)</code>，而当前 <code>nn.RNN</code> 默认要求 <code>(seq_len, batch, input_size)</code>，所以使用 <code>transpose(0, 1)</code>。</p>
+<h3 id="47-1">4.7 增加与删除长度为 1 的维度<a class="headerlink" href="#47-1" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">x = torch.tensor([1, 2, 3])
+
+x.unsqueeze(0).shape   # (1, 3)
+x.unsqueeze(1).shape   # (3, 1)
+x.unsqueeze(0).squeeze(0).shape  # 回到 (3,)
+</code></pre>
+<p>RNN 生成时使用 <code>torch.tensor([[word_idx]])</code>，形状是 <code>(1, 1)</code>，表示 batch 为 1、序列长度为 1。</p>
+<h3 id="48-cat-stack">4.8 拼接：cat 与 stack<a class="headerlink" href="#48-cat-stack" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">a = torch.randn(2, 3)
+b = torch.randn(2, 3)
+
+torch.cat([a, b], dim=0).shape    # (4, 3)，沿已有维度连接
+torch.stack([a, b], dim=0).shape  # (2, 2, 3)，创建一个新维度
+</code></pre>
+<p>记忆方法：<code>cat</code> 不增加维度数，<code>stack</code> 会增加一个维度。</p>
+<h3 id="49">4.9 广播机制<a class="headerlink" href="#49" title="Permanent link">&para;</a></h3>
+<p>当两个张量形状不完全相同时，PyTorch 可能自动扩展长度为 1 的维度：</p>
+<pre><code class="language-python">x = torch.randn(32, 10)
+b = torch.randn(10)
+y = x + b  # b 自动扩展为每一行都加同一个偏置
+</code></pre>
+<p>广播从最后一个维度向前比较；两个维度相同，或其中一个为 1 时可以广播。广播很方便，但也可能让错误形状“悄悄算下去”，因此要养成检查 <code>shape</code> 的习惯。</p>
+<h3 id="410">4.10 聚合与矩阵乘法<a class="headerlink" href="#410" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">x.sum()                # 所有元素求和
+x.mean(dim=0)          # 沿第 0 维求平均
+x.max(dim=1)           # 同时返回最大值和索引
+x.argmax(dim=-1)       # 最后一维最大值的位置
+
+a @ b                  # 矩阵乘法
+torch.matmul(a, b)     # 矩阵乘法
+</code></pre>
+<p>CNN 中：</p>
+<pre><code class="language-python">torch.argmax(y_pred, dim=-1)
+</code></pre>
+<p><code>y_pred</code> 的形状为 <code>(batch, 10)</code>，最后一维是 10 个类别，<code>argmax</code> 取分数最高的类别索引，结果形状为 <code>(batch,)</code>。</p>
+<h3 id="411">4.11 自动求导与计算图<a class="headerlink" href="#411" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">w = torch.tensor(2.0, requires_grad=True)
+x = torch.tensor(3.0)
+y = w * x
+loss = (y - 10) ** 2
+
+loss.backward()
+print(w.grad)
+</code></pre>
+<p>PyTorch 在前向计算时记录运算关系，形成计算图；<code>backward()</code> 从 loss 反向计算梯度。</p>
+<p>训练循环中必须清除上一轮梯度：</p>
+<pre><code class="language-python">optimizer.zero_grad()
+loss.backward()
+optimizer.step()
+</code></pre>
+<p>PyTorch 默认会累加梯度，而不是覆盖梯度。这一设计支持梯度累积，但普通训练中每一步都要清零。</p>
+<h3 id="412">4.12 项目中的关键张量形状<a class="headerlink" href="#412" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>张量</th>
+<th>形状</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNN 输入</td>
+<td>一批彩色图片</td>
+<td><code>(B, 3, 32, 32)</code></td>
+</tr>
+<tr>
+<td>CNN 输出</td>
+<td>每张图片的 10 类分数</td>
+<td><code>(B, 10)</code></td>
+</tr>
+<tr>
+<td>CNN 标签</td>
+<td>每张图片的类别索引</td>
+<td><code>(B,)</code></td>
+</tr>
+<tr>
+<td>RNN 输入</td>
+<td>一批词索引序列</td>
+<td><code>(B, L)</code></td>
+</tr>
+<tr>
+<td>Embedding 输出</td>
+<td>每个词的向量</td>
+<td><code>(B, L, 128)</code></td>
+</tr>
+<tr>
+<td>RNN 输入格式</td>
+<td>时间步在前</td>
+<td><code>(L, B, 128)</code></td>
+</tr>
+<tr>
+<td>RNN 输出</td>
+<td>每步隐藏状态</td>
+<td><code>(L, B, 256)</code></td>
+</tr>
+<tr>
+<td>文本输出层</td>
+<td>每个位置的词表分数</td>
+<td><code>(L×B, V)</code></td>
+</tr>
+<tr>
+<td>RNN 标签</td>
+<td>每个位置的目标词索引</td>
+<td><code>(L×B,)</code></td>
+</tr>
+</tbody>
+</table>
+<p>其中 <code>B</code> 是 batch size，<code>L</code> 是序列长度，<code>V</code> 是词表大小。</p>
+<h3 id="30_3">30 秒复习<a class="headerlink" href="#30_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>张量最先看 <code>shape</code>、<code>dtype</code>、<code>device</code>。</li>
+<li><code>reshape</code> 改形状，<code>transpose</code> 交换维度，<code>argmax</code> 取最大值索引。</li>
+<li>分类标签和 Embedding 输入通常是 <code>long</code>。</li>
+<li><code>backward()</code> 求梯度；普通训练每一步先 <code>zero_grad()</code>。</li>
+</ul>
+<hr />
+<h2 id="5-ann">5. ANN：人工神经网络<a class="headerlink" href="#5-ann" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 从一个神经元理解<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>一个最简单的人工神经元会做两步：</p>
+<ol>
+<li>对输入进行线性加权。</li>
+<li>通过激活函数增加非线性。</li>
+</ol>
+<p>公式可以写成：</p>
+<p>$$
+z = Wx + b, \qquad y = \phi(z)
+$$</p>
+<ul>
+<li>$x$：输入特征。</li>
+<li>$W$：权重。</li>
+<li>$b$：偏置。</li>
+<li>$\phi$：激活函数。</li>
+</ul>
+<p>PyTorch 中的 <code>nn.Linear(in_features, out_features)</code> 就是在做 $Wx+b$。</p>
+<pre><code class="language-python">layer = nn.Linear(120, 84)
+</code></pre>
+<p>如果输入形状是 <code>(B, 120)</code>，输出形状就是 <code>(B, 84)</code>。</p>
+<h3 id="52">5.2 为什么需要激活函数？<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>如果多层网络之间完全没有激活函数，那么多个线性变换组合后仍然只是一个线性变换，深度就失去了意义。</p>
+<p>常见激活函数：</p>
+<table>
+<thead>
+<tr>
+<th>激活函数</th>
+<th>特点</th>
+<th>常见用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ReLU</td>
+<td><code>max(0, x)</code>，简单高效</td>
+<td>隐藏层常用</td>
+</tr>
+<tr>
+<td>Sigmoid</td>
+<td>输出在 <code>(0,1)</code></td>
+<td>二分类输出、门控结构</td>
+</tr>
+<tr>
+<td>Tanh</td>
+<td>输出在 <code>(-1,1)</code></td>
+<td>传统 RNN 隐藏状态</td>
+</tr>
+<tr>
+<td>Softmax</td>
+<td>把一组分数转成概率分布</td>
+<td>多分类解释或推理</td>
+</tr>
+</tbody>
+</table>
+<p>CNN 代码在全连接层之间使用：</p>
+<pre><code class="language-python">x = torch.relu(self.fc1(x))
+x = torch.relu(self.fc2(x))
+</code></pre>
+<h3 id="53-mlp">5.3 多层感知机 MLP<a class="headerlink" href="#53-mlp" title="Permanent link">&para;</a></h3>
+<p>把多个“线性层 + 激活函数”串起来，就是多层感知机：</p>
+<pre><code class="language-text">输入 → Linear → ReLU → Linear → ReLU → Linear → 输出
+</code></pre>
+<p>CNN 最后的分类部分实际上就是一个 MLP：</p>
+<pre><code class="language-text">576 → 120 → 84 → 10
+</code></pre>
+<p>RNN 的 <code>self.out = nn.Linear(256, unique_word_count)</code> 也是全连接层，它把每个时间步的隐藏状态映射成词表中每个词的分数。</p>
+<h3 id="54-logits">5.4 输出层、logits 与交叉熵<a class="headerlink" href="#54-logits" title="Permanent link">&para;</a></h3>
+<p>模型最后输出的原始分数称为 <strong>logits</strong>。例如十分类模型输出：</p>
+<pre><code class="language-text">[1.2, -0.3, 2.8, ..., 0.7]
+</code></pre>
+<p><code>nn.CrossEntropyLoss()</code> 接收：</p>
+<ul>
+<li>模型输出：形状 <code>(N, C)</code> 的 logits；</li>
+<li>正确标签：形状 <code>(N,)</code> 的类别索引，取值范围为 <code>0 ~ C-1</code>。</li>
+</ul>
+<pre><code class="language-python">criterion = nn.CrossEntropyLoss()
+loss = criterion(y_pred, y)
+</code></pre>
+<p><strong>使用 CrossEntropyLoss 前不要手动对模型输出做 Softmax。</strong> 它内部已经以数值更稳定的方式组合了 LogSoftmax 和负对数似然损失。</p>
+<h3 id="55">5.5 优化器与学习率<a class="headerlink" href="#55" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">optimizer = optim.Adam(model.parameters(), lr=1e-3)
+</code></pre>
+<ul>
+<li><code>model.parameters()</code>：告诉优化器需要更新哪些参数。</li>
+<li><code>lr</code>：学习率，决定每次更新的步幅。</li>
+<li>学习率太大可能震荡或发散；太小则训练很慢。</li>
+<li>Adam 会自适应调整不同参数的更新幅度，适合作为入门默认选择。</li>
+</ul>
+<h3 id="56-ann">5.6 ANN 的局限<a class="headerlink" href="#56-ann" title="Permanent link">&para;</a></h3>
+<p>如果把图片直接展平后送入全连接网络：</p>
+<ul>
+<li>会忽略像素之间的二维空间关系；</li>
+<li>参数数量很大；</li>
+<li>同一个特征出现在图片不同位置时，需要重复学习。</li>
+</ul>
+<p>CNN 用局部连接和参数共享缓解这些问题。类似地，普通 ANN 不会自然记住序列顺序，RNN 则专门处理顺序信息。</p>
+<h3 id="30_4">30 秒复习<a class="headerlink" href="#30_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Linear</code> 做 $Wx+b$，激活函数提供非线性。</li>
+<li>MLP 是多层 <code>Linear + 激活函数</code>。</li>
+<li>分类模型输出 logits；<code>CrossEntropyLoss</code> 前不要手动 Softmax。</li>
+<li>CNN 和 RNN 的末尾通常仍会使用全连接层完成输出映射。</li>
+</ul>
+<hr />
+<h2 id="6-cnn-cifar-10">6. CNN：结合 CIFAR-10 图像分类代码<a class="headerlink" href="#6-cnn-cifar-10" title="Permanent link">&para;</a></h2>
+<h3 id="61-cnn">6.1 为什么图像适合 CNN？<a class="headerlink" href="#61-cnn" title="Permanent link">&para;</a></h3>
+<p>图像具有两个重要特点：</p>
+<ol>
+<li><strong>局部相关性</strong>：相邻像素通常共同组成边缘、纹理和形状。</li>
+<li><strong>位置可迁移性</strong>：检测猫耳朵的模式无论出现在左上还是右下，含义相近。</li>
+</ol>
+<p>卷积核像一个小窗口，在整张图片上滑动，用同一组参数寻找某种局部特征。这就是 <strong>局部连接</strong> 和 <strong>参数共享</strong>。</p>
+<h3 id="62-nchw">6.2 图像张量的 NCHW 格式<a class="headerlink" href="#62-nchw" title="Permanent link">&para;</a></h3>
+<p>PyTorch 的二维卷积默认使用：</p>
+<pre><code class="language-text">(N, C, H, W)
+</code></pre>
+<ul>
+<li><code>N</code>：batch size。</li>
+<li><code>C</code>：通道数；RGB 彩色图片为 3。</li>
+<li><code>H</code>：高度。</li>
+<li><code>W</code>：宽度。</li>
+</ul>
+<p>CIFAR-10 图片输入形状为 <code>(B, 3, 32, 32)</code>。</p>
+<h3 id="63">6.3 卷积层参数<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">nn.Conv2d(
+    in_channels=3,
+    out_channels=6,
+    kernel_size=3,
+    stride=1,
+    padding=0
+)
+</code></pre>
+<ul>
+<li><code>in_channels=3</code>：输入为 RGB 三通道。</li>
+<li><code>out_channels=6</code>：使用 6 组卷积核，得到 6 张特征图。</li>
+<li><code>kernel_size=3</code>：卷积窗口为 <code>3×3</code>。</li>
+<li><code>stride=1</code>：每次滑动 1 格。</li>
+<li><code>padding=0</code>：边缘不补零。</li>
+</ul>
+<p>单个空间维度的卷积输出大小为：</p>
+<p>$$
+H_{out}=\left\lfloor\frac{H_{in}+2P-K}{S}\right\rfloor+1
+$$</p>
+<p>其中 $P$ 是 padding，$K$ 是 kernel size，$S$ 是 stride。</p>
+<h3 id="64">6.4 池化层<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">nn.MaxPool2d(kernel_size=2, stride=2)
+</code></pre>
+<p>最大池化在每个 <code>2×2</code> 区域保留最大值，宽高大约减半。它可以：</p>
+<ul>
+<li>减少后续计算量；</li>
+<li>扩大后续神经元看到的有效区域；</li>
+<li>保留较显著的局部响应。</li>
+</ul>
+<p>池化没有可训练权重。</p>
+<h3 id="65-imageclassifier">6.5 <code>ImageClassifier</code> 的完整形状追踪<a class="headerlink" href="#65-imageclassifier" title="Permanent link">&para;</a></h3>
+<p>模型结构：</p>
+<pre><code class="language-python">self.conv1 = nn.Conv2d(3, 6, 3, 1, 0)
+self.pool1 = nn.MaxPool2d(2, 2, 0)
+self.conv2 = nn.Conv2d(6, 16, 3, 1, 0)
+self.pool2 = nn.MaxPool2d(2, 2, 0)
+self.fc1 = nn.Linear(576, 120)
+self.fc2 = nn.Linear(120, 84)
+self.output = nn.Linear(84, 10)
+</code></pre>
+<p>逐层计算：</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>运算</th>
+<th>输出形状</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>CIFAR-10 图片</td>
+<td><code>(B, 3, 32, 32)</code></td>
+<td>RGB 彩色图片</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>Conv2d(3,6,3)</code></td>
+<td><code>(B, 6, 30, 30)</code></td>
+<td><code>32-3+1=30</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>ReLU</code></td>
+<td><code>(B, 6, 30, 30)</code></td>
+<td>形状不变</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>MaxPool2d(2,2)</code></td>
+<td><code>(B, 6, 15, 15)</code></td>
+<td>宽高减半</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>Conv2d(6,16,3)</code></td>
+<td><code>(B, 16, 13, 13)</code></td>
+<td><code>15-3+1=13</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>ReLU</code></td>
+<td><code>(B, 16, 13, 13)</code></td>
+<td>形状不变</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>MaxPool2d(2,2)</code></td>
+<td><code>(B, 16, 6, 6)</code></td>
+<td><code>13</code> 池化后向下取整为 <code>6</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>reshape</code></td>
+<td><code>(B, 576)</code></td>
+<td><code>16×6×6=576</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>Linear(576,120)</code></td>
+<td><code>(B, 120)</code></td>
+<td>全连接层</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>Linear(120,84)</code></td>
+<td><code>(B, 84)</code></td>
+<td>全连接层</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>Linear(84,10)</code></td>
+<td><code>(B, 10)</code></td>
+<td>十个类别的 logits</td>
+</tr>
+</tbody>
+</table>
+<p>因此 <code>fc1</code> 的输入维度必须写成 <code>576</code>。只要前面的卷积参数或输入图片尺寸改变，这个数字就可能需要重新计算。</p>
+<h3 id="66">6.6 数据集与图像转换<a class="headerlink" href="#66" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">train_dataset = CIFAR10(
+    root=&quot;./data&quot;,
+    train=True,
+    transform=ToTensor(),
+    download=True
+)
+</code></pre>
+<ul>
+<li><code>root</code>：数据保存目录。</li>
+<li><code>train=True</code>：加载训练集；<code>False</code> 加载测试集。</li>
+<li><code>ToTensor()</code>：把图片转换为 <code>(C,H,W)</code> 浮点张量，并把像素从 <code>0~255</code> 缩放到 <code>0~1</code>。</li>
+<li><code>download=True</code>：本地没有数据时自动下载。</li>
+</ul>
+<h3 id="67">6.7 训练循环逐步解释<a class="headerlink" href="#67" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">for x, y in dataLoader:
+    x = x.to(device)
+    y = y.to(device)
+
+    y_pred = model(x)
+    loss = criterion(y_pred, y)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+</code></pre>
+<p>每一步发生的事情：</p>
+<ol>
+<li>DataLoader 给出图片 <code>x</code> 和类别 <code>y</code>。</li>
+<li>把数据移动到与模型相同的设备。</li>
+<li><code>model(x)</code> 得到 <code>(B,10)</code> 的类别分数。</li>
+<li>交叉熵比较预测分数和正确类别。</li>
+<li>清除旧梯度。</li>
+<li>反向传播计算新梯度。</li>
+<li>Adam 更新模型参数。</li>
+</ol>
+<p>准确率统计：</p>
+<pre><code class="language-python">pred = torch.argmax(y_pred, dim=-1)
+correct = (pred == y).sum().item()
+</code></pre>
+<p><code>loss.item()</code> 和 <code>.item()</code> 会把单元素张量转换为普通 Python 数值，适合日志统计，也避免无意中保留计算图。</p>
+<h3 id="68-loss">6.8 为什么平均 loss 要乘样本数？<a class="headerlink" href="#68-loss" title="Permanent link">&para;</a></h3>
+<p>代码中：</p>
+<pre><code class="language-python">total_loss += loss.item() * y.size(0)
+total_samples += y.size(0)
+epoch_loss = total_loss / total_samples
+</code></pre>
+<p><code>CrossEntropyLoss</code> 默认返回当前 batch 的平均损失。最后一个 batch 可能比其他 batch 小，因此先乘回当前 batch 样本数，累计后再除以总样本数，可以得到严格的全体样本平均损失。</p>
+<h3 id="69">6.9 评估流程<a class="headerlink" href="#69" title="Permanent link">&para;</a></h3>
+<p>评估时不更新参数：</p>
+<pre><code class="language-python">model.eval()
+with torch.inference_mode():
+    for x, y in dataLoader:
+        y_pred = torch.argmax(model(x), dim=-1)
+</code></pre>
+<p>评估数据不打乱，因为打乱不会影响最终准确率，而且保持顺序更利于复现和排查。</p>
+<h3 id="610-cnn">6.10 当前 CNN 代码的理解提示<a class="headerlink" href="#610-cnn" title="Permanent link">&para;</a></h3>
+<p>以下是学习性提示，不代表必须立即修改：</p>
+<ol>
+<li><strong>当前 <code>train()</code> 默认加载已有模型。</strong> 这表示继续训练；模型文件不存在时会失败。</li>
+<li><strong>相对路径依赖启动目录。</strong> <code>./data</code> 和 <code>./model</code> 都是相对当前工作目录，而不一定是脚本所在目录。</li>
+<li><strong>batch size 为 1024。</strong> GPU 显存不足时可减小；batch 太大也会减少每个 epoch 的参数更新次数。</li>
+<li><strong>目前只使用 <code>ToTensor()</code>。</strong> 后续可学习标准化和随机裁剪、翻转等数据增强。</li>
+<li><strong>模型较小且结构清晰。</strong> 很适合学习卷积形状，但真实任务还会用 BatchNorm、Dropout、残差连接等结构。</li>
+<li><strong>加载跨设备模型时可使用 <code>map_location=device</code>。</strong> 这样在 GPU/CPU 环境切换时更稳妥。</li>
+<li><strong>输出层没有 Softmax 是正确的。</strong> 因为训练使用的是 <code>CrossEntropyLoss</code>。</li>
+</ol>
+<h3 id="30_5">30 秒复习<a class="headerlink" href="#30_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>图像通常是 <code>(B,C,H,W)</code>。</li>
+<li>卷积提取局部特征，池化压缩空间，全连接层完成分类。</li>
+<li>本项目的核心形状是 <code>(B,3,32,32) → (B,16,6,6) → (B,576) → (B,10)</code>。</li>
+<li>十分类输出是 logits，取 <code>argmax</code> 得到预测类别。</li>
+</ul>
+<hr />
+<h2 id="7-rnn">7. RNN：结合歌词生成代码<a class="headerlink" href="#7-rnn" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 为什么文本需要序列模型？<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<p>文本中的顺序会影响含义：</p>
+<pre><code class="language-text">我喜欢你
+你喜欢我
+</code></pre>
+<p>两个句子包含相同的词，但顺序不同、含义也不同。RNN 按时间步读取词，并把之前的信息保存在隐藏状态中。</p>
+<p>传统 RNN 的核心递推可以简化为：</p>
+<p>$$
+h_t=\tanh(W_{xh}x_t+W_{hh}h_{t-1}+b)
+$$</p>
+<ul>
+<li>$x_t$：当前词的向量。</li>
+<li>$h_{t-1}$：读完前一个词后的记忆。</li>
+<li>$h_t$：加入当前词后形成的新记忆。</li>
+</ul>
+<h3 id="72">7.2 从原始歌词到词索引<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<p><code>build_vocab()</code> 主要完成四步：</p>
+<ol>
+<li>逐行读取歌词。</li>
+<li>使用 <code>jieba.lcut(line)</code> 进行中文分词。</li>
+<li>收集不重复的词，构造词表。</li>
+<li>把原始歌词转换为词索引序列。</li>
+</ol>
+<p>例如：</p>
+<pre><code class="language-text">原句：我 喜欢 音乐
+词表：{&quot;我&quot;: 0, &quot;喜欢&quot;: 1, &quot;音乐&quot;: 2}
+索引：[0, 1, 2]
+</code></pre>
+<p>神经网络不能直接计算字符串，所以先把词映射为整数 ID。这里的整数只是编号，本身没有大小或距离含义。</p>
+<h3 id="73">7.3 滑动窗口构造训练样本<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<p><code>LyricsDataset</code> 会从长词序列中截取固定长度窗口。假设窗口长度为 4：</p>
+<pre><code class="language-text">x = [我, 想, 要, 有]
+y = [想, 要, 有, 直升机]
+</code></pre>
+<p>模型在每个位置都学习预测下一个词：</p>
+<pre><code class="language-text">看到“我”          → 预测“想”
+看到“我 想”       → 预测“要”
+看到“我 想 要”    → 预测“有”
+看到“我 想 要 有” → 预测“直升机”
+</code></pre>
+<p>这类任务称为 <strong>自回归语言建模</strong>：用前文预测下一个 token。</p>
+<h3 id="74-embedding-id">7.4 Embedding：把词 ID 变成词向量<a class="headerlink" href="#74-embedding-id" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">self.ebd = nn.Embedding(unique_word_count, 128)
+</code></pre>
+<p>Embedding 可以理解为一个可训练的查找表：</p>
+<ul>
+<li>表中有 <code>unique_word_count</code> 行，每个词一行；</li>
+<li>每行有 128 个数，即词向量维度；</li>
+<li>输入词 ID，取出对应的 128 维向量；</li>
+<li>这些向量会跟随模型一起训练。</li>
+</ul>
+<p>形状变化：</p>
+<pre><code class="language-text">(B, L) → Embedding → (B, L, 128)
+</code></pre>
+<p>Embedding 让模型能够学习词之间的分布式表示，而不是把词 ID 当成普通数值。</p>
+<h3 id="75-textgenerator">7.5 <code>TextGenerator</code> 的完整形状追踪<a class="headerlink" href="#75-textgenerator" title="Permanent link">&para;</a></h3>
+<p>模型结构：</p>
+<pre><code class="language-python">self.ebd = nn.Embedding(V, 128)
+self.rnn = nn.RNN(128, 256, 1)
+self.out = nn.Linear(256, V)
+</code></pre>
+<p>其中：</p>
+<ul>
+<li><code>V</code>：词表大小。</li>
+<li><code>L</code>：序列长度，训练代码中为 4。</li>
+<li><code>B</code>：当前 batch 的样本数。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>运算</th>
+<th>形状</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>词索引</td>
+<td><code>(B, L)</code></td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>Embedding(V,128)</code></td>
+<td><code>(B, L, 128)</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>transpose(0,1)</code></td>
+<td><code>(L, B, 128)</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>RNN(128,256,1)</code> 输出</td>
+<td><code>(L, B, 256)</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>展平时间与 batch</td>
+<td><code>(L×B, 256)</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Linear(256,V)</code></td>
+<td><code>(L×B, V)</code></td>
+</tr>
+<tr>
+<td>标签</td>
+<td>转置并展平</td>
+<td><code>(L×B,)</code></td>
+</tr>
+</tbody>
+</table>
+<p>这样，<code>CrossEntropyLoss</code> 会把 <code>L×B</code> 个位置都视为一个分类样本，每个位置都要从词表的 <code>V</code> 个词中预测正确的下一个词。</p>
+<h3 id="76">7.6 隐藏状态的形状<a class="headerlink" href="#76" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">return torch.zeros(1, batch_size, 256)
+</code></pre>
+<p>RNN 隐藏状态的形状为：</p>
+<pre><code class="language-text">(num_layers, batch_size, hidden_size)
+</code></pre>
+<p>本项目中分别是：</p>
+<ul>
+<li><code>num_layers=1</code>；</li>
+<li><code>batch_size</code> 由当前 batch 决定；</li>
+<li><code>hidden_size=256</code>。</li>
+</ul>
+<p>训练时使用 <code>current_batch_size = x.size(0)</code> 很重要，因为最后一个 batch 可能不足 128 条数据。</p>
+<h3 id="77-rnn">7.7 RNN 的训练过程<a class="headerlink" href="#77-rnn" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">hidden = model.init_hidden(current_batch_size)
+output, hidden = model(x, hidden)
+y = torch.transpose(y, 0, 1).reshape(-1)
+loss = criterion(output, y)
+</code></pre>
+<p>这里有两次关键对齐：</p>
+<ol>
+<li>模型输出按 <code>(时间, batch)</code> 展平为 <code>(L×B,V)</code>。</li>
+<li>标签也先交换时间和 batch，再展平为 <code>(L×B,)</code>。</li>
+</ol>
+<p>两者的排列顺序必须完全一致，否则即使 shape 看起来正确，位置也会错配，模型学到错误关系。</p>
+<h3 id="78">7.8 歌词生成过程<a class="headerlink" href="#78" title="Permanent link">&para;</a></h3>
+<p><code>evaluate(start_word, sentence_length)</code> 的逻辑是：</p>
+<ol>
+<li>把起始词转换成词 ID。</li>
+<li>初始化隐藏状态。</li>
+<li>把当前词送入模型。</li>
+<li>选择输出分数最高的词。</li>
+<li>保留新的隐藏状态，把预测词作为下一次输入。</li>
+<li>重复直到达到指定长度。</li>
+</ol>
+<pre><code class="language-text">起始词 → RNN → 下一个词 → RNN → 再下一个词 → ...
+             ↑保留 hidden↑
+</code></pre>
+<p>代码使用 <code>torch.argmax(output)</code>，这叫 <strong>贪心解码</strong>：每一步都选择当前最可能的词。它简单稳定，但容易生成重复、保守或不够自然的文本。</p>
+<p>后续可以学习：</p>
+<ul>
+<li>temperature 温度采样；</li>
+<li>top-k 采样；</li>
+<li>top-p/nucleus 采样；</li>
+<li>重复惩罚。</li>
+</ul>
+<p>这些思想也会在大语言模型推理中再次出现。</p>
+<h3 id="79-train_logtxt">7.9 如何看 <code>train_log.txt</code><a class="headerlink" href="#79-train_logtxt" title="Permanent link">&para;</a></h3>
+<p>日志后期大致为：</p>
+<pre><code class="language-text">epoch:87, loss:1.1995
+...
+epoch:100, loss:1.1979
+</code></pre>
+<p>可以得到几点信息：</p>
+<ul>
+<li>后期 loss 已在 <code>1.198</code> 左右小幅波动，说明当前设置下训练趋于平台期。</li>
+<li>生成文本出现了局部通顺的片段，说明模型学到部分相邻词模式。</li>
+<li>整体主题跳跃、句子衔接有限，符合短窗口、简单 RNN 和贪心解码的能力边界。</li>
+<li>只有训练 loss 还不足以判断泛化能力；更完整的实验还需要验证集 loss。</li>
+</ul>
+<p>不要只看 loss 的绝对值判断模型“好不好”。词表大小、数据处理方式和任务定义不同，loss 的可比性也不同。更重要的是观察下降趋势、验证集表现和实际生成质量。</p>
+<h3 id="710-rnn">7.10 当前 RNN 代码的理解提示<a class="headerlink" href="#710-rnn" title="Permanent link">&para;</a></h3>
+<p>以下同样是后续学习方向，不要求现在立即修改：</p>
+<ol>
+<li><strong>训练默认加载已有模型。</strong> <code>.pth</code> 不存在时无法从头训练。</li>
+<li><strong>推理可加入 <code>model.eval()</code> 和 <code>torch.inference_mode()</code>。</strong> 当前推理会构建不需要的计算图。</li>
+<li><strong>GPU 迁移需要统一设备。</strong> Embedding 输入、标签和 <code>hidden</code> 都必须与模型在同一设备。</li>
+<li><strong>当前采用贪心解码。</strong> 输出确定，但文本多样性较低。</li>
+<li><strong>词表用列表逐个判断是否重复。</strong> 数据很大时可用集合或计数器提高构建速度。</li>
+<li><strong>数据集末尾会重复一个有效窗口。</strong> 当前 <code>__len__</code> 比“还要有一个目标词”的有效窗口数多 1，<code>__getitem__</code> 又把最后索引限制到上一窗口；理解滑动窗口边界时应特别留意。</li>
+<li><strong>累计日志损失宜使用 <code>loss.item()</code>。</strong> 直接累加 loss 张量可能在一个 epoch 内保留计算图引用，数据量大时会增加内存压力。</li>
+<li><strong>普通 RNN 对长距离依赖能力有限。</strong> LSTM、GRU 用门控结构缓解梯度消失；Transformer 则通过注意力直接建立远距离联系。</li>
+</ol>
+<h3 id="711-rnn-nlp">7.11 从 RNN 走向现代 NLP<a class="headerlink" href="#711-rnn-nlp" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">词表与 token
+  → Embedding
+  → RNN
+  → LSTM / GRU
+  → Attention
+  → Transformer
+  → 预训练语言模型与大模型
+</code></pre>
+<p>你当前代码中的“分词、token ID、Embedding、下一个词预测、逐词生成”，在大语言模型中仍然存在。将来变化最大的，是序列建模结构和训练规模，而不是任务主线。</p>
+<h3 id="30_6">30 秒复习<a class="headerlink" href="#30_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RNN 用隐藏状态保存前文信息。</li>
+<li>Embedding 把整数词 ID 映射成可训练向量。</li>
+<li>训练目标是让每个位置预测下一个词。</li>
+<li>本项目的核心形状是 <code>(B,L) → (L,B,128) → (L,B,256) → (L×B,V)</code>。</li>
+<li>生成时保留 hidden，并把预测词作为下一步输入。</li>
+</ul>
+<hr />
+<h2 id="8-anncnnrnn">8. ANN、CNN、RNN 横向对比<a class="headerlink" href="#8-anncnnrnn" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>ANN/MLP</th>
+<th>CNN</th>
+<th>RNN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>典型数据</td>
+<td>固定长度向量、表格</td>
+<td>图片、网格</td>
+<td>文本、时间序列</td>
+</tr>
+<tr>
+<td>核心结构</td>
+<td>全连接层</td>
+<td>卷积与池化</td>
+<td>循环单元与隐藏状态</td>
+</tr>
+<tr>
+<td>主要先验</td>
+<td>特征可以整体组合</td>
+<td>相邻位置相关</td>
+<td>前后顺序相关</td>
+</tr>
+<tr>
+<td>参数共享</td>
+<td>通常较少</td>
+<td>卷积核跨位置共享</td>
+<td>同一递推参数跨时间共享</td>
+</tr>
+<tr>
+<td>主要优势</td>
+<td>简单通用</td>
+<td>擅长局部空间特征</td>
+<td>能处理变长顺序信息</td>
+</tr>
+<tr>
+<td>主要局限</td>
+<td>容易忽略结构</td>
+<td>全局关系需更深网络</td>
+<td>难并行、长依赖较弱</td>
+</tr>
+<tr>
+<td>当前代码对应</td>
+<td>CNN/RNN 中的 Linear</td>
+<td>CIFAR-10 分类</td>
+<td>歌词生成</td>
+</tr>
+</tbody>
+</table>
+<h3 id="81">8.1 如何选择？<a class="headerlink" href="#81" title="Permanent link">&para;</a></h3>
+<ul>
+<li>数据是固定长度特征向量：先考虑 MLP。</li>
+<li>数据有明显二维局部结构：先考虑 CNN。</li>
+<li>数据按时间或顺序到达：传统入门可考虑 RNN/LSTM/GRU。</li>
+<li>现代文本任务：通常优先了解 Transformer。</li>
+<li>数据由节点和边组成：考虑 GNN。</li>
+</ul>
+<p>现实模型经常组合多种结构。例如 CNN 提取图像特征后接 MLP 分类；RNN 每个时间步的隐藏状态也要经过 Linear 变成词表分数。</p>
+<h3 id="30_7">30 秒复习<a class="headerlink" href="#30_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>模型选择首先看数据结构，而不是只看模型名字。</li>
+<li>CNN 共享空间位置上的卷积参数；RNN 共享时间步上的递推参数。</li>
+<li>全连接层几乎会出现在各种网络的输出部分。</li>
+</ul>
+<hr />
+<h2 id="9-pytorch">9. PyTorch 通用训练模板<a class="headerlink" href="#9-pytorch" title="Permanent link">&para;</a></h2>
+<p>下面的模板用于理解标准流程，不替换项目现有代码：</p>
+<pre><code class="language-python">device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+
+model = MyModel().to(device)
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+
+for epoch in range(num_epochs):
+    model.train()
+    total_loss = 0.0
+    total_correct = 0
+    total_samples = 0
+
+    for x, y in train_loader:
+        x = x.to(device)
+        y = y.to(device)
+
+        logits = model(x)
+        loss = criterion(logits, y)
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        total_loss += loss.item() * y.size(0)
+        total_correct += (logits.argmax(dim=-1) == y).sum().item()
+        total_samples += y.size(0)
+
+    print(
+        f&quot;epoch={epoch + 1}, &quot;
+        f&quot;loss={total_loss / total_samples:.4f}, &quot;
+        f&quot;acc={total_correct / total_samples:.4f}&quot;
+    )
+</code></pre>
+<p>评估模板：</p>
+<pre><code class="language-python">model.eval()
+total_correct = 0
+total_samples = 0
+
+with torch.inference_mode():
+    for x, y in test_loader:
+        x = x.to(device)
+        y = y.to(device)
+
+        logits = model(x)
+        pred = logits.argmax(dim=-1)
+
+        total_correct += (pred == y).sum().item()
+        total_samples += y.size(0)
+
+print(f&quot;accuracy={total_correct / total_samples:.4f}&quot;)
+</code></pre>
+<h3 id="91">9.1 训练循环的固定顺序<a class="headerlink" href="#91" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">model.train()
+  ↓
+读取 batch
+  ↓
+移动到 device
+  ↓
+forward 得到 logits
+  ↓
+计算 loss
+  ↓
+zero_grad
+  ↓
+backward
+  ↓
+optimizer.step
+</code></pre>
+<h3 id="92">9.2 更完整的检查点<a class="headerlink" href="#92" title="Permanent link">&para;</a></h3>
+<p>只保存 <code>state_dict</code> 足以做推理；如果希望中断后原样继续训练，通常还会保存优化器状态和 epoch：</p>
+<pre><code class="language-python">torch.save({
+    &quot;epoch&quot;: epoch,
+    &quot;model_state&quot;: model.state_dict(),
+    &quot;optimizer_state&quot;: optimizer.state_dict(),
+}, &quot;checkpoint.pth&quot;)
+</code></pre>
+<p>优化器也有内部状态。例如 Adam 会维护动量信息；只加载模型参数而不加载优化器状态，可以继续训练，但不等于完全恢复到中断前的状态。</p>
+<h3 id="30_8">30 秒复习<a class="headerlink" href="#30_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>训练顺序：前向 → loss → 清梯度 → 反向 → 更新。</li>
+<li>评估不需要 backward 和 optimizer。</li>
+<li>完整恢复训练时，同时保存模型、优化器和 epoch。</li>
+</ul>
+<hr />
+<h2 id="10">10. 常见错误与排查清单<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<h3 id="101">10.1 形状不匹配<a class="headerlink" href="#101" title="Permanent link">&para;</a></h3>
+<p>典型报错关键词：</p>
+<pre><code class="language-text">mat1 and mat2 shapes cannot be multiplied
+size mismatch
+Expected input ...
+</code></pre>
+<p>排查方法：在关键层前后打印 shape。</p>
+<pre><code class="language-python">print(&quot;input:&quot;, x.shape)
+x = self.conv1(x)
+print(&quot;after conv1:&quot;, x.shape)
+</code></pre>
+<p>重点检查：</p>
+<ul>
+<li>CNN 是否是 <code>(B,C,H,W)</code>；</li>
+<li>Linear 的输入维度是否等于展平后的特征数；</li>
+<li>RNN 是否是 <code>(L,B,E)</code> 或是否正确设置了 <code>batch_first=True</code>；</li>
+<li>logits 与标签展平顺序是否一致。</li>
+</ul>
+<h3 id="102-dtype">10.2 dtype 不正确<a class="headerlink" href="#102-dtype" title="Permanent link">&para;</a></h3>
+<p>典型情况：</p>
+<ul>
+<li>卷积输入应为浮点数；</li>
+<li>Embedding 输入应为整数；</li>
+<li>CrossEntropyLoss 的标签应为 <code>long</code>。</li>
+</ul>
+<pre><code class="language-python">print(x.dtype, y.dtype)
+x = x.float()
+y = y.long()
+</code></pre>
+<h3 id="103">10.3 设备不一致<a class="headerlink" href="#103" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">Expected all tensors to be on the same device
+</code></pre>
+<p>检查模型、输入、标签、隐藏状态：</p>
+<pre><code class="language-python">print(next(model.parameters()).device)
+print(x.device, y.device, hidden.device)
+</code></pre>
+<h3 id="104-crossentropyloss">10.4 CrossEntropyLoss 使用错误<a class="headerlink" href="#104-crossentropyloss" title="Permanent link">&para;</a></h3>
+<p>正确形式：</p>
+<pre><code class="language-text">logits: (N, C)，float
+target: (N,)，long，值在 [0, C-1]
+</code></pre>
+<p>常见错误：</p>
+<ul>
+<li>先手动 Softmax；</li>
+<li>标签做成 one-hot，但仍使用类别索引版本的 CrossEntropyLoss；</li>
+<li>标签多一个维度，形状为 <code>(N,1)</code>；</li>
+<li>模型输出类别数与词表大小或数据集类别数不一致。</li>
+</ul>
+<h3 id="105">10.5 忘记清除梯度<a class="headerlink" href="#105" title="Permanent link">&para;</a></h3>
+<p>PyTorch 梯度默认累加。普通训练若忘记 <code>optimizer.zero_grad()</code>，会把多次 batch 的梯度叠加，导致更新异常。</p>
+<h3 id="106">10.6 忘记切换模式<a class="headerlink" href="#106" title="Permanent link">&para;</a></h3>
+<ul>
+<li>训练前：<code>model.train()</code>。</li>
+<li>验证和推理前：<code>model.eval()</code>。</li>
+<li>推理计算：<code>torch.inference_mode()</code>。</li>
+</ul>
+<p>即使当前模型没有 Dropout 和 BatchNorm，也建议保留正确习惯。</p>
+<h3 id="107">10.7 模型文件加载失败<a class="headerlink" href="#107" title="Permanent link">&para;</a></h3>
+<p>检查：</p>
+<ul>
+<li>路径是否相对于正确的工作目录；</li>
+<li><code>.pth</code> 文件是否存在；</li>
+<li>当前模型结构是否与保存时一致；</li>
+<li>CPU/GPU 是否需要 <code>map_location</code>。</li>
+</ul>
+<h3 id="108-cuda">10.8 CUDA 显存不足<a class="headerlink" href="#108-cuda" title="Permanent link">&para;</a></h3>
+<p>典型处理顺序：</p>
+<ol>
+<li>减小 batch size。</li>
+<li>减小输入尺寸或模型规模。</li>
+<li>推理时使用 <code>inference_mode()</code>。</li>
+<li>后续学习混合精度训练。</li>
+</ol>
+<p>不要把“清缓存”当作第一解决方案；真正占用显存的通常是模型、激活、梯度和优化器状态。</p>
+<h3 id="109-loss">10.9 loss 不下降<a class="headerlink" href="#109-loss" title="Permanent link">&para;</a></h3>
+<p>依次检查：</p>
+<ul>
+<li>标签是否正确；</li>
+<li>输入是否经过合理预处理；</li>
+<li>是否执行了 <code>backward()</code> 和 <code>optimizer.step()</code>；</li>
+<li>学习率是否过大或过小；</li>
+<li>输出与标签是否对齐；</li>
+<li>模型是否有足够能力；</li>
+<li>先尝试让模型在很小的一批数据上过拟合，以验证训练链路。</li>
+</ul>
+<h3 id="30_9">30 秒复习<a class="headerlink" href="#30_9" title="Permanent link">&para;</a></h3>
+<p>遇到错误先打印四样东西：</p>
+<pre><code class="language-text">shape、dtype、device、数值范围
+</code></pre>
+<p>然后按“数据 → 模型输入 → 每层输出 → loss 输入 → 梯度 → 参数更新”的顺序排查。</p>
+<hr />
+<h2 id="11-nlpgnn">11. 后续 NLP、GNN 与大模型学习路线<a class="headerlink" href="#11-nlpgnn" title="Permanent link">&para;</a></h2>
+<p>这一部分只建立地图。当前阶段不需要一次学完。</p>
+<h3 id="111-nlp">11.1 NLP 路线<a class="headerlink" href="#111-nlp" title="Permanent link">&para;</a></h3>
+<p>建议顺序：</p>
+<ol>
+<li>文本清洗、分词、token 与词表。</li>
+<li>one-hot、Embedding、词向量相似度。</li>
+<li>RNN、梯度消失与梯度爆炸。</li>
+<li>LSTM、GRU 的门控思想。</li>
+<li>Seq2Seq、编码器与解码器。</li>
+<li>Attention 注意力机制。</li>
+<li>Transformer。</li>
+<li>BERT 类编码器模型和 GPT 类自回归模型。</li>
+</ol>
+<p>你已经接触的基础：分词、词表、token ID、Embedding、自回归预测和逐词生成。</p>
+<h3 id="112-gnn">11.2 GNN 路线<a class="headerlink" href="#112-gnn" title="Permanent link">&para;</a></h3>
+<p>学习 GNN 前先理解图数据：</p>
+<ul>
+<li>节点（node）：人、商品、分子中的原子等；</li>
+<li>边（edge）：好友关系、购买关系、化学键等；</li>
+<li>节点特征、边特征、图级特征；</li>
+<li>邻接矩阵和边列表。</li>
+</ul>
+<p>GNN 的核心思想是 <strong>消息传递</strong>：</p>
+<pre><code class="language-text">收集邻居信息 → 聚合 → 与自身信息结合 → 更新节点表示
+</code></pre>
+<p>建议继续学习：GCN → GraphSAGE → GAT → 图分类/节点分类/链接预测。</p>
+<h3 id="113-transformer">11.3 Transformer 与大模型路线<a class="headerlink" href="#113-transformer" title="Permanent link">&para;</a></h3>
+<p>需要优先掌握：</p>
+<ol>
+<li>Query、Key、Value 与自注意力。</li>
+<li>Multi-Head Attention。</li>
+<li>位置编码。</li>
+<li>残差连接、LayerNorm、前馈网络。</li>
+<li>编码器、解码器和因果遮罩。</li>
+<li>next-token prediction 预训练目标。</li>
+<li>预训练、指令微调、偏好对齐。</li>
+<li>推理采样、上下文窗口、KV Cache。</li>
+<li>RAG、向量检索、工具调用。</li>
+</ol>
+<p>当前 RNN 项目和大模型之间的共同点：</p>
+<pre><code class="language-text">文本 → token ID → Embedding → 序列模型 → 词表 logits
+     → 选择下一个 token → 把结果继续作为输入
+</code></pre>
+<p>主要区别是：大模型用 Transformer 替代简单 RNN，并使用更大的数据、参数量和计算资源。</p>
+<h3 id="114">11.4 建议补充的数学基础<a class="headerlink" href="#114" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>数学主题</th>
+<th>深度学习中的用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向量与矩阵</td>
+<td>张量、Linear、Embedding</td>
+</tr>
+<tr>
+<td>矩阵乘法</td>
+<td>神经网络几乎所有层的基础</td>
+</tr>
+<tr>
+<td>导数与偏导</td>
+<td>梯度和反向传播</td>
+</tr>
+<tr>
+<td>链式法则</td>
+<td>多层网络的梯度传递</td>
+</tr>
+<tr>
+<td>概率分布</td>
+<td>Softmax、采样、生成模型</td>
+</tr>
+<tr>
+<td>对数</td>
+<td>交叉熵和数值稳定性</td>
+</tr>
+<tr>
+<td>均值与方差</td>
+<td>数据标准化和归一化层</td>
+</tr>
+</tbody>
+</table>
+<p>建议采用“遇到问题再补数学”的方式，不需要先学完整本高等数学才开始实践。</p>
+<h3 id="115">11.5 推荐实践顺序<a class="headerlink" href="#115" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">完善当前 CNN 分类
+  → 手写一个 MLP 对比 CNN
+  → 将普通 RNN 换成 LSTM/GRU
+  → 加入采样策略
+  → 实现简化版 Attention
+  → 学习 Transformer
+  → 开始小型 NLP/GNN 项目
+</code></pre>
+<h3 id="30_10">30 秒复习<a class="headerlink" href="#30_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>NLP 主线：token → Embedding → 序列建模 → 任务输出。</li>
+<li>GNN 主线：节点从邻居收集并聚合信息。</li>
+<li>大模型主线仍是预测 token，只是核心结构升级为 Transformer。</li>
+</ul>
+<hr />
+<h2 id="12_1">12. 快速复习附录<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h2>
+<h3 id="121">12.1 一页流程速查<a class="headerlink" href="#121" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">数据阶段
+Dataset → DataLoader → x, y → .to(device)
+
+模型阶段
+nn.Module → __init__ 定义层 → forward 定义数据流
+
+训练阶段
+model.train()
+logits = model(x)
+loss = criterion(logits, y)
+optimizer.zero_grad()
+loss.backward()
+optimizer.step()
+
+评估阶段
+model.eval()
+with torch.inference_mode():
+    logits = model(x)
+    pred = logits.argmax(dim=-1)
+
+保存阶段
+torch.save(model.state_dict(), path)
+model.load_state_dict(torch.load(path))
+</code></pre>
+<h3 id="122-api">12.2 高频 API 速查<a class="headerlink" href="#122-api" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tensor.shape</code> / <code>tensor.size()</code></td>
+<td>查看形状</td>
+</tr>
+<tr>
+<td><code>tensor.dtype</code></td>
+<td>查看数据类型</td>
+</tr>
+<tr>
+<td><code>tensor.device</code></td>
+<td>查看所在设备</td>
+</tr>
+<tr>
+<td><code>tensor.to(device)</code></td>
+<td>移动设备</td>
+</tr>
+<tr>
+<td><code>reshape</code> / <code>flatten</code></td>
+<td>改变形状或展平</td>
+</tr>
+<tr>
+<td><code>transpose</code> / <code>permute</code></td>
+<td>交换或排列维度</td>
+</tr>
+<tr>
+<td><code>unsqueeze</code> / <code>squeeze</code></td>
+<td>增加或删除长度为 1 的维度</td>
+</tr>
+<tr>
+<td><code>cat</code> / <code>stack</code></td>
+<td>沿已有维度连接或创建新维度堆叠</td>
+</tr>
+<tr>
+<td><code>argmax(dim=-1)</code></td>
+<td>取得分最高的索引</td>
+</tr>
+<tr>
+<td><code>loss.backward()</code></td>
+<td>反向传播计算梯度</td>
+</tr>
+<tr>
+<td><code>optimizer.zero_grad()</code></td>
+<td>清除旧梯度</td>
+</tr>
+<tr>
+<td><code>optimizer.step()</code></td>
+<td>更新参数</td>
+</tr>
+<tr>
+<td><code>model.train()</code></td>
+<td>切换到训练模式</td>
+</tr>
+<tr>
+<td><code>model.eval()</code></td>
+<td>切换到评估模式</td>
+</tr>
+<tr>
+<td><code>torch.inference_mode()</code></td>
+<td>关闭推理时的梯度记录</td>
+</tr>
+<tr>
+<td><code>state_dict()</code></td>
+<td>获取模型参数字典</td>
+</tr>
+</tbody>
+</table>
+<h3 id="123">12.3 关键公式速查<a class="headerlink" href="#123" title="Permanent link">&para;</a></h3>
+<p>线性层：</p>
+<p>$$
+y=Wx+b
+$$</p>
+<p>卷积输出大小：</p>
+<p>$$
+H_{out}=\left\lfloor\frac{H_{in}+2P-K}{S}\right\rfloor+1
+$$</p>
+<p>简单 RNN：</p>
+<p>$$
+h_t=\tanh(W_{xh}x_t+W_{hh}h_{t-1}+b)
+$$</p>
+<p>梯度下降的直观形式：</p>
+<p>$$
+\theta \leftarrow \theta-\eta\nabla_{\theta}L
+$$</p>
+<ul>
+<li>$\theta$：模型参数。</li>
+<li>$\eta$：学习率。</li>
+<li>$L$：损失。</li>
+</ul>
+<h3 id="124">12.4 两个项目的形状总表<a class="headerlink" href="#124" title="Permanent link">&para;</a></h3>
+<h4 id="cnn">CNN<a class="headerlink" href="#cnn" title="Permanent link">&para;</a></h4>
+<pre><code class="language-text">(B,3,32,32)
+→ Conv1: (B,6,30,30)
+→ Pool1: (B,6,15,15)
+→ Conv2: (B,16,13,13)
+→ Pool2: (B,16,6,6)
+→ Flatten: (B,576)
+→ FC1: (B,120)
+→ FC2: (B,84)
+→ Output: (B,10)
+</code></pre>
+<h4 id="rnn">RNN<a class="headerlink" href="#rnn" title="Permanent link">&para;</a></h4>
+<pre><code class="language-text">token IDs: (B,L)
+→ Embedding: (B,L,128)
+→ Transpose: (L,B,128)
+→ RNN: (L,B,256)
+→ Reshape: (L×B,256)
+→ Linear: (L×B,V)
+
+target: (B,L)
+→ Transpose + Reshape: (L×B,)
+</code></pre>
+<h3 id="125">12.5 术语中英文对照<a class="headerlink" href="#125" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>中文</th>
+<th>英文</th>
+<th>简要含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>张量</td>
+<td>Tensor</td>
+<td>多维数值数组</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>Parameter</td>
+<td>模型训练得到的权重和偏置</td>
+</tr>
+<tr>
+<td>超参数</td>
+<td>Hyperparameter</td>
+<td>人为设置的训练配置</td>
+</tr>
+<tr>
+<td>前向传播</td>
+<td>Forward propagation</td>
+<td>输入经过模型得到预测</td>
+</tr>
+<tr>
+<td>反向传播</td>
+<td>Backpropagation</td>
+<td>根据损失计算梯度</td>
+</tr>
+<tr>
+<td>梯度</td>
+<td>Gradient</td>
+<td>损失对参数的变化率</td>
+</tr>
+<tr>
+<td>损失函数</td>
+<td>Loss function</td>
+<td>衡量预测错误程度</td>
+</tr>
+<tr>
+<td>优化器</td>
+<td>Optimizer</td>
+<td>根据梯度更新参数</td>
+</tr>
+<tr>
+<td>学习率</td>
+<td>Learning rate</td>
+<td>参数更新步幅</td>
+</tr>
+<tr>
+<td>批次</td>
+<td>Batch</td>
+<td>一次处理的一组样本</td>
+</tr>
+<tr>
+<td>轮次</td>
+<td>Epoch</td>
+<td>完整遍历一次训练集</td>
+</tr>
+<tr>
+<td>激活函数</td>
+<td>Activation function</td>
+<td>为网络引入非线性</td>
+</tr>
+<tr>
+<td>卷积核</td>
+<td>Kernel/Filter</td>
+<td>提取局部空间特征的小窗口</td>
+</tr>
+<tr>
+<td>特征图</td>
+<td>Feature map</td>
+<td>卷积得到的通道输出</td>
+</tr>
+<tr>
+<td>池化</td>
+<td>Pooling</td>
+<td>压缩空间尺寸</td>
+</tr>
+<tr>
+<td>词表</td>
+<td>Vocabulary</td>
+<td>token 与 ID 的映射集合</td>
+</tr>
+<tr>
+<td>词嵌入</td>
+<td>Embedding</td>
+<td>token 的可训练向量表示</td>
+</tr>
+<tr>
+<td>隐藏状态</td>
+<td>Hidden state</td>
+<td>RNN 保存的历史信息</td>
+</tr>
+<tr>
+<td>逻辑值</td>
+<td>Logits</td>
+<td>输出层未经概率归一化的分数</td>
+</tr>
+<tr>
+<td>推理</td>
+<td>Inference</td>
+<td>使用训练好的模型产生预测</td>
+</tr>
+</tbody>
+</table>
+<h3 id="126">12.6 自测题<a class="headerlink" href="#126" title="Permanent link">&para;</a></h3>
+<ol>
+<li>为什么 <code>CrossEntropyLoss</code> 前通常不手动调用 Softmax？</li>
+<li><code>optimizer.zero_grad()</code> 为什么不能省略？</li>
+<li>CNN 输入 <code>(B,3,32,32)</code> 中四个维度分别表示什么？</li>
+<li>为什么 CNN 的 <code>fc1</code> 输入是 576？</li>
+<li><code>reshape(x.size(0), -1)</code> 为什么要保留第 0 维？</li>
+<li>Embedding 的输入为什么是整数，输出为什么是浮点向量？</li>
+<li>RNN 的 hidden 表示什么，生成文本时为什么不能每一步都重新初始化？</li>
+<li><code>model.eval()</code> 与 <code>torch.inference_mode()</code> 有什么区别？</li>
+<li>ANN、CNN、RNN 分别适合什么数据结构？</li>
+<li>如果出现设备不一致报错，应该检查哪些对象？</li>
+</ol>
+<details>
+<summary>点击查看参考答案</summary>
+
+1. 因为 `CrossEntropyLoss` 内部已经以更稳定的方式完成 LogSoftmax 和损失计算。
+2. PyTorch 默认累加梯度，不清除会把前几个 batch 的梯度一起用于当前更新。
+3. batch、通道、高度、宽度。
+4. 第二次池化后形状为 `(B,16,6,6)`，每张图展平后是 `16×6×6=576`。
+5. 第 0 维是 batch；每个样本应单独展平，不能把不同样本混在一起。
+6. 整数是词表中的查询 ID；Embedding 根据 ID 取出可训练的浮点向量。
+7. hidden 是到当前时间步为止的历史信息；每步重置会让模型忘记前文。
+8. `eval()` 改变部分层的行为；`inference_mode()` 关闭梯度记录。正式推理通常同时使用。
+9. MLP 适合固定长度向量，CNN 适合空间网格，RNN 适合顺序数据。
+10. 模型参数、输入、标签，以及 RNN 的 hidden 等辅助张量。
+
+</details>
+
+<h3 id="127">12.7 建议的小练习<a class="headerlink" href="#127" title="Permanent link">&para;</a></h3>
+<ol>
+<li>在不训练的情况下，给 CNN 每一层后加入临时 <code>print(x.shape)</code>，验证形状表。</li>
+<li>用 <code>torch.randn(2,3,32,32)</code> 手动测试 <code>ImageClassifier</code> 的输出 shape。</li>
+<li>把 RNN 序列长度从 4 改成 5，预测各阶段 shape 是否变化。</li>
+<li>比较 <code>argmax</code>、temperature 和 top-k 生成歌词的差异。</li>
+<li>用一个简单 MLP 直接分类 CIFAR-10，再与 CNN 准确率对比，体会模型结构先验的重要性。</li>
+<li>将 <code>nn.RNN</code> 替换为 <code>nn.GRU</code> 或 <code>nn.LSTM</code>，先只观察接口和 hidden 结构的变化。</li>
+</ol>
+<hr />
+<h2 id="_1">结语<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>现阶段最重要的不是记住所有 API，而是建立三条稳定主线：</p>
+<ol>
+<li><strong>数据主线</strong>：原始数据如何变成模型需要的张量。</li>
+<li><strong>形状主线</strong>：张量进入每一层后，shape 如何变化。</li>
+<li><strong>训练主线</strong>：前向、损失、反向传播和参数更新如何连接。</li>
+</ol>
+<p>当一个新模型看起来很复杂时，先问四个问题：</p>
+<pre><code class="language-text">输入是什么形状？
+每一层改变了什么？
+输出代表什么？
+损失如何把输出和正确答案连接起来？
+</code></pre>
+<p>能回答这四个问题，就已经抓住了理解新模型最可靠的入口。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
